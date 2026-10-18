@@ -1,0 +1,234 @@
+{
+    "$__mpe_config_指挥室": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1792264899308,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\指挥室.json",
+            "savedViewport": {
+                "x": -1104,
+                "y": -2444,
+                "zoom": 0.79
+            },
+            "filename": "指挥室",
+            "version": "v2.1.0"
+        }
+    },
+    "全部收集": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "全部收集.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "空白点击"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 668,
+                "y": 3459
+            }
+        }
+    },
+    "指挥室": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "指挥室.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "全部收集"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 348,
+                "y": 3430
+            }
+        }
+    },
+    "空白点击": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    214,
+                    32,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "远征探索"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 988,
+                "y": 3487
+            }
+        }
+    },
+    "远征探索": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "远征探索.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "派遣"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1308,
+                "y": 3430
+            }
+        }
+    },
+    "派遣": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    341,
+                    376,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "点击领取"
+        ],
+        "on_error": [
+            "取消"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1628,
+                "y": 3487
+            }
+        }
+    },
+    "取消": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "取消.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    446,
+                    29,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "左上角返回（远征）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2719,
+                "y": 3350
+            }
+        }
+    },
+    "左上角返回（远征）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2908,
+                "y": 3467
+            }
+        }
+    },
+    "点击领取": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "点击领取.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "再次派遣"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1948,
+                "y": 3418
+            }
+        }
+    },
+    "再次派遣": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "再次派遣.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "取消"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2278,
+                "y": 3510
+            }
+        }
+    }
+}

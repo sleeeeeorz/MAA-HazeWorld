@@ -1,0 +1,253 @@
+{
+    "$__mpe_config_活动": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1792264901249,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动.json",
+            "savedViewport": {
+                "x": -47,
+                "y": -2510,
+                "zoom": 0.76
+            },
+            "filename": "活动",
+            "version": "v2.1.0"
+        }
+    },
+    "MAX（活动）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "MAX.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "开始扫荡（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2257,
+                "y": 3550
+            }
+        }
+    },
+    "关卡": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "当期活动-闪耀之始-7.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "扫荡（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1617,
+                "y": 3550
+            }
+        }
+    },
+    "划到顶部": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    838,
+                    195,
+                    1,
+                    1
+                ],
+                "end": [
+                    [
+                        844,
+                        416,
+                        0,
+                        0
+                    ]
+                ],
+                "duration": [
+                    1000
+                ]
+            }
+        },
+        "next": [
+            "关卡"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1297,
+                "y": 3546
+            }
+        }
+    },
+    "开始扫荡（活动）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "开始扫荡.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "确认（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2577,
+                "y": 3550
+            }
+        }
+    },
+    "扫荡（活动）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "扫荡.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "MAX（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1937,
+                "y": 3550
+            }
+        }
+    },
+    "无体力": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    488,
+                    73,
+                    1,
+                    1
+                ]
+            }
+        },
+        "timeout": 2000,
+        "next": [
+            "返回主页（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3217,
+                "y": 3624
+            }
+        }
+    },
+    "活动": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "当期活动.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "闪耀之始"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 657,
+                "y": 3550
+            }
+        }
+    },
+    "确认（活动）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "确认.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "返回主页（活动）"
+        ],
+        "on_error": [
+            "无体力"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2897,
+                "y": 3509
+            }
+        }
+    },
+    "返回主页（活动）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "返回主界面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3537,
+                "y": 3529
+            }
+        }
+    },
+    "闪耀之始": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "当期活动-闪耀之始.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "划到顶部"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 977,
+                "y": 3550
+            }
+        }
+    }
+}

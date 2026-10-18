@@ -1,0 +1,184 @@
+{
+    "$__mpe_config_游戏初始化": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1792264897964,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\游戏初始化.json",
+            "savedViewport": {
+                "x": 132,
+                "y": -2245,
+                "zoom": 0.75
+            },
+            "filename": "游戏初始化",
+            "version": "v2.1.0"
+        }
+    },
+    "TOUCH TO START": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "TOUCH TO START.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "点击签到"
+        ],
+        "on_error": [
+            "设置"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1234,
+                "y": 3378
+            }
+        }
+    },
+    "游戏初始化": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "首页活动UI.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    319,
+                    21,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "TOUCH TO START"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 914,
+                "y": 3405
+            }
+        }
+    },
+    "设置": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 2514,
+                "y": 3455
+            }
+        }
+    },
+    "点击签到": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "点击签到.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "获得资源（初始化）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1554,
+                "y": 3441
+            }
+        }
+    },
+    "获得资源（初始化）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "获得资源.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    233,
+                    23,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "返回主界面（初始化）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1874,
+                "y": 3456
+            }
+        }
+    },
+    "返回主界面（初始化）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "设置"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2194,
+                "y": 3470
+            }
+        }
+    },
+    "拉起游戏": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.feimo.hazeworld.main"
+            }
+        },
+        "post_delay": 10000,
+        "next": [
+            "游戏初始化"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 594,
+                "y": 3416
+            }
+        }
+    }
+}
