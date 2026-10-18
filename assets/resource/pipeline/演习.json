@@ -1,0 +1,175 @@
+{
+    "$__mpe_config_演习": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1792264896485,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\演习.json",
+            "savedViewport": {
+                "x": -143,
+                "y": -1892,
+                "zoom": 0.6
+            },
+            "filename": "演习",
+            "version": "v2.1.0"
+        }
+    },
+    "MAX（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "MAX.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "开始代理"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1702,
+                "y": 3596
+            }
+        }
+    },
+    "代理作战": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "代理作战.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "MAX（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1382,
+                "y": 3567
+            }
+        }
+    },
+    "代理完成": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "代理完成.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "确认（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 742,
+                "y": 3567
+            }
+        }
+    },
+    "左上角返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2342,
+                "y": 3584
+            }
+        }
+    },
+    "开始代理": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "开始代理.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "左上角返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2022,
+                "y": 3596
+            }
+        }
+    },
+    "演习": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "演习.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "代理完成"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 422,
+                "y": 3567
+            }
+        }
+    },
+    "确认（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "确认.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "代理作战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1062,
+                "y": 3567
+            }
+        }
+    }
+}

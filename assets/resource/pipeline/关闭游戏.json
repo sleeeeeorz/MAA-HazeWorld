@@ -1,0 +1,29 @@
+{
+    "$__mpe_config_关闭游戏": {
+        "$__mpe_code": {
+            "prefix": "",
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\关闭游戏.json",
+            "lastSyncTime": 1792264894812,
+            "coordinateMode": "absolute-v1",
+            "savedViewport": {
+                "x": 215,
+                "y": -2140,
+                "zoom": 0.75
+            },
+            "filename": "关闭游戏",
+            "version": "v2.1.0"
+        }
+    },
+    "关闭游戏": {
+        "action": {
+            "type": "StopApp"
+        },
+        "post_delay": 10000,
+        "$__mpe_code": {
+            "position": {
+                "x": 674,
+                "y": 3357
+            }
+        }
+    }
+}

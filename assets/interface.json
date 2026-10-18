@@ -4,14 +4,14 @@
     // 文档：https://maafw.xyz/docs/3.3-ProjectInterfaceV2
     // 示例：https://github.com/MaaXYZ/MaaFramework/blob/main/sample/interface.json
     "interface_version": 2,
-    "name": "MaaXXX",
+    "name": "MAA-HazeWorld",
     "description": "这是一个使用 MaaFramework 创建的新项目。",
-    "contact": "QQ群: 123456789",
+    "contact": "QQ：2017969671",
     "license": "MIT",
     "welcome": "首次使用！欢迎使用 MAA!",
     // 填写项目地址和版本号可实现自动更新功能
-    "github": "https://github.com/MaaXYZ/MaaPracticeBoilerplate",
-    "version": "1.0.0",
+    "github": "https://github.com/sleeeeeorz/MAA-HazeWorld",
+    "version": "0.1.1",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
@@ -20,7 +20,8 @@
         {
             "name": "安卓端",
             "type": "Adb",
-            "display_short_side": 720 // 默认缩放分辨率的短边长度
+            "display_short_side": 720,
+            "option": [] // 默认缩放分辨率的短边长度
         }
     ],
     "resource": [
@@ -40,24 +41,48 @@
     // },
     "task": [
         {
+            "name": "游戏初始化",
+            "entry": "游戏初始化",
+            "label": "游戏启动",
+            "option": []
+        },
+        {
             "name": "演习",
             "entry": "演习",
-            "controller": [
-                "安卓端"
-            ],
-            "resource": [
-                "官服"
-            ]
+            "label": "每日演习"
         },
         {
             "name": "指挥室",
             "entry": "指挥室",
-            "controller": [
-                "安卓端"
-            ],
-            "resource": [
-                "官服"
-            ]
+            "label": "指挥室"
+        },
+        {
+            "name": "活动",
+            "entry": "活动",
+            "label": "当期活动"
+        },
+        {
+            "name": "活动-抽卡",
+            "entry": "活动-抽卡"
+        },
+        {
+            "name": "通行证",
+            "entry": "通行证",
+            "label": "通行证"
+        },
+        {
+            "name": "商城",
+            "entry": "商城"
+        },
+        {
+            "name": "任务",
+            "entry": "任务",
+            "label": "每日任务"
+        },
+        {
+            "name": "关闭游戏",
+            "entry": "关闭游戏",
+            "label": "关闭游戏"
         }
     ],
     "option": {
@@ -71,15 +96,14 @@
                             "text": "文本1"
                         }
                     }
-                },
-                {
-                    "name": "文本2",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本2"
-                        }
-                    }
                 }
+            ],
+            "label": "text1",
+            "controller": [
+                "安卓端"
+            ],
+            "resource": [
+                "官服"
             ]
         }
     }

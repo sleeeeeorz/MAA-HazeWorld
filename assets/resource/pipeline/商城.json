@@ -1,0 +1,163 @@
+{
+    "$__mpe_config_商城": {
+        "$__mpe_code": {
+            "prefix": "",
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\商城.json",
+            "lastSyncTime": 1792329621824,
+            "coordinateMode": "absolute-v1",
+            "savedViewport": {
+                "x": -895,
+                "y": -2069,
+                "zoom": 0.75
+            },
+            "filename": "商城",
+            "version": "v2.1.0"
+        }
+    },
+    "商城": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "商城.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "通常礼包"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 529,
+                "y": 3290
+            }
+        }
+    },
+    "通常礼包": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "通常礼包.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "免费礼包"
+        ],
+        "on_error": [
+            "左上角返回（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 888,
+                "y": 3290
+            }
+        }
+    },
+    "免费礼包": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "免费礼包.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "确认（商店）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1297,
+                "y": 3251
+            }
+        }
+    },
+    "左上角返回（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 3000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2491,
+                "y": 3488
+            }
+        }
+    },
+    "确认（商店）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "确认（商店）.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（商店）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1613,
+                "y": 3238
+            }
+        }
+    },
+    "获得资源（商店）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "获得资源.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    239,
+                    25,
+                    137,
+                    41
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "左上角返回（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2016,
+                "y": 3259
+            }
+        }
+    }
+}
