@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # 只要推送 v0.1.3 这样的标签，就会自动触发
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 这里放置你的编译打包步骤（例如使用 MaaFramework 的打包动作或自定义脚本）
+      # 打包完成后，使用官方的 Release 动作将生成的 .zip 文件自动上传到 GitHub Releases 页面
+      - name: Upload binaries to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
