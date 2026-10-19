@@ -3,15 +3,91 @@
         "$__mpe_code": {
             "prefix": "",
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\商城.json",
-            "lastSyncTime": 1792329621824,
+            "lastSyncTime": 1792330012413,
             "coordinateMode": "absolute-v1",
             "savedViewport": {
-                "x": -895,
-                "y": -2069,
+                "x": -1555,
+                "y": -2170,
                 "zoom": 0.75
             },
             "filename": "商城",
             "version": "v2.1.0"
+        }
+    },
+    "确认返回（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点78_副本4"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3087,
+                "y": 3187
+            }
+        }
+    },
+    "新建节点78_副本4": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3643,
+                "y": 3233
+            }
+        }
+    },
+    "多次点击（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点84_副本4"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3103,
+                "y": 3498
+            }
+        }
+    },
+    "新建节点84_副本4": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3616,
+                "y": 3530
+            }
         }
     },
     "商城": {
@@ -99,10 +175,14 @@
             "type": "Click"
         },
         "post_delay": 3000,
+        "next": [
+            "[JumpBack]确认返回（商城）",
+            "[JumpBack]多次点击（商城）"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 2491,
-                "y": 3488
+                "x": 2535,
+                "y": 3271
             }
         }
     },

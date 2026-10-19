@@ -3,7 +3,7 @@
         "$__mpe_code": {
             "prefix": "",
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\关闭游戏.json",
-            "lastSyncTime": 1792264894812,
+            "lastSyncTime": 1792384631615,
             "coordinateMode": "absolute-v1",
             "savedViewport": {
                 "x": 215,
@@ -16,7 +16,10 @@
     },
     "关闭游戏": {
         "action": {
-            "type": "StopApp"
+            "type": "StopApp",
+            "param": {
+                "package": "com.feimo.hazeworld.main"
+            }
         },
         "post_delay": 10000,
         "$__mpe_code": {

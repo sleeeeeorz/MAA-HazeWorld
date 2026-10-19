@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792264897964,
+            "lastSyncTime": 1792385552309,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\游戏初始化.json",
             "savedViewport": {
-                "x": 132,
-                "y": -2245,
-                "zoom": 0.75
+                "x": -772,
+                "y": -1353,
+                "zoom": 0.47
             },
             "filename": "游戏初始化",
             "version": "v2.1.0"
@@ -83,8 +83,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 2514,
-                "y": 3455
+                "x": 2594,
+                "y": 3448
             }
         }
     },

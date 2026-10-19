@@ -3,17 +3,93 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792264896485,
+            "lastSyncTime": 1792385199114,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\演习.json",
             "savedViewport": {
-                "x": -143,
-                "y": -1892,
-                "zoom": 0.6
+                "x": -1667,
+                "y": -2481,
+                "zoom": 0.76
             },
             "filename": "演习",
             "version": "v2.1.0"
+        }
+    },
+    "确认返回（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点78_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2980,
+                "y": 3549
+            }
+        }
+    },
+    "新建节点78_副本2": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3518,
+                "y": 3575
+            }
+        }
+    },
+    "多次点击（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点84_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2979,
+                "y": 3840
+            }
+        }
+    },
+    "新建节点84_副本2": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3492,
+                "y": 3872
+            }
         }
     },
     "MAX（演习）": {
@@ -96,7 +172,11 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 10000,
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]确认返回（演习）",
+            "[JumpBack]多次点击（演习）"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 2342,

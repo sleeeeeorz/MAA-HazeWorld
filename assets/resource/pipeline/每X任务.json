@@ -3,66 +3,90 @@
         "$__mpe_code": {
             "prefix": "",
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每X任务.json",
-            "lastSyncTime": 1792329626260,
+            "lastSyncTime": 1792330009781,
             "coordinateMode": "absolute-v1",
             "savedViewport": {
-                "x": -785,
-                "y": -902,
-                "zoom": 0.4
+                "x": -2390,
+                "y": -1844,
+                "zoom": 0.63
             },
             "filename": "每X任务",
             "version": "v2.1.0"
         }
     },
-    "换到每周任务": {
-        "action": {
-            "type": "Click",
+    "确认返回（活动）_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
             "param": {
-                "target": [
-                    117,
-                    249,
-                    101,
-                    33
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
                 ]
             }
         },
-        "post_delay": 5000,
+        "next": [
+            "新建节点78_副本6"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 3165,
-                "y": 3620
+                "x": 4954,
+                "y": 3259
             }
         }
     },
-    "换到每月任务": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    116,
-                    348,
-                    101,
-                    34
-                ]
-            }
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 3719,
-                "y": 3981
-            }
-        }
-    },
-    "新建节点77": {
+    "新建节点78_副本6": {
         "action": {
             "type": "StopTask"
         },
         "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 4826,
-                "y": 3315
+                "x": 5499,
+                "y": 3309
+            }
+        }
+    },
+    "多次点击_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点84_副本6"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4959,
+                "y": 3574
+            }
+        }
+    },
+    "新建节点84_副本6": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5487,
+                "y": 3604
             }
         }
     },
@@ -305,7 +329,8 @@
         },
         "post_delay": 5000,
         "next": [
-            "新建节点77"
+            "[JumpBack]确认返回（活动）_副本1",
+            "[JumpBack]多次点击_副本1"
         ],
         "$__mpe_code": {
             "position": {
@@ -628,6 +653,46 @@
             "position": {
                 "x": 4017,
                 "y": 3275
+            }
+        }
+    },
+    "换到每周任务": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    117,
+                    249,
+                    101,
+                    33
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3165,
+                "y": 3620
+            }
+        }
+    },
+    "换到每月任务": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    116,
+                    348,
+                    101,
+                    34
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3719,
+                "y": 3981
             }
         }
     }
