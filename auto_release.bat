@@ -16,40 +16,78 @@ if not exist "%VERSION_FILE%" (
 :: 读取当前版本号
 set /p CURRENT_VERSION=<"%VERSION_FILE%"
 
-:: 解析版本号 (格式: Major.Minor.Patch)
+:: 解析版本号 (格式: Major.Minor.Patch)，留空时用来自动 +1
 for /f "tokens=1,2,3 delims=." %%a in ("%CURRENT_VERSION%") do (
     set MAJOR=%%a
     set MINOR=%%b
     set PATCH=%%c
 )
 
-:: 将修订号 (Patch) 加 1
-set /a NEW_PATCH=!PATCH! + 1
-set NEW_VERSION=!MAJOR!.!MINOR!.!NEW_PATCH!
-
-:: 将更新后的版本号写回文件
-echo %NEW_VERSION%> "%VERSION_FILE%"
-
-set TAG_NAME=v%NEW_VERSION%
-
 echo ===================================================
 echo   上一次版本号: v%CURRENT_VERSION%
-echo   即将发布新版本: %TAG_NAME%
+echo   请输入新版本号（不带 v），后面可以跟备注
+echo   例: 0.5.0 测试文本
+echo   直接回车 = 按上一次版本号自动 +1
 echo ===================================================
 
-:: 输入提交备注
-set /p COMMIT_MSG="请输入本次发布的提交备注 (直接按回车使用默认备注): "
-if "%COMMIT_MSG%"=="" set COMMIT_MSG=Auto release %TAG_NAME%
+:ASK_VERSION
+set "INPUT="
+set /p "INPUT=版本号 [备注]: "
+
+if "!INPUT!"=="" (
+    :: 留空：沿用原来的自动 +1 逻辑
+    set /a NEW_PATCH=!PATCH! + 1
+    set "NEW_VERSION=!MAJOR!.!MINOR!.!NEW_PATCH!"
+    set "COMMIT_MSG="
+    echo [提示] 未输入版本号，自动使用 !NEW_VERSION!
+) else (
+    :: 拆分：第一段是版本号，剩下的整段是备注
+    for /f "tokens=1,* delims= " %%a in ("!INPUT!") do (
+        set "NEW_VERSION=%%a"
+        set "COMMIT_MSG=%%b"
+    )
+
+    :: 允许误输 v 前缀，自动去掉
+    if /i "!NEW_VERSION:~0,1!"=="v" set "NEW_VERSION=!NEW_VERSION:~1!"
+
+    :: 校验版本号格式 X.Y.Z
+    echo !NEW_VERSION!| findstr /r "^[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*$" >nul
+    if errorlevel 1 (
+        echo [错误] 版本号格式不对，应形如 0.5.0（三段数字），或直接回车自动 +1
+        goto ASK_VERSION
+    )
+)
+
+set "TAG_NAME=v!NEW_VERSION!"
+
+:: 标签已经存在就不再继续
+git rev-parse -q --verify "refs/tags/!TAG_NAME!" >nul 2>nul
+if not errorlevel 1 (
+    echo [错误] 标签 !TAG_NAME! 已经存在了，请换一个版本号
+    goto ASK_VERSION
+)
+
+:: 没填备注就用默认的
+if "!COMMIT_MSG!"=="" set "COMMIT_MSG=Auto release !TAG_NAME!"
+
+:: 将新版本号写回文件
+echo !NEW_VERSION!> "%VERSION_FILE%"
 
 echo.
+echo ===================================================
+echo   即将发布: !TAG_NAME!
+echo   提交备注: !COMMIT_MSG!
+echo ===================================================
+echo.
+
 echo [1/5] 正在添加文件到暂存区...
 git add .
 
 echo [2/5] 正在提交更改...
-git commit -m "%COMMIT_MSG%"
+git commit -m "!COMMIT_MSG!"
 
-echo [3/5] 正在创建 Git 标签 %TAG_NAME%...
-git tag %TAG_NAME%
+echo [3/5] 正在创建 Git 标签 !TAG_NAME!...
+git tag !TAG_NAME!
 
 :: ---------------------------------------------------
 :: 核心重试逻辑：推送主分支
@@ -65,8 +103,8 @@ if errorlevel 1 (
 :: 核心重试逻辑：推送标签
 :: ---------------------------------------------------
 :PUSH_TAG
-echo [5/5] 正在推送标签 %TAG_NAME% 到 GitHub...
-git push origin %TAG_NAME%
+echo [5/5] 正在推送标签 !TAG_NAME! 到 GitHub...
+git push origin !TAG_NAME!
 if errorlevel 1 (
     goto NETWORK_ERROR
 )
@@ -89,7 +127,7 @@ echo   [2] 放弃本次推送并退出脚本
 echo ===================================================
 set /p CHOICE="请输入选项数字 (1 或 2): "
 
-if "%CHOICE%"=="1" (
+if "!CHOICE!"=="1" (
     echo.
     echo [重试] 正在重新尝试连接并推送...
     goto PUSH_MAIN
@@ -97,14 +135,14 @@ if "%CHOICE%"=="1" (
     echo.
     echo [提示] 已退出。下次网络恢复时，只需在终端手动执行：
     echo   git push origin main
-    echo   git push origin %TAG_NAME%
+    echo   git push origin !TAG_NAME!
     goto END
 )
 
 :SUCCESS
 echo.
 echo ===================================================
-echo   发布成功！新版本号: %TAG_NAME%
+echo   发布成功！新版本号: !TAG_NAME!
 echo ===================================================
 
 :END
