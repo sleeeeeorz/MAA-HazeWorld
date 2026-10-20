@@ -2,16 +2,118 @@
     "$__mpe_config_活动抽卡": {
         "$__mpe_code": {
             "prefix": "",
-            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动抽卡.json",
-            "lastSyncTime": 1792385821610,
             "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1792508037774,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动抽卡.json",
             "savedViewport": {
-                "x": -1579,
-                "y": -3316,
+                "x": -1060,
+                "y": -3234,
                 "zoom": 0.96
             },
             "filename": "活动抽卡",
             "version": "v2.1.0"
+        }
+    },
+    "关闭抽卡详情（活动抽卡）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    394,
+                    18,
+                    64,
+                    38
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "返回主界面（任务抽卡）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1814,
+                "y": 3555
+            }
+        }
+    },
+    "多次点击（活动抽卡）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "点关闭按钮（活动抽卡）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2454,
+                "y": 3836
+            }
+        }
+    },
+    "抽卡": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "紫色抽卡（活动）.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    837,
+                    664,
+                    171,
+                    43
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "关闭抽卡详情（活动抽卡）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1494,
+                "y": 3520
+            }
+        }
+    },
+    "抽卡点": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "抽卡点.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 3000,
+        "next": [
+            "[JumpBack]下一页",
+            "抽卡"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 534,
+                "y": 3542
+            }
         }
     },
     "活动-抽卡": {
@@ -33,76 +135,61 @@
         "$__mpe_code": {
             "position": {
                 "x": 214,
-                "y": 3550
+                "y": 3542
             }
         }
     },
-    "抽卡点": {
+    "点关闭按钮（活动抽卡）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 2774,
+                "y": 3859
+            }
+        }
+    },
+    "确认返回（活动抽卡）": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "抽卡点.png"
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 3000,
         "next": [
-            "抽卡"
+            "结束任务（活动抽卡）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 681,
-                "y": 3552
+                "x": 2454,
+                "y": 3495
             }
         }
     },
-    "抽卡": {
+    "结束任务（活动抽卡）": {
         "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    836,
-                    665,
-                    175,
-                    38
-                ]
-            }
+            "type": "StopTask"
         },
-        "post_delay": 3000,
-        "next": [
-            "新建节点73"
-        ],
+        "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 1117,
-                "y": 3602
-            }
-        }
-    },
-    "新建节点73": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    394,
-                    18,
-                    64,
-                    38
-                ]
-            }
-        },
-        "post_delay": 3000,
-        "next": [
-            "返回主界面（任务抽卡）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1507,
-                "y": 3620
+                "x": 2774,
+                "y": 3542
             }
         }
     },
@@ -125,84 +212,54 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1934,
-                "y": 3590
+                "x": 2134,
+                "y": 3519
             }
         }
     },
-    "确认返回（活动抽卡）": {
+    "下一页": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "设置.png"
+                    "下一页抽卡.png"
                 ],
                 "threshold": [
-                    0.95
+                    0.9
                 ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
         "next": [
-            "新建节点78_副本5"
+            "确认（活动下一页）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2401,
-                "y": 3610
+                "x": 920,
+                "y": 3772
             }
         }
     },
-    "新建节点78_副本5": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 2940,
-                "y": 3636
-            }
-        }
-    },
-    "多次点击（活动抽卡）": {
+    "确认（活动下一页）": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
+                    "确认购买.png"
                 ]
             }
         },
-        "next": [
-            "新建节点84_副本5"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2401,
-                "y": 3901
-            }
-        }
-    },
-    "新建节点84_副本5": {
-        "pre_delay": 1000,
         "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
+            "type": "Click"
         },
+        "post_delay": 1000,
         "$__mpe_code": {
             "position": {
-                "x": 2914,
-                "y": 3933
+                "x": 1214,
+                "y": 3788
             }
         }
     }

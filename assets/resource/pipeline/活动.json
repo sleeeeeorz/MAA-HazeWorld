@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792385830512,
+            "lastSyncTime": 1792506344561,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动.json",
             "savedViewport": {
-                "x": -3737,
-                "y": -3150,
-                "zoom": 0.96
+                "x": -745,
+                "y": 134,
+                "zoom": 0.8
             },
             "filename": "活动",
             "version": "v2.1.0"
@@ -33,8 +33,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2257,
-                "y": 3550
+                "x": 1600,
+                "y": 256
             }
         }
     },
@@ -55,8 +55,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1617,
-                "y": 3550
+                "x": 960,
+                "y": 256
             }
         }
     },
@@ -88,8 +88,30 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1297,
-                "y": 3546
+                "x": 640,
+                "y": 252
+            }
+        }
+    },
+    "多次点击（活动）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "点关闭按钮（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3200,
+                "y": 529
             }
         }
     },
@@ -110,8 +132,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2577,
-                "y": 3550
+                "x": 1920,
+                "y": 256
             }
         }
     },
@@ -132,8 +154,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1937,
-                "y": 3550
+                "x": 1280,
+                "y": 256
             }
         }
     },
@@ -155,8 +177,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3217,
-                "y": 3624
+                "x": 2560,
+                "y": 330
             }
         }
     },
@@ -177,8 +199,50 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 657,
-                "y": 3550
+                "x": 0,
+                "y": 256
+            }
+        }
+    },
+    "点关闭按钮（活动）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3520,
+                "y": 559
+            }
+        }
+    },
+    "确认返回（活动）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "活动-抽卡"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3200,
+                "y": 188
             }
         }
     },
@@ -203,8 +267,20 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2897,
-                "y": 3509
+                "x": 2240,
+                "y": 215
+            }
+        }
+    },
+    "结束任务（活动）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
             }
         }
     },
@@ -227,8 +303,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3624,
-                "y": 3533
+                "x": 2880,
+                "y": 217
             }
         }
     },
@@ -249,84 +325,16 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 977,
-                "y": 3550
+                "x": 320,
+                "y": 256
             }
         }
     },
-    "确认返回（活动）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点78"
-        ],
+    "$__mpe_external_活动-抽卡_活动": {
         "$__mpe_code": {
             "position": {
-                "x": 4247,
-                "y": 3472
-            }
-        }
-    },
-    "新建节点78": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 4786,
-                "y": 3498
-            }
-        }
-    },
-    "多次点击（活动）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点84"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4246,
-                "y": 3763
-            }
-        }
-    },
-    "新建节点84": {
-        "pre_delay": 1000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 4760,
-                "y": 3796
+                "x": 3520,
+                "y": 289
             }
         }
     }

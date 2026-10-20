@@ -16,6 +16,58 @@
             "version": "v2.1.0"
         }
     },
+    // ===== 合并入口：先商店（每周一、当周未兑换时），再演习 =====
+    "演习（合并）": {
+        "next": [
+            "商店检查（演习）"
+        ],
+        "timeout": 5000,
+        // 商店检查没命中（不是周一 / 本周已兑换）就直接去打演习
+        "on_error": [
+            "演习"
+        ]
+    },
+    "商店检查（演习）": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "weekly_pending",
+                "custom_recognition_param": {
+                    "state_key": "演习商店",
+                    "weekday": 0
+                }
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "mark_weekly_done",
+                "custom_action_param": {
+                    "state_key": "演习商店"
+                }
+            }
+        },
+        "next": [
+            "演习_副本1"
+        ]
+    },
+    "确认返回（演习商店）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        // 商店买完回到主界面，接着去打演习
+        "next": [
+            "演习"
+        ]
+    },
     "兑换商店（演习）": {
         "recognition": {
             "type": "TemplateMatch",
@@ -33,7 +85,7 @@
         },
         "post_delay": 1000,
         "next": [
-            "新建节点106"
+            "选择精英演习卷（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -42,7 +94,7 @@
             }
         }
     },
-    "新建节点106": {
+    "选择精英演习卷（演习）": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -82,7 +134,7 @@
         },
         "post_delay": 1000,
         "next": [
-            "新建节点109"
+            "关闭购买弹窗（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -114,7 +166,7 @@
             }
         }
     },
-    "新建节点109": {
+    "关闭购买弹窗（演习）": {
         "action": {
             "type": "Click",
             "param": {
@@ -197,7 +249,7 @@
         },
         "post_delay": 5000,
         "next": [
-            "[JumpBack]确认返回（演习）",
+            "[JumpBack]确认返回（演习商店）",
             "[JumpBack]多次点击（演习）"
         ],
         "$__mpe_code": {
@@ -382,7 +434,7 @@
             }
         },
         "next": [
-            "新建节点78_副本2"
+            "结束任务（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -391,7 +443,7 @@
             }
         }
     },
-    "新建节点78_副本2": {
+    "结束任务（演习）": {
         "action": {
             "type": "StopTask"
         },
@@ -416,7 +468,7 @@
             }
         },
         "next": [
-            "新建节点84_副本2"
+            "点关闭按钮（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -425,7 +477,7 @@
             }
         }
     },
-    "新建节点84_副本2": {
+    "点关闭按钮（演习）": {
         "pre_delay": 1000,
         "action": {
             "type": "Click",
