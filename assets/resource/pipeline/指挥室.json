@@ -3,7 +3,7 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792385551152,
+            "lastSyncTime": 1792385827831,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\指挥室.json",
@@ -14,82 +14,6 @@
             },
             "filename": "指挥室",
             "version": "v2.1.0"
-        }
-    },
-    "确认返回（指挥室）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点78_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3716,
-                "y": 3321
-            }
-        }
-    },
-    "新建节点78_副本1": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 4255,
-                "y": 3347
-            }
-        }
-    },
-    "多次点击（指挥室）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点84_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3715,
-                "y": 3612
-            }
-        }
-    },
-    "新建节点84_副本1": {
-        "pre_delay": 1000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 4228,
-                "y": 3645
-            }
         }
     },
     "全部收集": {
@@ -308,6 +232,82 @@
             "position": {
                 "x": 2278,
                 "y": 3510
+            }
+        }
+    },
+    "确认返回（指挥室）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点78_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3716,
+                "y": 3321
+            }
+        }
+    },
+    "新建节点78_副本1": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 4255,
+                "y": 3347
+            }
+        }
+    },
+    "多次点击（指挥室）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点84_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3715,
+                "y": 3612
+            }
+        }
+    },
+    "新建节点84_副本1": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 4228,
+                "y": 3645
             }
         }
     }

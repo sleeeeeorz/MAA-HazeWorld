@@ -3,92 +3,207 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792385199114,
+            "lastSyncTime": 1792483341422,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\演习.json",
             "savedViewport": {
-                "x": -1667,
-                "y": -2481,
-                "zoom": 0.76
+                "x": -635,
+                "y": -1921,
+                "zoom": 0.6
             },
             "filename": "演习",
             "version": "v2.1.0"
         }
     },
-    "确认返回（演习）": {
+    "兑换商店（演习）": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "设置.png"
+                    "演习商店.png"
                 ],
                 "threshold": [
-                    0.95
+                    0.9
                 ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
         "next": [
-            "新建节点78_副本2"
+            "新建节点106"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2980,
+                "x": 736,
                 "y": 3549
             }
         }
     },
-    "新建节点78_副本2": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 3518,
-                "y": 3575
-            }
-        }
-    },
-    "多次点击（演习）": {
+    "新建节点106": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
+                    "精英演习卷.png"
                 ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
         "next": [
-            "新建节点84_副本2"
+            "MAX（演习）_副本1"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2979,
-                "y": 3840
+                "x": 1056,
+                "y": 3565
             }
         }
     },
-    "新建节点84_副本2": {
-        "pre_delay": 1000,
+    "确认购买（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "确认购买.png"
+                ],
+                "threshold": [
+                    0.9
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "新建节点109"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1696,
+                "y": 3549
+            }
+        }
+    },
+    "MAX（演习）_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "MAX（演习商店）.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "确认购买（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1376,
+                "y": 3565
+            }
+        }
+    },
+    "新建节点109": {
         "action": {
             "type": "Click",
             "param": {
                 "target": [
-                    40,
+                    468,
                     22,
-                    44,
-                    28
+                    50,
+                    44
                 ]
             }
         },
+        "post_delay": 1000,
+        "next": [
+            "左上角返回_副本1"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 3492,
-                "y": 3872
+                "x": 2016,
+                "y": 3591
+            }
+        }
+    },
+    "左上角返回_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "左上角返回_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2336,
+                "y": 3565
+            }
+        }
+    },
+    "演习_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "演习.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "兑换商店（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 416,
+                "y": 3565
+            }
+        }
+    },
+    "左上角返回_副本2": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]确认返回（演习）",
+            "[JumpBack]多次点击（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2656,
+                "y": 3555
             }
         }
     },
@@ -104,13 +219,14 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "开始代理"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1702,
-                "y": 3596
+                "x": 2016,
+                "y": 3952
             }
         }
     },
@@ -132,8 +248,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1382,
-                "y": 3567
+                "x": 1696,
+                "y": 3952
             }
         }
     },
@@ -155,8 +271,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 742,
-                "y": 3567
+                "x": 1056,
+                "y": 3952
             }
         }
     },
@@ -179,8 +295,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2342,
-                "y": 3584
+                "x": 2638,
+                "y": 3935
             }
         }
     },
@@ -196,13 +312,14 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 1000,
         "next": [
             "左上角返回"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2022,
-                "y": 3596
+                "x": 2336,
+                "y": 3952
             }
         }
     },
@@ -218,14 +335,14 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 10000,
+        "post_delay": 5000,
         "next": [
             "代理完成"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 422,
-                "y": 3567
+                "x": 736,
+                "y": 3952
             }
         }
     },
@@ -247,8 +364,84 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1062,
-                "y": 3567
+                "x": 1376,
+                "y": 3952
+            }
+        }
+    },
+    "确认返回（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点78_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2976,
+                "y": 3570
+            }
+        }
+    },
+    "新建节点78_副本2": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3296,
+                "y": 3617
+            }
+        }
+    },
+    "多次点击（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点84_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2976,
+                "y": 3911
+            }
+        }
+    },
+    "新建节点84_副本2": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3296,
+                "y": 3941
             }
         }
     }

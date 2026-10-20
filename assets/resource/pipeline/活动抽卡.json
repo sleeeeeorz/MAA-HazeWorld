@@ -3,7 +3,7 @@
         "$__mpe_code": {
             "prefix": "",
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动抽卡.json",
-            "lastSyncTime": 1792330013486,
+            "lastSyncTime": 1792385821610,
             "coordinateMode": "absolute-v1",
             "savedViewport": {
                 "x": -1579,
@@ -12,82 +12,6 @@
             },
             "filename": "活动抽卡",
             "version": "v2.1.0"
-        }
-    },
-    "确认返回（活动抽卡）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点78_副本5"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2401,
-                "y": 3610
-            }
-        }
-    },
-    "新建节点78_副本5": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 2940,
-                "y": 3636
-            }
-        }
-    },
-    "多次点击（活动抽卡）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点84_副本5"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2401,
-                "y": 3901
-            }
-        }
-    },
-    "新建节点84_副本5": {
-        "pre_delay": 1000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 2914,
-                "y": 3933
-            }
         }
     },
     "活动-抽卡": {
@@ -203,6 +127,82 @@
             "position": {
                 "x": 1934,
                 "y": 3590
+            }
+        }
+    },
+    "确认返回（活动抽卡）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点78_副本5"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2401,
+                "y": 3610
+            }
+        }
+    },
+    "新建节点78_副本5": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2940,
+                "y": 3636
+            }
+        }
+    },
+    "多次点击（活动抽卡）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点84_副本5"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2401,
+                "y": 3901
+            }
+        }
+    },
+    "新建节点84_副本5": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 2914,
+                "y": 3933
             }
         }
     }

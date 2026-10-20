@@ -49,7 +49,20 @@
         {
             "name": "演习",
             "entry": "演习",
-            "label": "每日演习"
+            "label": "每日演习",
+            "group": [
+                "演习"
+            ]
+        },
+        {
+            "name": "兑换商店（演习）",
+            "entry": "兑换商店（演习）",
+            "description": "每周购买100演习卷",
+            "label": "演习商店",
+            "group": [
+                "演习"
+            ],
+            "option": []
         },
         {
             "name": "指挥室",
@@ -59,11 +72,17 @@
         {
             "name": "活动",
             "entry": "活动",
-            "label": "当期活动"
+            "label": "当期活动",
+            "group": [
+                "活动"
+            ]
         },
         {
             "name": "活动-抽卡",
-            "entry": "活动-抽卡"
+            "entry": "活动-抽卡",
+            "group": [
+                "活动"
+            ]
         },
         {
             "name": "通行证",
@@ -90,12 +109,14 @@
             "type": "select",
             "cases": [
                 {
-                    "name": "文本1",
+                    "name": "text3",
                     "pipeline_override": {
                         "OcrTask": {
                             "text": "文本1"
                         }
-                    }
+                    },
+                    "label": "text4",
+                    "description": "text5"
                 }
             ],
             "label": "text1",
@@ -104,7 +125,20 @@
             ],
             "resource": [
                 "官服"
-            ]
+            ],
+            "description": "text2"
         }
-    }
+    },
+    "group": [
+        {
+            "name": "演习",
+            "label": "演习",
+            "description": "yanxi"
+        },
+        {
+            "name": "活动",
+            "label": "活动",
+            "description": "huodong"
+        }
+    ]
 }

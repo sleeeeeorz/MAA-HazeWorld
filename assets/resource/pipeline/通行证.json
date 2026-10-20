@@ -3,7 +3,7 @@
         "$__mpe_code": {
             "prefix": "",
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\通行证.json",
-            "lastSyncTime": 1792330017983,
+            "lastSyncTime": 1792385824637,
             "coordinateMode": "absolute-v1",
             "savedViewport": {
                 "x": -2112,
@@ -12,82 +12,6 @@
             },
             "filename": "通行证",
             "version": "v2.1.0"
-        }
-    },
-    "确认返回（通行证）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点78_副本3"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3396,
-                "y": 3448
-            }
-        }
-    },
-    "新建节点78_副本3": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 3935,
-                "y": 3474
-            }
-        }
-    },
-    "多次点击（通行证）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点84_副本3"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3395,
-                "y": 3739
-            }
-        }
-    },
-    "新建节点84_副本3": {
-        "pre_delay": 1000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 3908,
-                "y": 3772
-            }
         }
     },
     "通行证": {
@@ -287,6 +211,82 @@
             "position": {
                 "x": 2446,
                 "y": 3442
+            }
+        }
+    },
+    "确认返回（通行证）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点78_副本3"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3396,
+                "y": 3448
+            }
+        }
+    },
+    "新建节点78_副本3": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3935,
+                "y": 3474
+            }
+        }
+    },
+    "多次点击（通行证）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点84_副本3"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3395,
+                "y": 3739
+            }
+        }
+    },
+    "新建节点84_副本3": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3908,
+                "y": 3772
             }
         }
     }

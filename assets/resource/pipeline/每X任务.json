@@ -3,91 +3,15 @@
         "$__mpe_code": {
             "prefix": "",
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每X任务.json",
-            "lastSyncTime": 1792330009781,
+            "lastSyncTime": 1792385871791,
             "coordinateMode": "absolute-v1",
             "savedViewport": {
-                "x": -2390,
-                "y": -1844,
+                "x": -158,
+                "y": -1827,
                 "zoom": 0.63
             },
             "filename": "每X任务",
             "version": "v2.1.0"
-        }
-    },
-    "确认返回（活动）_副本1": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点78_副本6"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4954,
-                "y": 3259
-            }
-        }
-    },
-    "新建节点78_副本6": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 5499,
-                "y": 3309
-            }
-        }
-    },
-    "多次点击_副本1": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "新建节点84_副本6"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4959,
-                "y": 3574
-            }
-        }
-    },
-    "新建节点84_副本6": {
-        "pre_delay": 1000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 5487,
-                "y": 3604
-            }
         }
     },
     "任务": {
@@ -693,6 +617,82 @@
             "position": {
                 "x": 3719,
                 "y": 3981
+            }
+        }
+    },
+    "确认返回（活动）_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点78_副本6"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4954,
+                "y": 3259
+            }
+        }
+    },
+    "新建节点78_副本6": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 5499,
+                "y": 3309
+            }
+        }
+    },
+    "多次点击_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "新建节点84_副本6"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4959,
+                "y": 3574
+            }
+        }
+    },
+    "新建节点84_副本6": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5487,
+                "y": 3604
             }
         }
     }
