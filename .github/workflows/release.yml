@@ -1,23 +1,16 @@
 name: Release
 
+# 打包与发版统一由 install.yml 负责：
+#   推送 v* tag → install 各平台打包 → changelog 生成更新日志 → release 创建 Release 并挂 zip
+# 这个文件以前也会在 tag 时触发，但仓库里并没有现成的 *.zip，会重复触发并报错。
+# 需要手动补发时，直接 workflow_dispatch 触发 install.yml 即可。
+
 on:
-  push:
-    tags:
-      - 'v*'  # 只要推送 v0.1.3 这样的标签，就会自动触发
+  workflow_dispatch:
 
 jobs:
-  build-and-release:
+  notice:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      # 这里放置你的编译打包步骤（例如使用 MaaFramework 的打包动作或自定义脚本）
-      # 打包完成后，使用官方的 Release 动作将生成的 .zip 文件自动上传到 GitHub Releases 页面
-      - name: Upload binaries to Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            *.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Nothing to do here
+        run: echo "打包/发版请使用 install.yml（push v* tag 会自动执行）"

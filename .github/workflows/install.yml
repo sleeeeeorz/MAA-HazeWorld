@@ -72,8 +72,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [win, macos, linux, android]
-        arch: [aarch64, x86_64]
+        # 只出 Windows x64 的包
+        os: [win]
+        arch: [x86_64]
       fail-fast: false
 
     steps:
