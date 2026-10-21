@@ -118,6 +118,22 @@ jobs:
         run: |
           rm -rf MFA/runtimes
       
+      - name: Prepare embedded Python (win only)
+        if: matrix.os == 'win'
+        shell: bash
+        run: |
+          set -e
+          PYVER=3.12.10
+          mkdir -p deps/python
+          curl -fsSL -o /tmp/py-embed.zip "https://www.python.org/ftp/python/${PYVER}/python-${PYVER}-embed-amd64.zip"
+          unzip -q /tmp/py-embed.zip -d deps/python
+          PTH=$(ls deps/python/python*._pth | head -1)
+          # embed 运行时默认不加载 site-packages，这里打开
+          sed -i 's/^#import site/import site/' "$PTH"
+          grep -q 'site-packages' "$PTH" || echo 'Lib/site-packages' >> "$PTH"
+          python -m pip install --upgrade pip
+          python -m pip install --platform win_amd64 --python-version 3.12 \
+            --only-binary=:all: --target deps/python/Lib/site-packages maafw numpy
       - name: Install
         shell: bash
         run: |
