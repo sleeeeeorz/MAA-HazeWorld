@@ -9,6 +9,7 @@ const config: FullConfig = {
       // 忽略 mpe-config 带来的报错
       // ignore warning caused by mpe-config
       // 'mpe-config': 'ignore'
+      'mpe-config': 'ignore'
     }
   }
 }
