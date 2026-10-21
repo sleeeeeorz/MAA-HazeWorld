@@ -89,6 +89,13 @@ def _log_once(state_key: str, ok: bool, reason: str) -> None:
     print(f"[weekly] {'继续' if ok else '跳过'}：{reason}")
 
 
+def week_done(state_key: str, today: dt.date | None = None) -> bool:
+    """这个 state_key 本周是否已经完成过。"""
+    today = today or dt.date.today()
+    last = (_load_state().get(state_key) or {}).get("week")
+    return last == week_key(today)
+
+
 def should_run(
     state_key: str, weekday: int | None = None, today: dt.date | None = None
 ) -> tuple[bool, str]:
@@ -113,6 +120,39 @@ def should_run(
     return True, f"本周未兑换（{current}），开始兑换"
 
 
+@AgentServer.custom_recognition("weekly_pending_after")
+class WeeklyPendingAfter(CustomRecognition):
+    """两个条件同时满足才命中：
+
+    1. require_state_key 本周**已经**完成（比如"演习商店"已经兑换过）
+    2. state_key 本周**还没有**完成（比如"补充演习卷"本周没补过）
+
+    用于"某个流程跑过之后，另一个流程才允许每周触发一次"这种场景。
+    """
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        param = _parse_param(argv.custom_recognition_param)
+        state_key = str(param.get("state_key", "default"))
+        require = str(param.get("require_state_key", ""))
+
+        log_key = f"{state_key}|{require}"
+        if require and not week_done(require):
+            reason = f"{require} 本周还没完成，跳过 {state_key}"
+            _log_once(log_key, False, reason)
+            return CustomRecognition.AnalyzeResult(box=None, detail=reason)
+
+        ok, reason = should_run(state_key, None)
+        _log_once(log_key, ok, reason)
+        if not ok:
+            return CustomRecognition.AnalyzeResult(box=None, detail=reason)
+
+        return CustomRecognition.AnalyzeResult(box=(0, 0, 0, 0), detail=reason)
+
+
 @AgentServer.custom_recognition("weekly_pending")
 class WeeklyPending(CustomRecognition):
     """命中表示"这周还没跑，该跑了"；不命中表示这周已经跑过。"""
@@ -135,6 +175,18 @@ class WeeklyPending(CustomRecognition):
 
         # box 非 None 即视为命中；这里不需要真实坐标
         return CustomRecognition.AnalyzeResult(box=(0, 0, 0, 0), detail=reason)
+
+
+@AgentServer.custom_action("log_message")
+class LogMessage(CustomAction):
+    """把 custom_action_param.msg 打到日志里，供流水线在关键节点留痕。"""
+
+    def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
+        param = _parse_param(argv.custom_action_param)
+        msg = str(param.get("msg", ""))
+        if msg:
+            print(f"[haze] {msg}")
+        return True
 
 
 @AgentServer.custom_action("mark_weekly_done")
