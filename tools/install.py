@@ -99,6 +99,23 @@ def install_deps():
 
 
 
+def python_runtime():
+    """返回 (内置运行时的源目录, 包内解释器相对路径)；没有内置运行时返回 (None, None)。
+
+    Windows 用官方 embeddable 包（deps/python-win），
+    Linux 用 python-build-standalone 的 install_only 包（deps/python-linux）。
+    """
+    if os_name == "win":
+        src = working_dir / "deps" / "python-win"
+        exec_rel = "python/python.exe"
+    else:
+        src = working_dir / "deps" / "python-linux"
+        exec_rel = "python/bin/python3"
+    if not src.exists():
+        return None, None
+    return src, exec_rel
+
+
 def install_resource():
 
     configure_ocr_model()
@@ -124,10 +141,9 @@ def install_resource():
     agent_cfg = interface.get("agent")
     if isinstance(agent_cfg, dict):
         # 如果包里带了独立 Python 运行时，就让 agent 用它，不依赖用户装 Python
-        if (working_dir / "deps" / "python").exists():
-            agent_cfg["child_exec"] = (
-                "python/python.exe" if os_name == "win" else "python/bin/python3"
-            )
+        src, exec_rel = python_runtime()
+        if src is not None:
+            agent_cfg["child_exec"] = exec_rel
         args = agent_cfg.get("child_args") or []
         agent_cfg["child_args"] = [
             arg.replace("../agent/", "./agent/") if isinstance(arg, str) else arg
@@ -150,13 +166,16 @@ def install_chores():
 
 
 def install_python():
-    """把 deps/python 里的独立运行时打进安装目录（由 CI 或本地准备）。"""
-    src = working_dir / "deps" / "python"
-    if not src.exists():
-        print("[提示] deps/python 不存在，跳过内置 Python（agent 将使用系统 python）")
+    """把内置 Python 运行时打进安装目录（由 CI 或本地准备）。"""
+    src, exec_rel = python_runtime()
+    if src is None:
+        print(
+            f"[提示] 未找到 {os_name} 的内置 Python 运行时"
+            "（deps/python-win 或 deps/python-linux），跳过；agent 将使用系统 python"
+        )
         return
     shutil.copytree(src, install_path / "python", dirs_exist_ok=True)
-    print(f"[信息] 已内置 Python 运行时: {src}")
+    print(f"[信息] 已内置 Python 运行时: {src} -> {exec_rel}")
 
 
 def install_agent():

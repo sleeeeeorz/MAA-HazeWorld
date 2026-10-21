@@ -15,6 +15,15 @@ import my_weekly  # noqa: E402,F401
 
 
 def main():
+    # 客户端（MFAAvalonia / MPE）按 UTF-8 读子进程输出，
+    # 而 Windows 下 python 默认用 GBK 写 stdout，中文会变成乱码。
+    # 这里强制切到 UTF-8，日志里的中文才能正常显示。
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
     # 注意：不要再用 Toolkit.init_option("./")。
     # maafw 5.14 下它对 "./" 这种带尾斜杠的路径、以及不存在的目录，
     # 都会在 MaaGlobalSetOption 里抛 OSError 0xe06d7363，直接让 agent 退出。

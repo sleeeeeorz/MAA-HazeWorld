@@ -1,6 +1,6 @@
 """按周门控：让某个流程「每周只跑一次、且只在指定星期几跑」。
 
-目前用于演习商店：每周一兑换演习卷，当周兑换过就不再兑换。
+目前用于演习商店：每周兑换一次演习卷（商店周一刷新），当周兑换过就不再兑换。
 
 状态存在项目根目录的 data/weekly_state.json，形如：
     {"演习商店": {"week": "2026-W43", "at": "2026-10-20T21:59:00"}}
@@ -77,29 +77,45 @@ def week_key(day: dt.date | None = None) -> str:
     return f"{iso.year}-W{iso.week:02d}"
 
 
+# 同一个判定只打一次日志：这个识别每轮轮询都会被调用，全打会刷屏
+_LAST_LOG: dict[str, tuple[bool, str]] = {}
+
+
+def _log_once(state_key: str, ok: bool, reason: str) -> None:
+    """判定结果没变化就不再打印。"""
+    if _LAST_LOG.get(state_key) == (ok, reason):
+        return
+    _LAST_LOG[state_key] = (ok, reason)
+    print(f"[weekly] {'继续' if ok else '跳过'}：{reason}")
+
+
 def should_run(
-    state_key: str, weekday: int = 0, today: dt.date | None = None
+    state_key: str, weekday: int | None = None, today: dt.date | None = None
 ) -> tuple[bool, str]:
-    """今天该不该跑：既要星期对得上，又要这周还没跑过。"""
+    """这一周该不该跑：只看这周有没有跑过。
+
+    商店每周一刷新，但"兑换一次"不限星期几——周一没空、周二补上也算这一周。
+    weekday 传具体 0~6 时才额外限制只在那一天跑，默认不限制。
+    """
     today = today or dt.date.today()
 
-    if today.weekday() != weekday:
+    if weekday is not None and today.weekday() != weekday:
         return (
             False,
-            f"今天是周{WEEKDAY_NAMES[today.weekday()]}，只在周{WEEKDAY_NAMES[weekday]}兑换",
+            f"今天是周{WEEKDAY_NAMES[today.weekday()]}，设定为只在周{WEEKDAY_NAMES[weekday]}兑换",
         )
 
     last = (_load_state().get(state_key) or {}).get("week")
     current = week_key(today)
     if last == current:
-        return False, f"{state_key}：本周 {current} 已兑换过"
+        return False, f"本周已兑换（{current}），跳过本次"
 
-    return True, f"{state_key}：本周 {current} 还没兑换"
+    return True, f"本周未兑换（{current}），开始兑换"
 
 
 @AgentServer.custom_recognition("weekly_pending")
 class WeeklyPending(CustomRecognition):
-    """命中表示"该跑了"；不命中表示今天不跑或这周已经跑过。"""
+    """命中表示"这周还没跑，该跑了"；不命中表示这周已经跑过。"""
 
     def analyze(
         self,
@@ -108,10 +124,11 @@ class WeeklyPending(CustomRecognition):
     ) -> CustomRecognition.AnalyzeResult:
         param = _parse_param(argv.custom_recognition_param)
         state_key = str(param.get("state_key", "default"))
-        weekday = int(param.get("weekday", 0))
+        weekday = param.get("weekday")
+        weekday = int(weekday) if weekday is not None else None
 
         ok, reason = should_run(state_key, weekday)
-        print(f"[weekly] {'继续' if ok else '跳过'}：{reason}")
+        _log_once(state_key, ok, reason)
 
         if not ok:
             return CustomRecognition.AnalyzeResult(box=None, detail=reason)

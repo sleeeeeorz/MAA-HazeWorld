@@ -2,16 +2,41 @@
     "$__mpe_config_商城": {
         "$__mpe_code": {
             "prefix": "",
-            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\商城.json",
-            "lastSyncTime": 1792385823311,
             "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1792601903465,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\商城.json",
             "savedViewport": {
-                "x": -617,
-                "y": -2089,
-                "zoom": 0.75
+                "x": -189,
+                "y": -2287,
+                "zoom": 0.8
             },
             "filename": "商城",
             "version": "v2.1.0"
+        }
+    },
+    "免费礼包": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "免费礼包.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "确认（商店）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1297,
+                "y": 3251
+            }
         }
     },
     "商城": {
@@ -37,52 +62,25 @@
             }
         }
     },
-    "通常礼包": {
+    "多次点击（商城）": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "通常礼包.png"
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
         "next": [
-            "免费礼包"
-        ],
-        "on_error": [
-            "左上角返回（商城）"
+            "点关闭按钮（商城）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 888,
-                "y": 3290
-            }
-        }
-    },
-    "免费礼包": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "免费礼包.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "确认（商店）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1297,
-                "y": 3251
+                "x": 3103,
+                "y": 3498
             }
         }
     },
@@ -110,6 +108,48 @@
             }
         }
     },
+    "点关闭按钮（商城）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3616,
+                "y": 3530
+            }
+        }
+    },
+    "确认返回（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "结束任务（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3087,
+                "y": 3187
+            }
+        }
+    },
     "确认（商店）": {
         "recognition": {
             "type": "TemplateMatch",
@@ -130,6 +170,18 @@
             "position": {
                 "x": 1613,
                 "y": 3238
+            }
+        }
+    },
+    "结束任务（商城）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3643,
+                "y": 3233
             }
         }
     },
@@ -164,79 +216,32 @@
             }
         }
     },
-    "确认返回（商城）": {
+    "通常礼包": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "设置.png"
+                    "通常礼包.png"
                 ],
                 "threshold": [
-                    0.95
+                    0.9
                 ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
         "next": [
-            "结束任务（商城）"
+            "免费礼包"
+        ],
+        "on_error": [
+            "左上角返回（商城）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3087,
-                "y": 3187
-            }
-        }
-    },
-    "结束任务（商城）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 3643,
-                "y": 3233
-            }
-        }
-    },
-    "多次点击（商城）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "点关闭按钮（商城）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3103,
-                "y": 3498
-            }
-        }
-    },
-    "点关闭按钮（商城）": {
-        "pre_delay": 1000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 3616,
-                "y": 3530
+                "x": 888,
+                "y": 3290
             }
         }
     }

@@ -72,9 +72,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # 只出 Windows x64 的包
-        os: [win]
-        arch: [x86_64]
+        # Windows + Linux，每种都出 x86_64 / aarch64 两份
+        os: [win, linux]
+        arch: [aarch64, x86_64]
       fail-fast: false
 
     steps:
@@ -124,16 +124,47 @@ jobs:
         run: |
           set -e
           PYVER=3.12.10
-          mkdir -p deps/python
-          curl -fsSL -o /tmp/py-embed.zip "https://www.python.org/ftp/python/${PYVER}/python-${PYVER}-embed-amd64.zip"
-          unzip -q /tmp/py-embed.zip -d deps/python
-          PTH=$(ls deps/python/python*._pth | head -1)
+          if [[ "${{ matrix.arch }}" == "aarch64" ]]; then
+            EMBED_ARCH=arm64
+            WIN_TAG=win_arm64
+          else
+            EMBED_ARCH=amd64
+            WIN_TAG=win_amd64
+          fi
+          mkdir -p deps/python-win
+          curl -fsSL -o /tmp/py-embed.zip "https://www.python.org/ftp/python/${PYVER}/python-${PYVER}-embed-${EMBED_ARCH}.zip"
+          unzip -q /tmp/py-embed.zip -d deps/python-win
+          PTH=$(ls deps/python-win/python*._pth | head -1)
           # embed 运行时默认不加载 site-packages，这里打开
           sed -i 's/^#import site/import site/' "$PTH"
           grep -q 'site-packages' "$PTH" || echo 'Lib/site-packages' >> "$PTH"
           python -m pip install --upgrade pip
-          python -m pip install --platform win_amd64 --python-version 3.12 \
-            --only-binary=:all: --target deps/python/Lib/site-packages maafw numpy
+          python -m pip install --platform "${WIN_TAG}" --python-version 3.12 \
+            --only-binary=:all: --target deps/python-win/Lib/site-packages maafw numpy
+      - name: Prepare standalone Python (linux only)
+        if: matrix.os == 'linux'
+        shell: bash
+        run: |
+          set -e
+          PBS_TAG=20261020
+          PYVER=3.12.15
+          if [[ "${{ matrix.arch }}" == "aarch64" ]]; then
+            PBS_ARCH=aarch64
+            PIP_PLATFORM=manylinux2014_aarch64
+          else
+            PBS_ARCH=x86_64
+            PIP_PLATFORM=manylinux2014_x86_64
+          fi
+          mkdir -p deps/python-linux /tmp/pyext
+          curl -fsSL -o /tmp/py-linux.tar.gz \
+            "https://github.com/astral-sh/python-build-standalone/releases/download/${PBS_TAG}/cpython-${PYVER}+${PBS_TAG}-${PBS_ARCH}-unknown-linux-gnu-install_only.tar.gz"
+          tar -xzf /tmp/py-linux.tar.gz -C /tmp/pyext
+          # install_only 包里是 python/ 目录，铺平到 deps/python-linux
+          cp -a /tmp/pyext/python/. deps/python-linux/
+          python -m pip install --upgrade pip
+          python -m pip install --platform "${PIP_PLATFORM}" --python-version 3.12 \
+            --only-binary=:all: --target deps/python-linux/lib/python3.12/site-packages maafw numpy
+
       - name: Install
         shell: bash
         run: |
