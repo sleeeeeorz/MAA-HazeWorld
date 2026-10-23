@@ -194,8 +194,22 @@ class LogMessage(CustomAction):
         return True
 
 
+GACHA_LOG_FILE = ROOT / "data" / "gacha_log.txt"
+
+
+def _gacha_log(line: str) -> None:
+    """把抽卡数据追加到 data/gacha_log.txt（客户端不转发 stdout 也能查）。"""
+    try:
+        GACHA_LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+        stamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with GACHA_LOG_FILE.open("a", encoding="utf-8") as f:
+            f.write(f"[{stamp}] {line}\n")
+    except OSError:
+        pass
+
+
 # 抽卡计数：按 task_id 分组，任务一换自动归零
-_DRAW_STATE: dict[str, object] = {"task_id": None, "count": 0}
+_DRAW_STATE: dict[str, object] = {"task_id": None, "count": 0, "coin": ""}
 
 
 def _draw_counter(task_id):
@@ -226,6 +240,9 @@ class LogCoin(CustomAction):
 
         value = " / ".join(texts) if texts else "?"
         print(f"[gacha] {label} = {value}")
+        st = _draw_counter(argv.task_detail.task_id)
+        st["coin"] = value
+        _gacha_log(f"{label} = {value}")
         return True
 
 
@@ -237,6 +254,7 @@ class CountDraw(CustomAction):
         st = _draw_counter(argv.task_detail.task_id)
         st["count"] = int(st["count"]) + 1
         print(f"[gacha] 第 {st['count']} 次抽卡")
+        _gacha_log(f"第 {st['count']} 次抽卡（余额 {st['coin'] or '?'}）")
         return True
 
 
@@ -247,8 +265,11 @@ class ReportDraw(CustomAction):
     def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
         st = _draw_counter(argv.task_detail.task_id)
         count = int(st["count"])
-        print(f"[gacha] 本次活动抽卡共 {count} 次")
+        coin = st["coin"] or "?"
+        print(f"[gacha] 本次活动抽卡共 {count} 次，最后余额 {coin}")
+        _gacha_log(f"抽卡结束：共 {count} 次，最后余额 {coin}")
         st["count"] = 0
+        st["coin"] = ""
         return True
 
 

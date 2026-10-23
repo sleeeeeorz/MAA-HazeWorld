@@ -116,32 +116,6 @@
             }
         }
     },
-    "作战演习界面": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "作战演习.png"
-                ],
-                "threshold": [
-                    0.9
-                ]
-            }
-        },
-        "timeout": 5000,
-        "next": [
-            "代理完成"
-        ],
-        "on_error": [
-            "返回到演习作战"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2804,
-                "y": 288
-            }
-        }
-    },
     "兑换商店（演习）": {
         "recognition": {
             "type": "TemplateMatch",
@@ -182,7 +156,7 @@
         },
         "post_delay": 1000,
         "next": [
-            "返回到演习作战"
+            "返回主界面（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -289,92 +263,6 @@
             }
         }
     },
-    "新建节点118": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "精英演习卷.png"
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "新建节点120"
-        ],
-        "on_error": [
-            "无法兑换"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2804,
-                "y": -103
-            }
-        }
-    },
-    "新建节点120": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "MAX（补充）.png"
-                ],
-                "threshold": [
-                    0.9
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "新建节点121"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3124,
-                "y": -35
-            }
-        }
-    },
-    "新建节点121": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "确认.png"
-                ],
-                "threshold": [
-                    0.9
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "补充完成（演习）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3444,
-                "y": -35
-            }
-        }
-    },
-    "无法兑换": {
-        "action": {
-            "type": "StopTask"
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 3124,
-                "y": -226
-            }
-        }
-    },
     "演习": {
         "recognition": {
             "type": "TemplateMatch",
@@ -389,8 +277,10 @@
         },
         "post_delay": 5000,
         "next": [
-            "代理完成",
-            "代理作战"
+            "券检查（演习）"
+        ],
+        "on_error": [
+            "撤离（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -515,8 +405,12 @@
                 ]
             }
         },
+        "max_hit": 6,
         "next": [
             "结束任务（演习）"
+        ],
+        "on_error": [
+            "撤离（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -538,12 +432,9 @@
             "type": "Click"
         },
         "post_delay": 1000,
-        "timeout": 3000,
+        "timeout": 5000,
         "next": [
-            "代理作战"
-        ],
-        "on_error": [
-            "演习卷不足（演习）"
+            "撤离（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -587,69 +478,6 @@
             }
         }
     },
-    "补充完成（演习）": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "mark_weekly_done",
-                "custom_action_param": {
-                    "state_key": "补充演习卷"
-                }
-            }
-        },
-        "next": [
-            "代理作战"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3764,
-                "y": 22
-            }
-        }
-    },
-    "补充检查（演习）": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "weekly_pending_after",
-                "custom_recognition_param": {
-                    "require_state_key": "演习商店",
-                    "state_key": "补充演习卷"
-                }
-            }
-        },
-        "next": [
-            "补充演习卷"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2164,
-                "y": -52
-            }
-        }
-    },
-    "补充演习卷": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1212,
-                    27,
-                    24,
-                    24
-                ]
-            }
-        },
-        "next": [
-            "新建节点118"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2484,
-                "y": -34
-            }
-        }
-    },
     "返回到演习作战": {
         "recognition": {
             "type": "TemplateMatch",
@@ -664,7 +492,7 @@
         },
         "post_delay": 5000,
         "next": [
-            "作战演习界面"
+            "返回主界面（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -693,6 +521,119 @@
             "position": {
                 "x": 1204,
                 "y": 319
+            }
+        }
+    },
+
+    // 商城买完可能只退到商城首页，所以要循环点返回：
+    //   识别到设置.png（主界面）-> 重新点演习入口，直接开打
+    //   没识别到            -> 再点一次返回（最多 8 次）
+    "返回主界面（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "timeout": 5000,
+        "max_hit": 8,
+        "next": [
+            "重进演习（演习）"
+        ],
+        "on_error": [
+            "返回到演习作战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2890,
+                "y": 2800
+            }
+        }
+    },
+    // 从主界面重新进演习，直接接代理流程，不再经过商店
+    "重进演习（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "演习.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "代理完成",
+            "代理作战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3250,
+                "y": 2800
+            }
+        }
+    },
+
+    // 演习券在右上角，显示成 0/15 这种格式。
+    // 有券 -> 去领「代理完成」的结算；没券 -> 直接撤离，不开代理作战。
+    "券检查（演习）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1085,
+                    15,
+                    165,
+                    45
+                ],
+                "expected": [
+                    "^[1-9]\\d*/"
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "代理完成"
+        ],
+        "on_error": [
+            "撤离（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3800,
+                "y": 300
+            }
+        }
+    },
+    // 撤离：点左上角返回，直到看到主界面的设置齿轮就结束
+    "撤离（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 3000,
+        "max_hit": 6,
+        "next": [
+            "确认返回（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4150,
+                "y": 300
             }
         }
     }

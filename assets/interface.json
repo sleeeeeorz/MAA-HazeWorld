@@ -11,7 +11,7 @@
     "welcome": "先跑「游戏启动」，再按需选择任务；商店兑换与抽卡次数在任务选项里设置。",
     // 填写项目地址和版本号可实现自动更新功能
     "github": "https://github.com/sleeeeeorz/MAA-HazeWorld",
-    "version": "0.2.6",
+    "version": "0.2.7",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
@@ -43,13 +43,13 @@
     "task": [
         {
             "name": "游戏初始化",
-            "entry": "游戏初始化",
+            "entry": "拉起游戏",
             "label": "游戏启动",
             "option": []
         },
         {
             "name": "演习",
-            "entry": "演习（合并）",
+            "entry": "演习·入口",
             "label": "每日演习",
             "description": "每周兑换一次演习卷（商店周一刷新），再打演习；商店可在任务设置里关掉",
             "group": [],
@@ -59,12 +59,12 @@
         },
         {
             "name": "指挥室",
-            "entry": "指挥室",
+            "entry": "指挥室·入口",
             "label": "指挥室"
         },
         {
             "name": "活动",
-            "entry": "活动",
+            "entry": "活动·入口",
             "label": "当期活动",
             "description": "扫荡当期活动，扫完接着抽卡\n抽卡可在任务设置里关掉",
             "group": [],
@@ -74,17 +74,17 @@
         },
         {
             "name": "通行证",
-            "entry": "通行证",
+            "entry": "通行证·入口",
             "label": "通行证"
         },
         {
             "name": "商城",
-            "entry": "商城",
+            "entry": "商城·入口",
             "description": "购买每日免费礼包"
         },
         {
             "name": "任务",
-            "entry": "任务",
+            "entry": "任务·入口",
             "label": "每日任务",
             "description": "每日/每周/每月任务：三个分段各自可开关，可领取的奖励也能单独关掉",
             "option": [
