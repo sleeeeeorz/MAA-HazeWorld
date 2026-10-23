@@ -38,7 +38,12 @@ from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.custom_recognition import CustomRecognition
 
-ROOT = Path(__file__).resolve().parents[1]
+_AGENT_DIR = Path(__file__).resolve().parent
+ROOT = (
+    _AGENT_DIR.parent.parent
+    if _AGENT_DIR.parent.name == "assets"
+    else _AGENT_DIR.parent
+)
 STATE_FILE = ROOT / "data" / "weekly_state.json"
 WEEKDAY_NAMES = "一二三四五六日"
 
@@ -186,6 +191,64 @@ class LogMessage(CustomAction):
         msg = str(param.get("msg", ""))
         if msg:
             print(f"[haze] {msg}")
+        return True
+
+
+# 抽卡计数：按 task_id 分组，任务一换自动归零
+_DRAW_STATE: dict[str, object] = {"task_id": None, "count": 0}
+
+
+def _draw_counter(task_id):
+    if _DRAW_STATE["task_id"] != task_id:
+        _DRAW_STATE["task_id"] = task_id
+        _DRAW_STATE["count"] = 0
+    return _DRAW_STATE
+
+
+@AgentServer.custom_action("log_coin")
+class LogCoin(CustomAction):
+    """把本节点的 OCR 结果打出来（用于日志显示抽卡币数量）。
+
+    OCR 节点自身命中后才会执行动作，所以没命中时不会刷日志。
+    """
+
+    def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
+        param = _parse_param(argv.custom_action_param)
+        label = str(param.get("label", "抽卡币"))
+
+        texts = []
+        detail = argv.reco_detail
+        if detail:
+            for item in (getattr(detail, "all_results", None) or [])[:3]:
+                text = getattr(item, "text", None)
+                if text:
+                    texts.append(text)
+
+        value = " / ".join(texts) if texts else "?"
+        print(f"[gacha] {label} = {value}")
+        return True
+
+
+@AgentServer.custom_action("count_draw")
+class CountDraw(CustomAction):
+    """每抽一次卡 +1，并打一行"第几次"。"""
+
+    def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
+        st = _draw_counter(argv.task_detail.task_id)
+        st["count"] = int(st["count"]) + 1
+        print(f"[gacha] 第 {st['count']} 次抽卡")
+        return True
+
+
+@AgentServer.custom_action("report_draw")
+class ReportDraw(CustomAction):
+    """任务收尾时汇总本次一共抽了多少次。"""
+
+    def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
+        st = _draw_counter(argv.task_detail.task_id)
+        count = int(st["count"])
+        print(f"[gacha] 本次活动抽卡共 {count} 次")
+        st["count"] = 0
         return True
 
 

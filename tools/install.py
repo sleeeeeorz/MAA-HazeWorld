@@ -179,11 +179,12 @@ def install_python():
 
 
 def install_agent():
-    shutil.copytree(
-        working_dir / "agent",
-        install_path / "agent",
-        dirs_exist_ok=True,
-    )
+    # 源码里 agent 在 assets/agent（MPE 和 AUTO-MAS 都按 interface 所在目录找它），
+    # 打进包里后放到包根的 agent/
+    src = working_dir / "assets" / "agent"
+    if not src.exists():
+        src = working_dir / "agent"
+    shutil.copytree(src, install_path / "agent", dirs_exist_ok=True)
 
 
 if __name__ == "__main__":

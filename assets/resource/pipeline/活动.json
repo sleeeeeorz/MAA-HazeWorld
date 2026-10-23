@@ -3,17 +3,25 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792506344561,
+            "lastSyncTime": 1792735809105,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动.json",
             "savedViewport": {
-                "x": -745,
-                "y": 134,
+                "x": -612,
+                "y": 305,
                 "zoom": 0.8
             },
             "filename": "活动",
             "version": "v2.1.0"
+        }
+    },
+    "$__mpe_external_活动-抽卡_活动": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3520,
+                "y": 289
+            }
         }
     },
     "MAX（活动）": {
@@ -327,14 +335,6 @@
             "position": {
                 "x": 320,
                 "y": 256
-            }
-        }
-    },
-    "$__mpe_external_活动-抽卡_活动": {
-        "$__mpe_code": {
-            "position": {
-                "x": 3520,
-                "y": 289
             }
         }
     }

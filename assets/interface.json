@@ -5,13 +5,13 @@
     // 示例：https://github.com/MaaXYZ/MaaFramework/blob/main/sample/interface.json
     "interface_version": 2,
     "name": "MAA-HazeWorld",
-    "description": "这是一个使用 MaaFramework 创建的新项目。",
+    "description": "《苍雾世界》自动化：每日演习（含每周演习商店）、指挥室、当期活动扫荡与抽卡、通行证、商城、每日任务。",
     "contact": "QQ：2017969671",
     "license": "MIT",
-    "welcome": "首次使用！欢迎使用 MAA!",
+    "welcome": "先跑「游戏启动」，再按需选择任务；商店兑换与抽卡次数在任务选项里设置。",
     // 填写项目地址和版本号可实现自动更新功能
     "github": "https://github.com/sleeeeeorz/MAA-HazeWorld",
-    "version": "0.2.5.2",
+    "version": "0.2.6",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
@@ -37,7 +37,7 @@
     "agent": {
         "child_exec": "python",
         "child_args": [
-            "../agent/main.py"
+            "./agent/main.py"
         ]
     },
     "task": [
@@ -170,7 +170,7 @@
         "每日任务": {
             "type": "switch",
             "label": "每日任务",
-            "description": "关掉后不点每日任务那一栏",
+            "description": "关掉后不点每日任务",
             "cases": [
                 {
                     "name": "Yes",
@@ -197,7 +197,7 @@
         "每周任务": {
             "type": "switch",
             "label": "每周任务",
-            "description": "关掉后不点每周任务那一栏",
+            "description": "关掉后不点每周任务",
             "cases": [
                 {
                     "name": "Yes",
@@ -230,7 +230,7 @@
         "每月任务": {
             "type": "switch",
             "label": "每月任务",
-            "description": "关掉后不点每月任务那一栏",
+            "description": "关掉后不点每月任务",
             "cases": [
                 {
                     "name": "Yes",
@@ -271,7 +271,7 @@
         "每日可领取（100 点）": {
             "type": "switch",
             "label": "每日 · 100 点",
-            "description": "每日任务里需要 100 点的那档奖励。关闭后跳过它，不影响后面的周/月任务。",
+            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -296,7 +296,7 @@
         "每周可领取（90 点）": {
             "type": "switch",
             "label": "每周 · 90 点",
-            "description": "每周任务里需要 90 点的那档奖励。关闭后这一档不领，150 点那档照常领。",
+            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -321,7 +321,7 @@
         "每周可领取（150 点）": {
             "type": "switch",
             "label": "每周 · 150 点",
-            "description": "每周任务里需要 150 点的那档奖励。关闭后领完 90 点档就直接去每月任务。",
+            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -346,7 +346,7 @@
         "每月可领取（150 点）": {
             "type": "switch",
             "label": "每月 · 150 点",
-            "description": "每月任务里需要 150 点的那档奖励。关闭后这一档不领，300 / 450 点两档照常领。",
+            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -371,7 +371,7 @@
         "每月可领取（300 点）": {
             "type": "switch",
             "label": "每月 · 300 点",
-            "description": "每月任务里需要 300 点的那档奖励。关闭后跳过它，450 点那档照常领。",
+            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -396,7 +396,7 @@
         "每月可领取（450 点）": {
             "type": "switch",
             "label": "每月 · 450 点",
-            "description": "每月任务里需要 450 点的那档奖励，是领完最后一档才回主界面的。",
+            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",

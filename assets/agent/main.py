@@ -6,7 +6,13 @@ from maa.tasker import Tasker
 
 # 让 import my_xxx 在任意工作目录下都能成立
 _AGENT_DIR = Path(__file__).resolve().parent
-_PROJECT_ROOT = _AGENT_DIR.parent
+# 源码形态：agent 在 assets/agent，项目根是 assets 的上一级；
+# 打包形态：agent 在包根，项目根就是它的父目录。
+_PROJECT_ROOT = (
+    _AGENT_DIR.parent.parent
+    if _AGENT_DIR.parent.name == "assets"
+    else _AGENT_DIR.parent
+)
 sys.path.insert(0, str(_AGENT_DIR))
 
 import my_action  # noqa: E402,F401  # 导入即注册

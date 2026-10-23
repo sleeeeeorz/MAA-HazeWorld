@@ -2,64 +2,18 @@
     "$__mpe_config_通行证": {
         "$__mpe_code": {
             "prefix": "",
-            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\通行证.json",
-            "lastSyncTime": 1792385824637,
             "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1792739398732,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\通行证.json",
             "savedViewport": {
-                "x": -2112,
-                "y": -2561,
-                "zoom": 0.79
+                "x": 80,
+                "y": -1849,
+                "zoom": 0.63
             },
             "filename": "通行证",
             "version": "v2.1.0"
-        }
-    },
-    "通行证": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1201,
-                    100,
-                    26,
-                    33
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "任务（通行证）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 526,
-                "y": 3418
-            }
-        }
-    },
-    "任务（通行证）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "任务（通行证）.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "一键领取（通行证）"
-        ],
-        "on_error": [
-            "左上角返回（通行证）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 846,
-                "y": 3409
-            }
         }
     },
     "一键领取（通行证）": {
@@ -80,38 +34,101 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1166,
-                "y": 3434
+                "x": 1223,
+                "y": 3149
             }
         }
     },
-    "获得资源（通行证）": {
+    "一键领取（通行证）_副本1": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "获得资源.png"
+                    "一键领取.png"
                 ]
             }
         },
         "action": {
-            "type": "Click",
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（通行证）_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2181,
+                "y": 3144
+            }
+        }
+    },
+    "任务（通行证）": {
+        "recognition": {
+            "type": "TemplateMatch",
             "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
+                "template": [
+                    "任务（通行证）.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "一键领取（通行证）"
+        ],
+        "on_error": [
+            "左上角返回（通行证）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 846,
+                "y": 3409
+            }
+        }
+    },
+    "多次点击（通行证）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
                 ]
             }
         },
         "next": [
-            "奖励（通行证）"
+            "点关闭按钮（通行证）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1486,
-                "y": 3449
+                "x": 3395,
+                "y": 3739
+            }
+        }
+    },
+    "奖励（通行证）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "奖励（pass）.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "一键领取（通行证）_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1817,
+                "y": 3142
             }
         }
     },
@@ -134,83 +151,28 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2891,
-                "y": 3422
+                "x": 3011,
+                "y": 3505
             }
         }
     },
-    "奖励（通行证）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "奖励（pass）.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "一键领取（通行证）_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1806,
-                "y": 3463
-            }
-        }
-    },
-    "一键领取（通行证）_副本1": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "一键领取.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（通行证）_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2126,
-                "y": 3427
-            }
-        }
-    },
-    "获得资源（通行证）_副本1": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "获得资源.png"
-                ]
-            }
-        },
+    "点关闭按钮（通行证）": {
+        "pre_delay": 1000,
         "action": {
             "type": "Click",
             "param": {
                 "target": [
-                    202,
-                    35,
-                    1,
-                    1
+                    40,
+                    22,
+                    44,
+                    28
                 ]
             }
         },
-        "next": [
-            "左上角返回（通行证）"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 2446,
-                "y": 3442
+                "x": 3908,
+                "y": 3772
             }
         }
     },
@@ -248,45 +210,86 @@
             }
         }
     },
-    "多次点击（通行证）": {
+    "获得资源（通行证）": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
+                    "获得资源.png"
                 ]
             }
         },
-        "next": [
-            "点关闭按钮（通行证）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3395,
-                "y": 3739
-            }
-        }
-    },
-    "点关闭按钮（通行证）": {
-        "pre_delay": 1000,
         "action": {
             "type": "Click",
             "param": {
                 "target": [
-                    40,
-                    22,
-                    44,
-                    28
+                    202,
+                    35,
+                    1,
+                    1
                 ]
             }
         },
+        "next": [
+            "奖励（通行证）"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 3908,
-                "y": 3772
+                "x": 1525,
+                "y": 3169
+            }
+        }
+    },
+    "获得资源（通行证）_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "获得资源.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "左上角返回（通行证）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2479,
+                "y": 3136
+            }
+        }
+    },
+    "通行证": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1201,
+                    100,
+                    26,
+                    33
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "任务（通行证）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 389,
+                "y": 3412
             }
         }
     }

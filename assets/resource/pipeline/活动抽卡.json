@@ -3,17 +3,83 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792508037774,
+            "lastSyncTime": 1792737947341,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动抽卡.json",
             "savedViewport": {
-                "x": -1060,
-                "y": -3234,
-                "zoom": 0.96
+                "x": -377,
+                "y": -1929,
+                "zoom": 0.63
             },
             "filename": "活动抽卡",
             "version": "v2.1.0"
+        }
+    },
+    "下一页": {
+        "max_hit": 20,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "下一页抽卡.png"
+                ],
+                "threshold": [
+                    0.9
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "确认（活动下一页）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 891,
+                "y": 3119
+            }
+        }
+    },
+    "余额判断（活动）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1111,
+                    8,
+                    103,
+                    29
+                ],
+                "expected": [
+                    "^0$"
+                ],
+                "only_rec": true
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_coin",
+                "custom_action_param": {
+                    "label": "剩余抽卡币"
+                }
+            }
+        },
+        "timeout": 3000,
+        "next": [
+            "返回主界面（任务抽卡）"
+        ],
+        "on_error": [
+            "抽卡"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2150,
+                "y": 3489
+            }
         }
     },
     "关闭抽卡详情（活动抽卡）": {
@@ -30,12 +96,107 @@
         },
         "post_delay": 3000,
         "next": [
+            "计数（活动抽卡）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1789,
+                "y": 3489
+            }
+        }
+    },
+    "关闭抽卡详情（活动抽卡）_单次": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    394,
+                    18,
+                    64,
+                    38
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "计数（活动抽卡）_单次"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1400,
+                "y": 3300
+            }
+        }
+    },
+    "初判2（活动）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1111,
+                    8,
+                    103,
+                    29
+                ],
+                "expected": [
+                    "^0$"
+                ],
+                "only_rec": true
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_coin",
+                "custom_action_param": {
+                    "label": "抽卡币（0 判断）"
+                }
+            }
+        },
+        "timeout": 3000,
+        "next": [
             "返回主界面（任务抽卡）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1814,
-                "y": 3555
+                "x": 700,
+                "y": 3500
+            }
+        }
+    },
+    "初判（活动）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1111,
+                    8,
+                    103,
+                    29
+                ],
+                "expected": [
+                    "^(?:[1-9]|[1-4]\\d|50)$"
+                ],
+                "only_rec": true
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_coin",
+                "custom_action_param": {
+                    "label": "进界面时抽卡币"
+                }
+            }
+        },
+        "timeout": 3000,
+        "next": [
+            "抽卡_单次"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 700,
+                "y": 3300
             }
         }
     },
@@ -62,6 +223,7 @@
         }
     },
     "抽卡": {
+        "max_hit": 20,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -87,8 +249,39 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1494,
-                "y": 3520
+                "x": 1496,
+                "y": 3713
+            }
+        }
+    },
+    "抽卡_单次": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "紫色抽卡（活动）.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    837,
+                    664,
+                    171,
+                    43
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "关闭抽卡详情（活动抽卡）_单次"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1050,
+                "y": 3300
             }
         }
     },
@@ -105,14 +298,34 @@
             "type": "Click"
         },
         "post_delay": 3000,
+        "timeout": 5000,
         "next": [
             "[JumpBack]下一页",
+            "初判（活动）",
+            "初判2（活动）",
             "抽卡"
         ],
         "$__mpe_code": {
             "position": {
                 "x": 534,
                 "y": 3542
+            }
+        }
+    },
+    "汇总（活动抽卡）": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "report_draw"
+            }
+        },
+        "next": [
+            "结束任务（活动抽卡）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2400,
+                "y": 3500
             }
         }
     },
@@ -172,12 +385,32 @@
             }
         },
         "next": [
-            "结束任务（活动抽卡）"
+            "汇总（活动抽卡）"
         ],
         "$__mpe_code": {
             "position": {
                 "x": 2454,
                 "y": 3495
+            }
+        }
+    },
+    "确认（活动下一页）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "确认购买.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 1210,
+                "y": 3052
             }
         }
     },
@@ -190,6 +423,40 @@
             "position": {
                 "x": 2774,
                 "y": 3542
+            }
+        }
+    },
+    "计数（活动抽卡）": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "count_draw"
+            }
+        },
+        "next": [
+            "余额判断（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1800,
+                "y": 3300
+            }
+        }
+    },
+    "计数（活动抽卡）_单次": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "count_draw"
+            }
+        },
+        "next": [
+            "返回主界面（任务抽卡）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1800,
+                "y": 3500
             }
         }
     },
@@ -214,52 +481,6 @@
             "position": {
                 "x": 2134,
                 "y": 3519
-            }
-        }
-    },
-    "下一页": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "下一页抽卡.png"
-                ],
-                "threshold": [
-                    0.9
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "确认（活动下一页）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 920,
-                "y": 3772
-            }
-        }
-    },
-    "确认（活动下一页）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "确认购买.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "$__mpe_code": {
-            "position": {
-                "x": 1214,
-                "y": 3788
             }
         }
     }
