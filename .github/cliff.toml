@@ -88,6 +88,8 @@ commit_parsers = [
     { message = "^ci", group = "<!-- 7 -->⚙️ 持续集成" },
     { body = ".*security", group = "<!-- 9 -->🔒 安全" },
     { message = "^revert", group = "<!-- 10 -->◀️ 撤销" },
+    # 兜底：不按约定式前缀写的提交（比如中文说明）也收进来，否则 changelog 会是空的
+    { message = ".*", group = "<!-- 99 -->📝 其他" },
 ]
 
 # 忽略这些提交

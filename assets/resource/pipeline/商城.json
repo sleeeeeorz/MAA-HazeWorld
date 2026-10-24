@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792685675239,
+            "lastSyncTime": 1792818394398,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\商城.json",
             "savedViewport": {
-                "x": -2058,
-                "y": -3094,
-                "zoom": 1.01
+                "x": -1343,
+                "y": -2185,
+                "zoom": 0.8
             },
             "filename": "商城",
             "version": "v2.1.0"
@@ -18,10 +18,10 @@
     },
     "免费礼包": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "免费礼包.png"
+                "expected": [
+                    "免费礼包"
                 ]
             }
         },
@@ -41,10 +41,10 @@
     },
     "商城": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "商城.png"
+                "expected": [
+                    "商城"
                 ]
             }
         },
@@ -149,7 +149,7 @@
             }
         },
         "next": [
-            "结束任务（商城）"
+            "结束任务（签到）"
         ],
         "$__mpe_code": {
             "position": {
@@ -160,10 +160,10 @@
     },
     "确认（商店）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "确认（商店）.png"
+                "expected": [
+                    "确认"
                 ]
             }
         },
@@ -181,24 +181,12 @@
             }
         }
     },
-    "结束任务（商城）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 3643,
-                "y": 3233
-            }
-        }
-    },
     "获得资源（商店）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "获得资源.png"
+                "expected": [
+                    "获得资源"
                 ]
             }
         },
@@ -226,14 +214,12 @@
     },
     "通常礼包": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "通常礼包.png"
+                "expected": [
+                    "通常礼包"
                 ],
-                "threshold": [
-                    0.9
-                ]
+                "threshold": 0.9
             }
         },
         "action": {
@@ -250,6 +236,14 @@
             "position": {
                 "x": 888,
                 "y": 3290
+            }
+        }
+    },
+    "$__mpe_external_结束任务（签到）_商城": {
+        "$__mpe_code": {
+            "position": {
+                "x": 4100,
+                "y": 3055
             }
         }
     }

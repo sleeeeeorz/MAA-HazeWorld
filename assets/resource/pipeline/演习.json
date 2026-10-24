@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792606174209,
+            "lastSyncTime": 1792818778032,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\演习.json",
             "savedViewport": {
-                "x": -642,
-                "y": 180,
-                "zoom": 0.4
+                "x": -2962,
+                "y": -407,
+                "zoom": 0.8
             },
             "filename": "演习",
             "version": "v2.1.0"
@@ -18,10 +18,10 @@
     },
     "MAX（演习）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "MAX.png"
+                "expected": [
+                    "MAX"
                 ]
             }
         },
@@ -42,17 +42,17 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 4404,
-                "y": 376
+                "x": 3444,
+                "y": 772
             }
         }
     },
     "MAX（演习）_副本1": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "MAX（演习商店）.png"
+                "expected": [
+                    "MAX"
                 ]
             }
         },
@@ -66,16 +66,16 @@
         "$__mpe_code": {
             "position": {
                 "x": 1524,
-                "y": 326
+                "y": 1157
             }
         }
     },
     "代理作战": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "代理作战.png"
+                "expected": [
+                    "代理作战"
                 ]
             }
         },
@@ -88,17 +88,17 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 4084,
-                "y": 392
+                "x": 3124,
+                "y": 788
             }
         }
     },
     "代理完成": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "代理完成.png"
+                "expected": [
+                    "代理完成"
                 ]
             }
         },
@@ -111,8 +111,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3124,
-                "y": 364
+                "x": 3754,
+                "y": 1121
             }
         }
     },
@@ -137,8 +137,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 884,
-                "y": 310
+                "x": 912,
+                "y": 981
             }
         }
     },
@@ -161,7 +161,36 @@
         "$__mpe_code": {
             "position": {
                 "x": 2164,
-                "y": 352
+                "y": 1093
+            }
+        }
+    },
+    "券检查（演习）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1085,
+                    15,
+                    165,
+                    45
+                ],
+                "expected": [
+                    "^[1-9]\\d*/"
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "代理完成"
+        ],
+        "on_error": [
+            "撤离（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3375,
+                "y": 1130
             }
         }
     },
@@ -189,8 +218,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 244,
-                "y": 335
+                "x": 263,
+                "y": 985
             }
         }
     },
@@ -211,8 +240,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5364,
-                "y": 546
+                "x": 4404,
+                "y": 91
             }
         }
     },
@@ -235,17 +264,17 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5044,
-                "y": 382
+                "x": 4084,
+                "y": 778
             }
         }
     },
     "开始代理": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "开始代理.png"
+                "expected": [
+                    "开始代理"
                 ]
             }
         },
@@ -258,17 +287,41 @@
         ],
         "$__mpe_code": {
             "position": {
+                "x": 3764,
+                "y": 788
+            }
+        }
+    },
+    "撤离（演习）": {
+        "max_hit": 6,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 3000,
+        "next": [
+            "确认返回（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
                 "x": 4724,
-                "y": 392
+                "y": 1140
             }
         }
     },
     "演习": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "演习.png"
+                "expected": [
+                    "演习"
                 ]
             }
         },
@@ -284,17 +337,17 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2804,
-                "y": 711
+                "x": 3023,
+                "y": 1328
             }
         }
     },
     "演习_副本1": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "演习.png"
+                "expected": [
+                    "演习"
                 ]
             }
         },
@@ -307,8 +360,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 564,
-                "y": 326
+                "x": 568,
+                "y": 967
             }
         }
     },
@@ -328,7 +381,7 @@
         "$__mpe_code": {
             "position": {
                 "x": 4404,
-                "y": 91
+                "y": 432
             }
         }
     },
@@ -343,7 +396,7 @@
         "$__mpe_code": {
             "position": {
                 "x": -76,
-                "y": 394
+                "y": 1225
             }
         }
     },
@@ -362,21 +415,19 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 5684,
-                "y": 576
+                "x": 4724,
+                "y": 121
             }
         }
     },
     "确认购买（演习）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "确认购买.png"
+                "expected": [
+                    "确认"
                 ],
-                "threshold": [
-                    0.9
-                ]
+                "threshold": 0.9
             }
         },
         "action": {
@@ -388,12 +439,13 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1844,
-                "y": 310
+                "x": 1848,
+                "y": 1088
             }
         }
     },
     "确认返回（演习）": {
+        "max_hit": 6,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -405,7 +457,6 @@
                 ]
             }
         },
-        "max_hit": 6,
         "next": [
             "结束任务（演习）"
         ],
@@ -414,17 +465,17 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5364,
-                "y": 205
+                "x": 4918,
+                "y": 725
             }
         }
     },
     "确认（演习）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "确认.png"
+                "expected": [
+                    "确认"
                 ]
             }
         },
@@ -438,8 +489,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3764,
-                "y": 307
+                "x": 4465,
+                "y": 1021
             }
         }
     },
@@ -461,8 +512,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3444,
-                "y": 377
+                "x": 4084,
+                "y": 1198
             }
         }
     },
@@ -473,8 +524,35 @@
         "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 5684,
-                "y": 138
+                "x": 5118,
+                "y": 488
+            }
+        }
+    },
+    "返回主界面（演习）": {
+        "max_hit": 8,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "重进演习（演习）"
+        ],
+        "on_error": [
+            "返回到演习作战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2379,
+                "y": 933
             }
         }
     },
@@ -496,8 +574,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2484,
-                "y": 326
+                "x": 2646,
+                "y": 1169
             }
         }
     },
@@ -520,48 +598,16 @@
         "$__mpe_code": {
             "position": {
                 "x": 1204,
-                "y": 319
+                "y": 1150
             }
         }
     },
-
-    // 商城买完可能只退到商城首页，所以要循环点返回：
-    //   识别到设置.png（主界面）-> 重新点演习入口，直接开打
-    //   没识别到            -> 再点一次返回（最多 8 次）
-    "返回主界面（演习）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "timeout": 5000,
-        "max_hit": 8,
-        "next": [
-            "重进演习（演习）"
-        ],
-        "on_error": [
-            "返回到演习作战"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2890,
-                "y": 2800
-            }
-        }
-    },
-    // 从主界面重新进演习，直接接代理流程，不再经过商店
     "重进演习（演习）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "演习.png"
+                "expected": [
+                    "演习"
                 ]
             }
         },
@@ -575,65 +621,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3250,
-                "y": 2800
-            }
-        }
-    },
-
-    // 演习券在右上角，显示成 0/15 这种格式。
-    // 有券 -> 去领「代理完成」的结算；没券 -> 直接撤离，不开代理作战。
-    "券检查（演习）": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1085,
-                    15,
-                    165,
-                    45
-                ],
-                "expected": [
-                    "^[1-9]\\d*/"
-                ]
-            }
-        },
-        "timeout": 5000,
-        "next": [
-            "代理完成"
-        ],
-        "on_error": [
-            "撤离（演习）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3800,
-                "y": 300
-            }
-        }
-    },
-    // 撤离：点左上角返回，直到看到主界面的设置齿轮就结束
-    "撤离（演习）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "左上角返回.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 3000,
-        "max_hit": 6,
-        "next": [
-            "确认返回（演习）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4150,
-                "y": 300
+                "x": 2804,
+                "y": 836
             }
         }
     }

@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792739398732,
+            "lastSyncTime": 1792819514257,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\通行证.json",
             "savedViewport": {
-                "x": 80,
-                "y": -1849,
-                "zoom": 0.63
+                "x": -1280,
+                "y": -2219,
+                "zoom": 0.8
             },
             "filename": "通行证",
             "version": "v2.1.0"
@@ -18,10 +18,10 @@
     },
     "一键领取（通行证）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "一键领取.png"
+                "expected": [
+                    "一键领取"
                 ]
             }
         },
@@ -41,10 +41,10 @@
     },
     "一键领取（通行证）_副本1": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "一键领取.png"
+                "expected": [
+                    "一键领取"
                 ]
             }
         },
@@ -64,10 +64,10 @@
     },
     "任务（通行证）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "任务（通行证）.png"
+                "expected": [
+                    "任务"
                 ]
             }
         },
@@ -112,10 +112,10 @@
     },
     "奖励（通行证）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "奖励（pass）.png"
+                "expected": [
+                    "奖励"
                 ]
             }
         },
@@ -151,8 +151,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3011,
-                "y": 3505
+                "x": 2935,
+                "y": 3475
             }
         }
     },
@@ -212,10 +212,10 @@
     },
     "获得资源（通行证）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "获得资源.png"
+                "expected": [
+                    "获得资源"
                 ]
             }
         },
@@ -240,12 +240,35 @@
             }
         }
     },
+    "通行证": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "通行证"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "任务（通行证）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 389,
+                "y": 3412
+            }
+        }
+    },
     "获得资源（通行证）_副本1": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "获得资源.png"
+                "expected": [
+                    "获得资源"
                 ]
             }
         },
@@ -265,31 +288,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2479,
-                "y": 3136
-            }
-        }
-    },
-    "通行证": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1201,
-                    100,
-                    26,
-                    33
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "任务（通行证）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 389,
-                "y": 3412
+                "x": 2499,
+                "y": 3209
             }
         }
     }

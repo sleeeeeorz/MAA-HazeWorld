@@ -3,17 +3,25 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792685758041,
+            "lastSyncTime": 1792818785401,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\游戏初始化.json",
             "savedViewport": {
-                "x": -1430,
-                "y": -3162,
-                "zoom": 1
+                "x": -564,
+                "y": -2492,
+                "zoom": 0.8
             },
             "filename": "游戏初始化",
             "version": "v2.1.0"
+        }
+    },
+    "$__mpe_external_关闭游戏_游戏初始化": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2947,
+                "y": 4053
+            }
         }
     },
     "TOUCH TO START": {
@@ -30,43 +38,50 @@
         },
         "post_delay": 10000,
         "next": [
-            "点击签到"
+            "启动·结束"
         ],
         "on_error": [
-            "设置"
+            "启动·主界面检查"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1027,
-                "y": 3683
+                "x": 1347,
+                "y": 3656
             }
         }
     },
-    "拉起游戏": {
-        "action": {
-            "type": "StartApp",
-            "param": {
-                "package": "com.feimo.hazeworld.main"
-            }
-        },
-        "post_delay": 10000,
-        "next": [
-            "[JumpBack]游戏更新",
-            "游戏初始化"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 387,
-                "y": 3397
-            }
-        }
-    },
-    "游戏初始化": {
+    "启动·主界面检查": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
-                    "首页活动UI.png"
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "timeout": 2000,
+        "next": [
+            "启动·结束"
+        ],
+        "on_error": [
+            "启动·签到检查"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1667,
+                "y": 3179
+            }
+        }
+    },
+    "启动·公告判断": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "活动公告.png"
                 ]
             }
         },
@@ -81,17 +96,39 @@
                 ]
             }
         },
+        "post_delay": 3000,
+        "timeout": 2000,
         "next": [
+            "[JumpBack]维护公告",
             "TOUCH TO START"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 707,
-                "y": 3710
+                "x": 1027,
+                "y": 3573
             }
         }
     },
-    "点击签到": {
+    "启动·拉起游戏": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.feimo.hazeworld.main"
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]游戏更新",
+            "拉起游戏"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1027,
+                "y": 4004
+            }
+        }
+    },
+    "启动·签到检查": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -100,115 +137,69 @@
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "timeout": 5000,
+        "timeout": 2000,
         "next": [
-            "获得资源（初始化）"
+            "启动·结束"
+        ],
+        "on_error": [
+            "拉起游戏"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1347,
-                "y": 3643
+                "x": 387,
+                "y": 3090
             }
         }
     },
-    "获得资源（初始化）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "获得资源.png"
-                ]
-            }
-        },
+    "启动·结束": {
         "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    233,
-                    23,
-                    1,
-                    1
-                ]
-            }
+            "type": "StopTask"
         },
-        "next": [
-            "返回主界面（初始化）"
-        ],
+        "post_delay": 1000,
         "$__mpe_code": {
             "position": {
-                "x": 1667,
-                "y": 3658
+                "x": 1987,
+                "y": 3431
             }
         }
     },
-    "设置": {
+    "启动·设置判断": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
                 "template": [
                     "设置.png"
+                ],
+                "threshold": [
+                    0.95
                 ]
             }
         },
-        "$__mpe_code": {
-            "position": {
-                "x": 2307,
-                "y": 3722
-            }
-        }
-    },
-    "返回主界面（初始化）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "左上角返回.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
+        "timeout": 2000,
         "next": [
-            "设置"
+            "启动·结束"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1987,
-                "y": 3672
+                "x": 1347,
+                "y": 3257
             }
         }
     },
-    "游戏更新": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "游戏需要下载"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    772,
-                    414,
-                    73,
-                    37
-                ]
-            }
-        },
+    "拉起游戏": {
+        "timeout": 5000,
+        "max_hit": 10,
         "next": [
-            "新建节点32"
+            "[JumpBack]启动·设置判断",
+            "[JumpBack]启动·公告判断"
+        ],
+        "on_error": [
+            "启动·拉起游戏"
         ],
         "$__mpe_code": {
             "position": {
                 "x": 707,
-                "y": 3372
+                "y": 3368
             }
         }
     },
@@ -227,27 +218,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1027,
-                "y": 3357
-            }
-        }
-    },
-    "维护公告": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "维护公告"
-                ]
-            }
-        },
-        "next": [
-            "新建节点35"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1347,
-                "y": 3386
+                "x": 1667,
+                "y": 4004
             }
         }
     },
@@ -276,8 +248,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1667,
-                "y": 3372
+                "x": 2307,
+                "y": 3980
             }
         }
     },
@@ -287,16 +259,59 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1987,
-                "y": 3419
+                "x": 2627,
+                "y": 4010
             }
         }
     },
-    "$__mpe_external_关闭游戏_游戏初始化": {
+    "游戏更新": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "游戏需要下载"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    772,
+                    414,
+                    73,
+                    37
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "新建节点32"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 2425,
-                "y": 3457
+                "x": 1347,
+                "y": 3988
+            }
+        }
+    },
+    "维护公告": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "维护公告"
+                ]
+            }
+        },
+        "timeout": 3000,
+        "next": [
+            "新建节点35"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1987,
+                "y": 3965
             }
         }
     }

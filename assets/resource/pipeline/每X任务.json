@@ -2,49 +2,18 @@
     "$__mpe_config_每X任务": {
         "$__mpe_code": {
             "prefix": "",
-            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每X任务.json",
-            "lastSyncTime": 1792385871791,
             "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1792818753917,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每X任务.json",
             "savedViewport": {
-                "x": -158,
-                "y": -1827,
+                "x": 563,
+                "y": -13,
                 "zoom": 0.63
             },
             "filename": "每X任务",
             "version": "v2.1.0"
-        }
-    },
-    "任务": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "任务.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1203,
-                    279,
-                    22,
-                    22
-                ]
-            }
-        },
-        "post_delay": 5000,
-        "next": [
-            "[JumpBack]1每日任务",
-            "[JumpBack]2每周任务",
-            "[JumpBack]3每月任务"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 717,
-                "y": 3553
-            }
         }
     },
     "1每日任务": {
@@ -75,100 +44,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1457,
-                "y": 3608
-            }
-        }
-    },
-    "一键领取": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1158,
-                    658,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1777,
-                "y": 3605
-            }
-        }
-    },
-    "获得资源（每X任务）": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "可领取-100（day）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2097,
-                "y": 3605
-            }
-        }
-    },
-    "可领取-100（day）": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    897,
-                    628,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2417,
-                "y": 3605
-            }
-        }
-    },
-    "获得资源（每X任务）_副本1": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 3000,
-        "next": [
-            "换到每周任务"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2779,
-                "y": 3615
+                "x": 320,
+                "y": 438
             }
         }
     },
@@ -200,8 +77,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1457,
-                "y": 3923
+                "x": 320,
+                "y": 808
             }
         }
     },
@@ -234,8 +111,618 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1457,
-                "y": 3209
+                "x": 320,
+                "y": 7
+            }
+        }
+    },
+    "一键领取": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1158,
+                    658,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 640,
+                "y": 465
+            }
+        }
+    },
+    "一键领取_副本1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1160,
+                    657,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 640,
+                "y": 835
+            }
+        }
+    },
+    "一键领取_副本2": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1158,
+                    656,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）_副本3"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 640,
+                "y": 65
+            }
+        }
+    },
+    "任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "任务"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1203,
+                    279,
+                    22,
+                    22
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]1每日任务",
+            "[JumpBack]2每周任务",
+            "[JumpBack]3每月任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 413
+            }
+        }
+    },
+    "可领取-100（day）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    897,
+                    628,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1280,
+                "y": 465
+            }
+        }
+    },
+    "可领取-150（month）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    581,
+                    629,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）_副本1_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1280,
+                "y": 65
+            }
+        }
+    },
+    "可领取-150（week）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    902,
+                    631,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）_副本1_副本1_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1920,
+                "y": 835
+            }
+        }
+    },
+    "可领取-300（month）_副本1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    743,
+                    628,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）_副本1_副本2_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1920,
+                "y": 58
+            }
+        }
+    },
+    "可领取-450（month）_副本1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    894,
+                    626,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）_副本1_副本2_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2560,
+                "y": 58
+            }
+        }
+    },
+    "可领取-90（week）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    653,
+                    630,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "获得资源（每X任务）_副本1_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1280,
+                "y": 835
+            }
+        }
+    },
+    "多次点击_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "点关闭按钮（每X任务）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3520,
+                "y": 0
+            }
+        }
+    },
+    "换到每周任务": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    117,
+                    249,
+                    101,
+                    33
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "2每周任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1920,
+                "y": 482
+            }
+        }
+    },
+    "换到每月任务": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    116,
+                    348,
+                    101,
+                    34
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "3每月任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2560,
+                "y": 852
+            }
+        }
+    },
+    "点关闭按钮（每X任务）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3840,
+                "y": 30
+            }
+        }
+    },
+    "确认返回（活动）_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "结束任务（每X任务）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3520,
+                "y": 341
+            }
+        }
+    },
+    "结束任务（每X任务）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3840,
+                "y": 395
+            }
+        }
+    },
+    "获得资源（每X任务）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "可领取-100（day）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 960,
+                "y": 465
+            }
+        }
+    },
+    "获得资源（每X任务）_副本1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "换到每周任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1600,
+                "y": 458
+            }
+        }
+    },
+    "获得资源（每X任务）_副本1_副本1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "可领取-150（week）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1600,
+                "y": 859
+            }
+        }
+    },
+    "获得资源（每X任务）_副本1_副本1_副本1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "换到每月任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2240,
+                "y": 828
+            }
+        }
+    },
+    "获得资源（每X任务）_副本1_副本2": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "可领取-300（month）_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1600,
+                "y": 89
+            }
+        }
+    },
+    "获得资源（每X任务）_副本1_副本2_副本1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "可领取-450（month）_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2240,
+                "y": 89
+            }
+        }
+    },
+    "获得资源（每X任务）_副本1_副本2_副本2": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "返回左上角（任务）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2880,
+                "y": 89
+            }
+        }
+    },
+    "获得资源（每X任务）_副本2": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "可领取-90（week）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 960,
+                "y": 859
+            }
+        }
+    },
+    "获得资源（每X任务）_副本3": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    202,
+                    35,
+                    1,
+                    1
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "可领取-150（month）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 960,
+                "y": 58
+            }
+        }
+    },
+    "跳到每周（任务）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    117,
+                    249,
+                    101,
+                    33
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "2每周任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 883
+            }
+        }
+    },
+    "跳到每月（任务）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    116,
+                    348,
+                    101,
+                    34
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "3每月任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 6
             }
         }
     },
@@ -258,480 +745,9 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 4379,
-                "y": 3261
+                "x": 3200,
+                "y": 29
             }
         }
-    },
-    "一键领取_副本1": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1160,
-                    657,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）_副本2"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1777,
-                "y": 3920
-            }
-        }
-    },
-    "一键领取_副本2": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    1158,
-                    656,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）_副本3"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1777,
-                "y": 3251
-            }
-        }
-    },
-    "获得资源（每X任务）_副本2": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "可领取-90（week）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2097,
-                "y": 3944
-            }
-        }
-    },
-    "获得资源（每X任务）_副本3": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "可领取-150（month）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2097,
-                "y": 3244
-            }
-        }
-    },
-    "可领取-90（week）": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    653,
-                    630,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）_副本1_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2417,
-                "y": 3920
-            }
-        }
-    },
-    "可领取-150（month）": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    581,
-                    629,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）_副本1_副本2"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2417,
-                "y": 3251
-            }
-        }
-    },
-    "获得资源（每X任务）_副本1_副本1": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "可领取-150（week）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2737,
-                "y": 3944
-            }
-        }
-    },
-    "获得资源（每X任务）_副本1_副本2": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "可领取-300（month）_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2737,
-                "y": 3275
-            }
-        }
-    },
-    "可领取-150（week）": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    902,
-                    631,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）_副本1_副本1_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3057,
-                "y": 3920
-            }
-        }
-    },
-    "获得资源（每X任务）_副本1_副本1_副本1": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 3000,
-        "next": [
-            "换到每月任务"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3377,
-                "y": 3961
-            }
-        }
-    },
-    "可领取-300（month）_副本1": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    743,
-                    628,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）_副本1_副本2_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3057,
-                "y": 3244
-            }
-        }
-    },
-    "可领取-450（month）_副本1": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    894,
-                    626,
-                    1,
-                    1
-                ]
-            }
-        },
-        "post_delay": 1000,
-        "next": [
-            "获得资源（每X任务）_副本1_副本2_副本2"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3697,
-                "y": 3244
-            }
-        }
-    },
-    "获得资源（每X任务）_副本1_副本2_副本1": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "可领取-450（month）_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3377,
-                "y": 3275
-            }
-        }
-    },
-    "获得资源（每X任务）_副本1_副本2_副本2": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    202,
-                    35,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "返回左上角（任务）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4017,
-                "y": 3275
-            }
-        }
-    },
-    "换到每周任务": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    117,
-                    249,
-                    101,
-                    33
-                ]
-            }
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 3165,
-                "y": 3620
-            }
-        }
-    },
-    "换到每月任务": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    116,
-                    348,
-                    101,
-                    34
-                ]
-            }
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 3719,
-                "y": 3981
-            }
-        }
-    },
-    "确认返回（活动）_副本1": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "结束任务（每X任务）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4954,
-                "y": 3259
-            }
-        }
-    },
-    "结束任务（每X任务）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 5499,
-                "y": 3309
-            }
-        }
-    },
-    "多次点击_副本1": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "点关闭按钮（每X任务）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4959,
-                "y": 3574
-            }
-        }
-    },
-    "点关闭按钮（每X任务）": {
-        "pre_delay": 1000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 5487,
-                "y": 3604
-            }
-        }
-    },
-
-    // 分段开关用的跳转节点：关掉某一栏时把流程推到下一栏的点标签页动作上
-    "跳到每周（任务）": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    117,
-                    249,
-                    101,
-                    33
-                ]
-            }
-        },
-        "post_delay": 5000,
-        "next": [
-            "2每周任务"
-        ]
-    },
-
-    // 分段开关用的跳转节点：关掉某一栏时把流程推到下一栏的点标签页动作上
-    "跳到每月（任务）": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    116,
-                    348,
-                    101,
-                    34
-                ]
-            }
-        },
-        "post_delay": 5000,
-        "next": [
-            "3每月任务"
-        ]
     }
 }

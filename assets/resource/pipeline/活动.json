@@ -3,13 +3,13 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792735809105,
+            "lastSyncTime": 1792818766245,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动.json",
             "savedViewport": {
-                "x": -612,
-                "y": 305,
+                "x": -1700,
+                "y": 100,
                 "zoom": 0.8
             },
             "filename": "活动",
@@ -26,10 +26,10 @@
     },
     "MAX（活动）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "MAX.png"
+                "expected": [
+                    "MAX"
                 ]
             }
         },
@@ -43,6 +43,55 @@
             "position": {
                 "x": 1600,
                 "y": 256
+            }
+        }
+    },
+    "体力不足（活动）": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "体力不足 42，停止活动任务"
+                }
+            }
+        },
+        "next": [
+            "结束任务（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -133,
+                "y": 489
+            }
+        }
+    },
+    "体力识别（活动）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    650,
+                    21,
+                    116,
+                    27
+                ],
+                "expected": [
+                    "^(?:4[2-9]|[5-9]\\d|[1-9]\\d{2,})/\\d+"
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "活动"
+        ],
+        "on_error": [
+            "体力不足（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -543,
+                "y": 117
             }
         }
     },
@@ -125,10 +174,10 @@
     },
     "开始扫荡（活动）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "开始扫荡.png"
+                "expected": [
+                    "开始扫荡"
                 ]
             }
         },
@@ -147,10 +196,10 @@
     },
     "扫荡（活动）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "扫荡.png"
+                "expected": [
+                    "扫荡"
                 ]
             }
         },
@@ -207,8 +256,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 256
+                "x": 33,
+                "y": -3
             }
         }
     },
@@ -256,10 +305,10 @@
     },
     "确认（活动）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "确认.png"
+                "expected": [
+                    "确认"
                 ]
             }
         },
@@ -287,8 +336,8 @@
         "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 0
+                "x": 281,
+                "y": 604
             }
         }
     },
@@ -335,59 +384,6 @@
             "position": {
                 "x": 320,
                 "y": 256
-            }
-        }
-    },
-
-    // 活动扫荡前先看体力：作战准备需要 42 点
-    //   顶部体力条显示成 36/235 这种格式，OCR 可能带回 "+  "，所以结尾不锚定
-    "体力识别（活动）": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    650,
-                    21,
-                    116,
-                    27
-                ],
-                "expected": [
-                    "^(?:4[2-9]|[5-9]\\d|[1-9]\\d{2,})/\\d+"
-                ]
-            }
-        },
-        "timeout": 5000,
-        "next": [
-            "活动"
-        ],
-        "on_error": [
-            "体力不足（活动）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -300,
-                "y": 300
-            }
-        }
-    },
-    // 体力不够就直接收工，不点扫荡
-    "体力不足（活动）": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "log_message",
-                "custom_action_param": {
-                    "msg": "体力不足 42，停止活动任务"
-                }
-            }
-        },
-        "next": [
-            "结束任务（活动）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 100,
-                "y": 300
             }
         }
     }

@@ -1,8 +1,4 @@
 {
-    // 每个任务执行前先确认自己站在主界面：
-    //   设置.png 命中 -> 直接进任务
-    //   没命中       -> 点左上角返回，再判断（最多 8 次）
-    // 这样前一个任务把游戏带进商城/活动页时，后面不会跟着一起失败。
     "演习·入口": {
         "next": [
             "演习·主界面判断"
@@ -244,67 +240,6 @@
             "position": {
                 "x": 800,
                 "y": 500
-            }
-        }
-    },
-    "商城·入口": {
-        "next": [
-            "商城·主界面判断"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": 600
-            }
-        }
-    },
-    "商城·主界面判断": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "timeout": 5000,
-        "max_hit": 8,
-        "next": [
-            "商城"
-        ],
-        "on_error": [
-            "商城·返回"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 400,
-                "y": 600
-            }
-        }
-    },
-    "商城·返回": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "左上角返回.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "商城·主界面判断"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 800,
-                "y": 600
             }
         }
     },
