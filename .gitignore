@@ -452,3 +452,5 @@ tools/ImageCropper/**/*.png
 
 config
 debug
+.pnpm-store/
+data/gacha_log.txt

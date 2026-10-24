@@ -6,7 +6,7 @@
     "license": "MIT",
     "welcome": "先跑「游戏启动」，再按需选择任务；商店兑换与抽卡次数在任务选项里设置。",
     "github": "https://github.com/sleeeeeorz/MAA-HazeWorld",
-    "version": "0.2.8",
+    "version": "0.2.9",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror 酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",

@@ -149,6 +149,9 @@
             "[JumpBack]确认返回（通行证）",
             "[JumpBack]多次点击（通行证）"
         ],
+        "on_error": [
+            "结束任务（通行证）"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 2935,

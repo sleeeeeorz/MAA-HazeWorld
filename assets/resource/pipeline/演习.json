@@ -109,10 +109,86 @@
         "next": [
             "等待确认界面（演习）"
         ],
+        "on_error": [
+            "撤离（演习）"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 3754,
                 "y": 1121
+            }
+        }
+    },
+    "代理完成_副本": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "代理完成"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 10000,
+        "next": [
+            "等待确认界面_副本"
+        ],
+        "on_error": [
+            "撤离（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3754,
+                "y": 1320
+            }
+        }
+    },
+    "等待确认界面_副本": {
+        "pre_wait_freezes": {
+            "time": 800,
+            "target": [
+                200,
+                150,
+                880,
+                450
+            ],
+            "threshold": 0.95,
+            "rate_limit": 500,
+            "timeout": 30000
+        },
+        "next": [
+            "确认_副本"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4084,
+                "y": 1320
+            }
+        }
+    },
+    "确认_副本": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "timeout": 5000,
+        "next": [
+            "撤离（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4465,
+                "y": 1320
             }
         }
     },
@@ -176,15 +252,17 @@
                     45
                 ],
                 "expected": [
-                    "^[1-9]\\d*/"
+                    "[1-9]\\d?/"
                 ]
             }
         },
         "timeout": 5000,
         "next": [
-            "代理完成"
+            "代理完成",
+            "代理作战"
         ],
         "on_error": [
+            "代理完成_副本",
             "撤离（演习）"
         ],
         "$__mpe_code": {
@@ -308,6 +386,9 @@
         "post_delay": 3000,
         "next": [
             "确认返回（演习）"
+        ],
+        "on_error": [
+            "结束任务（演习）"
         ],
         "$__mpe_code": {
             "position": {
@@ -485,7 +566,7 @@
         "post_delay": 1000,
         "timeout": 5000,
         "next": [
-            "撤离（演习）"
+            "代理作战"
         ],
         "$__mpe_code": {
             "position": {
@@ -572,6 +653,9 @@
         "next": [
             "返回主界面（演习）"
         ],
+        "on_error": [
+            "结束任务（演习）"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 2646,
@@ -616,8 +700,7 @@
         },
         "post_delay": 5000,
         "next": [
-            "代理完成",
-            "代理作战"
+            "券检查（演习）"
         ],
         "$__mpe_code": {
             "position": {
