@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792818769725,
+            "lastSyncTime": 1792867541574,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动抽卡.json",
             "savedViewport": {
-                "x": 362,
-                "y": -994,
-                "zoom": 0.4
+                "x": 810,
+                "y": -2011,
+                "zoom": 0.63
             },
             "filename": "活动抽卡",
             "version": "v2.1.0"
@@ -77,8 +77,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 463,
-                "y": 3950
+                "x": 350,
+                "y": 3915
             }
         }
     },
@@ -100,8 +100,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": -177,
-                "y": 3856
+                "x": -434,
+                "y": 3821
             }
         }
     },
@@ -307,8 +307,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 463,
-                "y": 3478
+                "x": 306,
+                "y": 3413
             }
         }
     },
@@ -347,8 +347,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 143,
-                "y": 3504
+                "x": -36,
+                "y": 3483
             }
         }
     },
@@ -438,8 +438,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 143,
-                "y": 4057
+                "x": -28,
+                "y": 4014
             }
         }
     },

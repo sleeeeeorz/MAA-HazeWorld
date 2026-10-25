@@ -3,333 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792869005482,
+            "lastSyncTime": 1792954821501,
             "isModifiedExternally": false,
-            "isDeleted": true,
+            "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日签到.json",
             "savedViewport": {
-                "x": 653,
-                "y": 576,
-                "zoom": 0.79
+                "x": -2071,
+                "y": 806,
+                "zoom": 0.8
             },
             "filename": "每日签到",
             "version": "v2.1.0"
-        }
-    },
-    "每日领取·判断": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "商城"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "通常礼包"
-        ],
-        "on_error": [
-            "结束任务（签到）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3200,
-                "y": -70
-            }
-        }
-    },
-    "签到": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "点击签到.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "timeout": 5000,
-        "next": [
-            "获得资源（签到）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 314,
-                "y": -417
-            }
-        }
-    },
-    "签到·主界面判断": {
-        "max_hit": 8,
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "timeout": 5000,
-        "next": [
-            "签到·收尾"
-        ],
-        "on_error": [
-            "签到·返回"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 679,
-                "y": -36
-            }
-        }
-    },
-    "签到·入口": {
-        "next": [
-            "签到"
-        ],
-        "on_error": [
-            "签到·主界面判断"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -145,
-                "y": -298
-            }
-        }
-    },
-    "签到·收尾": {
-        "next": [
-            "邮箱·判断"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1242,
-                "y": -146
-            }
-        }
-    },
-    "签到·返回": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "左上角返回.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "签到·主界面判断"
-        ],
-        "on_error": [
-            "结束任务（签到）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1248,
-                "y": 113
-            }
-        }
-    },
-    "结束任务（签到）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 3000,
-        "$__mpe_code": {
-            "position": {
-                "x": 3520,
-                "y": 126
-            }
-        }
-    },
-    "获得资源（签到）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "获得资源.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    233,
-                    23,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "签到·收尾"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 971,
-                "y": -408
-            }
-        }
-    },
-    "邮箱·判断": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "邮箱.png"
-                ],
-                "threshold": [
-                    0.9
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 2000,
-        "next": [
-            "邮箱领取"
-        ],
-        "on_error": [
-            "邮箱·返回"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1416,
-                "y": -55
-            }
-        }
-    },
-    "邮箱·空白点击": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    640,
-                    620,
-                    1,
-                    1
-                ]
-            }
-        },
-        "next": [
-            "邮箱·返回"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2332,
-                "y": -378
-            }
-        }
-    },
-    "邮箱·获得资源": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "获得资源"
-                ]
-            }
-        },
-        "timeout": 5000,
-        "next": [
-            "邮箱·空白点击"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2050,
-                "y": -363
-            }
-        }
-    },
-    "邮箱·返回": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "左上角返回.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "每日领取·判断"
-        ],
-        "on_error": [
-            "结束任务（签到）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2721,
-                "y": -144
-            }
-        }
-    },
-    "邮箱领取": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "一键领取"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "timeout": 5000,
-        "next": [
-            "邮箱·获得资源"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1690,
-                "y": -233
-            }
-        }
-    },
-    "通常礼包": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "通常礼包"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 1000,
-        "next": [
-            "免费礼包"
-        ],
-        "on_error": [
-            "左上角返回（商城）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 888,
-                "y": 3290
-            }
         }
     },
     "免费礼包": {
@@ -350,8 +34,127 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1297,
-                "y": 3251
+                "x": 3746,
+                "y": -1037
+            }
+        }
+    },
+    "多次点击（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "点关闭按钮（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5109,
+                "y": -1093
+            }
+        }
+    },
+    "左上角返回（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    47,
+                    21,
+                    87,
+                    33
+                ]
+            }
+        },
+        "post_delay": 3000,
+        "next": [
+            "[JumpBack]多次点击（商城）",
+            "确认返回（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4755,
+                "y": -746
+            }
+        }
+    },
+    "每日领取·判断": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "商城"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "通常礼包"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2958,
+                "y": -401
+            }
+        }
+    },
+    "点关闭按钮（商城）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5476,
+                "y": -1076
+            }
+        }
+    },
+    "确认返回（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "结束任务（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5356,
+                "y": -729
             }
         }
     },
@@ -373,8 +176,101 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1613,
-                "y": 3238
+                "x": 4153,
+                "y": -978
+            }
+        }
+    },
+    "签到": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "点击签到.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "获得资源（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 191,
+                "y": -929
+            }
+        }
+    },
+    "签到·主界面判断": {
+        "max_hit": 8,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "结束任务（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2469,
+                "y": -81
+            }
+        }
+    },
+    "签到·入口": {
+        "next": [
+            "[JumpBack]签到·主界面判断",
+            "签到"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -404,
+                "y": -615
+            }
+        }
+    },
+    "签到-确认返回主界面": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ]
+            }
+        },
+        "next": [
+            "邮箱·判断"
+        ],
+        "on_error": [
+            "返回主界面（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1125,
+                "y": -657
+            }
+        }
+    },
+    "结束任务（签到）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 3000,
+        "$__mpe_code": {
+            "position": {
+                "x": 5785,
+                "y": -303
             }
         }
     },
@@ -404,12 +300,42 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2043,
-                "y": 3098
+                "x": 4500,
+                "y": -1125
             }
         }
     },
-    "左上角返回（商城）": {
+    "获得资源（签到）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "获得资源.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    233,
+                    23,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "返回主界面（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 549,
+                "y": -741
+            }
+        }
+    },
+    "返回主界面（签到）": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -419,32 +345,171 @@
             }
         },
         "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    47,
-                    21,
-                    87,
-                    33
-                ]
-            }
+            "type": "Click"
         },
-        "post_delay": 3000,
+        "post_delay": 1000,
         "next": [
-            "[JumpBack]确认返回（商城）",
-            "[JumpBack]多次点击（商城）"
-        ],
-        "on_error": [
-            "结束任务（签到）"
+            "签到-确认返回主界面"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2602,
-                "y": 3229
+                "x": 828,
+                "y": -696
             }
         }
     },
-    "确认返回（商城）": {
+    "通常礼包": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "通常礼包"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "免费礼包"
+        ],
+        "on_error": [
+            "左上角返回（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3372,
+                "y": -703
+            }
+        }
+    },
+    "邮箱·判断": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "邮箱.png"
+                ],
+                "threshold": [
+                    0.9
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000,
+        "next": [
+            "邮箱领取"
+        ],
+        "on_error": [
+            "邮箱·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1468,
+                "y": -862
+            }
+        }
+    },
+    "邮箱·空白点击": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    640,
+                    620,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "邮箱·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2435,
+                "y": -964
+            }
+        }
+    },
+    "邮箱·获得资源": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "获得资源"
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "邮箱·空白点击"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2135,
+                "y": -1022
+            }
+        }
+    },
+    "邮箱·返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "签到·主界面判断_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2024,
+                "y": -448
+            }
+        }
+    },
+    "邮箱领取": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    982,
+                    638,
+                    225,
+                    43
+                ],
+                "expected": [
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "邮箱·获得资源"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1879,
+                "y": -998
+            }
+        }
+    },
+    "签到·主界面判断_副本1": {
+        "max_hit": 8,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -456,55 +521,14 @@
                 ]
             }
         },
+        "timeout": 5000,
         "next": [
-            "结束任务（签到）"
+            "每日领取·判断"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3087,
-                "y": 3187
-            }
-        }
-    },
-    "多次点击（商城）": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "眼睛.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "next": [
-            "点关闭按钮（商城）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3103,
-                "y": 3498
-            }
-        }
-    },
-    "点关闭按钮（商城）": {
-        "pre_delay": 1000,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    40,
-                    22,
-                    44,
-                    28
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 3616,
-                "y": 3530
+                "x": 2464,
+                "y": -535
             }
         }
     }

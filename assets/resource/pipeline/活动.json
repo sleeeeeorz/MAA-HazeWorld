@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792818766245,
+            "lastSyncTime": 1792956718783,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动.json",
             "savedViewport": {
-                "x": -1700,
-                "y": 100,
-                "zoom": 0.8
+                "x": -1176,
+                "y": 158,
+                "zoom": 0.63
             },
             "filename": "活动",
             "version": "v2.1.0"
@@ -46,26 +46,6 @@
             }
         }
     },
-    "体力不足（活动）": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "log_message",
-                "custom_action_param": {
-                    "msg": "体力不足 42，停止活动任务"
-                }
-            }
-        },
-        "next": [
-            "结束任务（活动）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -133,
-                "y": 489
-            }
-        }
-    },
     "体力识别（活动）": {
         "recognition": {
             "type": "OCR",
@@ -86,12 +66,12 @@
             "活动"
         ],
         "on_error": [
-            "体力不足（活动）"
+            "结束任务（活动）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": -543,
-                "y": 117
+                "x": -960,
+                "y": 180
             }
         }
     },
@@ -235,7 +215,19 @@
         "$__mpe_code": {
             "position": {
                 "x": 2560,
-                "y": 330
+                "y": 401
+            }
+        }
+    },
+    "结束任务（活动）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2880,
+                "y": 401
             }
         }
     },
@@ -256,8 +248,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 33,
-                "y": -3
+                "x": -53,
+                "y": 195
             }
         }
     },
@@ -326,18 +318,6 @@
             "position": {
                 "x": 2240,
                 "y": 215
-            }
-        }
-    },
-    "结束任务（活动）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 281,
-                "y": 604
             }
         }
     },

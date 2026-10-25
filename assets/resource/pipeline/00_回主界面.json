@@ -28,7 +28,7 @@
             "演习（合并）"
         ],
         "on_error": [
-            "演习·返回"
+            "[JumpBack]演习·返回"
         ],
         "$__mpe_code": {
             "position": {
@@ -50,9 +50,6 @@
             "type": "Click"
         },
         "post_delay": 1000,
-        "next": [
-            "演习·主界面判断"
-        ],
         "on_error": [
             "结束任务（演习）"
         ],
@@ -92,7 +89,7 @@
             "指挥室"
         ],
         "on_error": [
-            "指挥室·返回"
+            "[JumpBack]指挥室·返回"
         ],
         "$__mpe_code": {
             "position": {
@@ -114,9 +111,6 @@
             "type": "Click"
         },
         "post_delay": 1000,
-        "next": [
-            "指挥室·主界面判断"
-        ],
         "on_error": [
             "结束任务（指挥室）"
         ],
@@ -156,7 +150,7 @@
             "体力识别（活动）"
         ],
         "on_error": [
-            "活动·返回"
+            "[JumpBack]活动·返回"
         ],
         "$__mpe_code": {
             "position": {
@@ -178,9 +172,6 @@
             "type": "Click"
         },
         "post_delay": 1000,
-        "next": [
-            "活动·主界面判断"
-        ],
         "on_error": [
             "结束任务（活动）"
         ],
@@ -220,7 +211,7 @@
             "通行证"
         ],
         "on_error": [
-            "通行证·返回"
+            "[JumpBack]通行证·返回"
         ],
         "$__mpe_code": {
             "position": {
@@ -242,9 +233,6 @@
             "type": "Click"
         },
         "post_delay": 1000,
-        "next": [
-            "通行证·主界面判断"
-        ],
         "on_error": [
             "结束任务（通行证）"
         ],
@@ -284,7 +272,7 @@
             "任务"
         ],
         "on_error": [
-            "任务·返回"
+            "[JumpBack]任务·返回"
         ],
         "$__mpe_code": {
             "position": {
@@ -306,9 +294,6 @@
             "type": "Click"
         },
         "post_delay": 1000,
-        "next": [
-            "任务·主界面判断"
-        ],
         "on_error": [
             "结束任务（每X任务）"
         ],
