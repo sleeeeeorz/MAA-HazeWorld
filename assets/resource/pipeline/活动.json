@@ -366,5 +366,25 @@
                 "y": 256
             }
         }
+    },
+    "活动时效": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "activity_active"
+            }
+        },
+        "next": [
+            "活动·主界面判断"
+        ],
+        "on_error": [
+            "结束任务（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -400,
+                "y": 0
+            }
+        }
     }
 }

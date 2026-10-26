@@ -289,3 +289,48 @@ class MarkWeeklyDone(CustomAction):
 
         print(f"[weekly] 已记录 {state_key} -> {entry['week']}")
         return True
+
+
+ACTIVITY_FILE = ROOT / "data" / "activity.json"
+
+
+@AgentServer.custom_recognition("activity_active")
+class ActivityActive(CustomRecognition):
+    """活动是否还在进行：按 data/activity.json 的 end 判断。
+
+    命中 = 活动进行中（继续跑活动任务）；不命中 = 已结束（跳过）。
+    """
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        try:
+            cfg = json.loads(ACTIVITY_FILE.read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError):
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 0, 0), detail="未找到活动配置，按进行中处理"
+            )
+
+        end = str(cfg.get("end", "")).strip()
+        if not end:
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 0, 0), detail="活动未配置结束时间，按进行中处理"
+            )
+
+        try:
+            end_dt = dt.datetime.fromisoformat(end)
+        except ValueError:
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 0, 0), detail=f"结束时间格式错误：{end}，按进行中处理"
+            )
+
+        now = dt.datetime.now(end_dt.tzinfo) if end_dt.tzinfo else dt.datetime.now()
+        if now <= end_dt:
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 0, 0), detail=f"活动进行中，截止 {end}"
+            )
+
+        print(f"[activity] 活动已结束（{end}），跳过活动任务")
+        return CustomRecognition.AnalyzeResult(box=None, detail=f"活动已结束：{end}")

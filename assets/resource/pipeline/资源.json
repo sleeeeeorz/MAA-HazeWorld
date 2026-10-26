@@ -3,620 +3,18 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792997165412,
+            "lastSyncTime": 1793036007716,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\资源.json",
             "savedViewport": {
-                "x": -800,
-                "y": 41,
-                "zoom": 0.5
+                "x": 54,
+                "y": 508,
+                "zoom": 0.2
             },
             "filename": "资源",
             "version": "v2.1.0"
         }
-    },
-    "资源-扫荡": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    838,
-                    637,
-                    91,
-                    41
-                ],
-                "expected": [
-                    "扫荡"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "资源-MAX"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4988,
-                "y": 297
-            }
-        }
-    },
-    "资源-MAX": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    767,
-                    222,
-                    56,
-                    28
-                ],
-                "expected": [
-                    "MAX"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "资源-开始扫荡"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5350,
-                "y": 310
-            }
-        }
-    },
-    "资源-开始扫荡": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    582,
-                    524,
-                    116,
-                    34
-                ],
-                "expected": [
-                    "开始扫荡"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "资源-确认"
-        ],
-        "on_error": [
-            "资源-返回主界面"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 5653,
-                "y": 325
-            }
-        }
-    },
-    "资源-确认": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    602,
-                    596,
-                    72,
-                    35
-                ],
-                "expected": [
-                    "确认"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "资源-返回主界面"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 6131,
-                "y": 223
-            }
-        }
-    },
-    "资源-返回主界面": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "返回主界面.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 6567,
-                "y": 566
-            }
-        }
-    },
-    "没有扫荡UI": {
-        "next": [
-            "资源-扫荡"
-        ],
-        "on_error": [
-            "扫荡未开通"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 4782,
-                "y": 5260
-            }
-        }
-    },
-    "核心-01": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "01"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "没有扫荡UI"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3377,
-                "y": 814
-            }
-        },
-        "post_delay": 5000
-    },
-    "核心-04": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "04"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "没有扫荡UI"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3398,
-                "y": 1544
-            }
-        },
-        "post_delay": 5000
-    },
-    "核心-05": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "05"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "没有扫荡UI"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3402,
-                "y": 1815
-            }
-        },
-        "post_delay": 5000
-    },
-    "清剿-06": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "06"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "没有扫荡UI"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3064,
-                "y": -670
-            }
-        },
-        "post_delay": 5000
-    },
-    "清剿-08": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "08"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "没有扫荡UI"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3102,
-                "y": -161
-            }
-        },
-        "post_delay": 5000
-    },
-    "清剿-10": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "10"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "没有扫荡UI"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3094,
-                "y": 407
-            }
-        },
-        "post_delay": 5000
-    },
-    "清剿-09": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "09"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "没有扫荡UI"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3088,
-                "y": 130
-            }
-        },
-        "post_delay": 5000
-    },
-    "清剿-07": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "07"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "没有扫荡UI"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 3100,
-                "y": -423
-            }
-        },
-        "post_delay": 5000
-    },
-    "异兽清剿": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    216,
-                    516,
-                    107,
-                    28
-                ],
-                "expected": [
-                    "异兽清剿"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "经验获取",
-            "盾币获取",
-            "幻化星碎"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1823,
-                "y": 419
-            }
-        },
-        "post_delay": 5000
-    },
-    "新建节点30": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1103,
-                    640,
-                    77,
-                    44
-                ],
-                "expected": [
-                    "作战"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "新建节点31"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 941,
-                "y": 834
-            }
-        },
-        "post_delay": 5000
-    },
-    "新建节点31": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    484,
-                    141,
-                    66,
-                    29
-                ],
-                "expected": [
-                    "资源"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "异兽清剿",
-            "核心制造",
-            "队员特训",
-            "装甲进阶"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1291,
-                "y": 830
-            }
-        },
-        "post_delay": 5000
-    },
-    "核心制造": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    463,
-                    512,
-                    112,
-                    32
-                ],
-                "expected": [
-                    "核心制造"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "生命核心",
-            "攻击核心",
-            "装甲核心",
-            "暴击核心",
-            "爆发核心",
-            "机动核心（上）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1967,
-                "y": 1060
-            }
-        },
-        "post_delay": 5000
-    },
-    "装甲进阶": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    966,
-                    511,
-                    101,
-                    35
-                ],
-                "expected": [
-                    "装甲进阶"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "超限共鸣-逆爱",
-            "超限共鸣-索贝克",
-            "超限共鸣-利维坦"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1588,
-                "y": 4938
-            }
-        },
-        "post_delay": 5000
-    },
-    "队员特训": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    717,
-                    513,
-                    103,
-                    33
-                ],
-                "expected": [
-                    "队员特训"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "防卫觉醒",
-            "攻击觉醒",
-            "火力觉醒",
-            "支援觉醒"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1711,
-                "y": 2995
-            }
-        },
-        "post_delay": 5000
-    },
-    "经验获取": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    21,
-                    153,
-                    89,
-                    25
-                ],
-                "expected": [
-                    "经验获取"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "清剿-05",
-            "清剿-06",
-            "清剿-07",
-            "清剿-08",
-            "清剿-09",
-            "清剿-10"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2196,
-                "y": -202
-            }
-        },
-        "post_delay": 5000
-    },
-    "盾币获取": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    20,
-                    263,
-                    95,
-                    32
-                ],
-                "expected": [
-                    "盾币获取"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "清剿-05",
-            "清剿-06",
-            "清剿-07",
-            "清剿-08",
-            "清剿-09",
-            "清剿-10"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2221,
-                "y": 121
-            }
-        },
-        "post_delay": 5000
     },
     "幻化星碎": {
         "recognition": {
@@ -636,6 +34,7 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 5000,
         "next": [
             "清剿-05",
             "清剿-06",
@@ -646,24 +45,23 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2262,
+                "x": 2298,
                 "y": 432
             }
-        },
-        "post_delay": 5000
+        }
     },
-    "生命核心": {
+    "异兽清剿": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    21,
-                    155,
-                    87,
-                    23
+                    217,
+                    515,
+                    111,
+                    33
                 ],
                 "expected": [
-                    "生命核心"
+                    "异兽清剿"
                 ]
             }
         },
@@ -672,16 +70,68 @@
         },
         "post_delay": 5000,
         "next": [
-            "核心-01",
-            "核心-02",
-            "核心-03",
-            "核心-04",
-            "核心-05"
+            "经验获取",
+            "盾币获取",
+            "幻化星碎"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2668,
-                "y": 785
+                "x": 1823,
+                "y": 419
+            }
+        }
+    },
+    "扫荡未开通": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "用户本关未开通扫荡"
+                }
+            }
+        },
+        "next": [
+            "资源-返回主界面"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6624,
+                "y": 1348
+            }
+        }
+    },
+    "支援觉醒": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    22,
+                    494,
+                    89,
+                    23
+                ],
+                "expected": [
+                    "支援觉醒"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "清剿-05",
+            "清剿-06",
+            "清剿-07",
+            "清剿-08",
+            "清剿-09",
+            "清剿-10"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2744,
+                "y": 3935
             }
         }
     },
@@ -718,18 +168,18 @@
             }
         }
     },
-    "装甲核心": {
+    "攻击觉醒": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    18,
-                    379,
-                    93,
-                    29
+                    20,
+                    264,
+                    96,
+                    26
                 ],
                 "expected": [
-                    "装甲核心"
+                    "攻击觉醒"
                 ]
             }
         },
@@ -738,16 +188,78 @@
         },
         "post_delay": 5000,
         "next": [
-            "核心-01",
-            "核心-02",
-            "核心-03",
-            "核心-04",
-            "核心-05"
+            "清剿-05",
+            "清剿-06",
+            "清剿-07",
+            "清剿-08",
+            "清剿-09",
+            "清剿-10"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2645,
-                "y": 1379
+                "x": 2740,
+                "y": 3144
+            }
+        }
+    },
+    "作战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    640,
+                    77,
+                    44
+                ],
+                "expected": [
+                    "作战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "资源"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 941,
+                "y": 834
+            }
+        }
+    },
+    "资源": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    484,
+                    141,
+                    66,
+                    29
+                ],
+                "expected": [
+                    "资源"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "异兽清剿",
+            "核心制造",
+            "队员特训",
+            "装甲进阶"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1291,
+                "y": 830
             }
         }
     },
@@ -781,39 +293,6 @@
             "position": {
                 "x": 2641,
                 "y": 1733
-            }
-        }
-    },
-    "爆发核心": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    21,
-                    608,
-                    92,
-                    23
-                ],
-                "expected": [
-                    "爆发核心"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "核心-01",
-            "核心-02",
-            "核心-03",
-            "核心-04",
-            "核心-05"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2644,
-                "y": 2047
             }
         }
     },
@@ -883,18 +362,138 @@
             }
         }
     },
-    "防卫觉醒": {
+    "核心-01": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "01"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3377,
+                "y": 814
+            }
+        }
+    },
+    "核心-02": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "02"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3367,
+                "y": 1069
+            }
+        }
+    },
+    "核心-03": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "03"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3385,
+                "y": 1275
+            }
+        }
+    },
+    "核心-04": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "04"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3398,
+                "y": 1544
+            }
+        }
+    },
+    "核心-05": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "05"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3402,
+                "y": 1815
+            }
+        }
+    },
+    "核心制造": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    20,
-                    155,
-                    91,
-                    24
+                    463,
+                    512,
+                    112,
+                    32
                 ],
                 "expected": [
-                    "防卫觉醒"
+                    "核心制造"
                 ]
             }
         },
@@ -903,17 +502,175 @@
         },
         "post_delay": 5000,
         "next": [
-            "清剿-05",
-            "清剿-06",
-            "清剿-07",
-            "清剿-08",
-            "清剿-09",
-            "清剿-10"
+            "生命核心",
+            "攻击核心",
+            "装甲核心",
+            "暴击核心",
+            "爆发核心",
+            "机动核心（上）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2759,
-                "y": 2734
+                "x": 1892,
+                "y": 1049
+            }
+        }
+    },
+    "没有扫荡UI": {
+        "next": [
+            "资源-扫荡"
+        ],
+        "on_error": [
+            "扫荡未开通"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4782,
+                "y": 5260
+            }
+        }
+    },
+    "清剿-05": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "05"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3080,
+                "y": -965
+            }
+        }
+    },
+    "清剿-06": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "06"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3064,
+                "y": -670
+            }
+        }
+    },
+    "清剿-07": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "07"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3100,
+                "y": -423
+            }
+        }
+    },
+    "清剿-08": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "08"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3102,
+                "y": -161
+            }
+        }
+    },
+    "清剿-09": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "09"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3088,
+                "y": 130
+            }
+        }
+    },
+    "清剿-10": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "10"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "没有扫荡UI"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3094,
+                "y": 407
             }
         }
     },
@@ -951,18 +708,84 @@
             }
         }
     },
-    "攻击觉醒": {
+    "爆发核心": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    21,
+                    608,
+                    92,
+                    23
+                ],
+                "expected": [
+                    "爆发核心"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "核心-01",
+            "核心-02",
+            "核心-03",
+            "核心-04",
+            "核心-05"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2644,
+                "y": 2047
+            }
+        }
+    },
+    "生命核心": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    21,
+                    155,
+                    87,
+                    23
+                ],
+                "expected": [
+                    "生命核心"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "核心-01",
+            "核心-02",
+            "核心-03",
+            "核心-04",
+            "核心-05"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2668,
+                "y": 785
+            }
+        }
+    },
+    "盾币获取": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
                     20,
-                    264,
-                    96,
-                    26
+                    263,
+                    95,
+                    32
                 ],
                 "expected": [
-                    "攻击觉醒"
+                    "盾币获取"
                 ]
             }
         },
@@ -980,23 +803,23 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2740,
-                "y": 3144
+                "x": 2230,
+                "y": 3
             }
         }
     },
-    "支援觉醒": {
+    "经验获取": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    22,
-                    494,
+                    21,
+                    153,
                     89,
-                    23
+                    25
                 ],
                 "expected": [
-                    "支援觉醒"
+                    "经验获取"
                 ]
             }
         },
@@ -1014,20 +837,23 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2744,
-                "y": 3935
+                "x": 2216,
+                "y": -347
             }
         }
     },
-    "超限共鸣-逆爱": {
+    "装甲核心": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "逆爱.png"
+                "roi": [
+                    18,
+                    379,
+                    93,
+                    29
                 ],
-                "threshold": [
-                    0.8
+                "expected": [
+                    "装甲核心"
                 ]
             }
         },
@@ -1044,20 +870,23 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2732,
-                "y": 4541
+                "x": 2645,
+                "y": 1379
             }
         }
     },
-    "超限共鸣-索贝克": {
+    "装甲进阶": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "索贝克.png"
+                "roi": [
+                    966,
+                    511,
+                    101,
+                    35
                 ],
-                "threshold": [
-                    0.8
+                "expected": [
+                    "装甲进阶"
                 ]
             }
         },
@@ -1066,16 +895,161 @@
         },
         "post_delay": 5000,
         "next": [
-            "核心-01",
-            "核心-02",
-            "核心-03",
-            "核心-04",
-            "核心-05"
+            "超限共鸣-逆爱",
+            "超限共鸣-索贝克",
+            "超限共鸣-利维坦"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2727,
-                "y": 4922
+                "x": 1588,
+                "y": 4938
+            }
+        }
+    },
+    "资源-MAX": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    767,
+                    222,
+                    56,
+                    28
+                ],
+                "expected": [
+                    "MAX"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    786,
+                    219,
+                    44,
+                    35
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "资源-开始扫荡"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5350,
+                "y": 310
+            }
+        }
+    },
+    "资源-开始扫荡": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    582,
+                    524,
+                    116,
+                    34
+                ],
+                "expected": [
+                    "开始扫荡"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "资源-确认"
+        ],
+        "on_error": [
+            "资源-返回主界面"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5653,
+                "y": 325
+            }
+        }
+    },
+    "资源-扫荡": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    838,
+                    637,
+                    91,
+                    41
+                ],
+                "expected": [
+                    "扫荡"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "资源-MAX"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4988,
+                "y": 297
+            }
+        }
+    },
+    "资源-确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    602,
+                    596,
+                    72,
+                    35
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "资源-返回主界面"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6131,
+                "y": 223
+            }
+        }
+    },
+    "资源-返回主界面": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "返回主界面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 6567,
+                "y": 566
             }
         }
     },
@@ -1109,95 +1083,129 @@
             }
         }
     },
-    "清剿-05": {
+    "超限共鸣-索贝克": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
-                "expected": [
-                    "05"
+                "template": [
+                    "索贝克.png"
                 ],
-                "threshold": 0.9
+                "threshold": [
+                    0.8
+                ]
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_delay": 5000,
         "next": [
-            "没有扫荡UI"
+            "核心-01",
+            "核心-02",
+            "核心-03",
+            "核心-04",
+            "核心-05"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3080,
-                "y": -965
+                "x": 2727,
+                "y": 4922
             }
-        },
-        "post_delay": 5000
+        }
     },
-    "核心-02": {
+    "超限共鸣-逆爱": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
-                "expected": [
-                    "02"
+                "template": [
+                    "逆爱.png"
                 ],
-                "threshold": 0.9
+                "threshold": [
+                    0.8
+                ]
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_delay": 5000,
         "next": [
-            "没有扫荡UI"
+            "核心-01",
+            "核心-02",
+            "核心-03",
+            "核心-04",
+            "核心-05"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3367,
-                "y": 1069
+                "x": 2732,
+                "y": 4541
             }
-        },
-        "post_delay": 5000
+        }
     },
-    "核心-03": {
+    "队员特训": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": [
-                    "03"
+                "roi": [
+                    717,
+                    513,
+                    103,
+                    33
                 ],
-                "threshold": 0.9
+                "expected": [
+                    "队员特训"
+                ]
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_delay": 5000,
         "next": [
-            "没有扫荡UI"
+            "防卫觉醒",
+            "攻击觉醒",
+            "火力觉醒",
+            "支援觉醒"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3385,
-                "y": 1275
+                "x": 1711,
+                "y": 2995
             }
-        },
-        "post_delay": 5000
+        }
     },
-    "扫荡未开通": {
-        "action": {
-            "type": "Custom",
+    "防卫觉醒": {
+        "recognition": {
+            "type": "OCR",
             "param": {
-                "custom_action": "log_message",
-                "custom_action_param": {
-                    "msg": "用户本关未开通扫荡"
-                }
+                "roi": [
+                    20,
+                    155,
+                    91,
+                    24
+                ],
+                "expected": [
+                    "防卫觉醒"
+                ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
         "next": [
-            "资源-返回主界面"
+            "清剿-05",
+            "清剿-06",
+            "清剿-07",
+            "清剿-08",
+            "清剿-09",
+            "清剿-10"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 400
+                "x": 2759,
+                "y": 2734
             }
         }
     }

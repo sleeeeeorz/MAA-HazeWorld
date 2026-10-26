@@ -6,7 +6,7 @@
     "license": "MIT",
     "welcome": "先跑「游戏启动」，再按需选择任务；商店兑换与抽卡次数在任务选项里设置。",
     "github": "https://github.com/sleeeeeorz/MAA-HazeWorld",
-    "version": "0.4.0",
+    "version": "0.4.1",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror 酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
@@ -56,10 +56,11 @@
             "name": "演习",
             "entry": "演习·入口",
             "label": "每日演习",
-            "description": "每周兑换一次演习卷（商店周一刷新），再打演习；商店可在任务设置里关掉",
+            "description": "先跑每周演习商店兑换（周一刷新），再补充演习卷并打演习\n两项可分别开关",
             "group": [],
             "option": [
-                "演习商店"
+                "每周兑换演习卷",
+                "补充演习卷"
             ]
         },
         {
@@ -69,7 +70,7 @@
         },
         {
             "name": "资源",
-            "entry": "新建节点30",
+            "entry": "作战",
             "label": "资源",
             "description": "异兽清剿、核心制造、队员特训、装甲进阶\n四项里选一个执行，每组支线再选一个",
             "group": [],
@@ -81,9 +82,10 @@
             "name": "活动",
             "entry": "活动·入口",
             "label": "当期活动",
-            "description": "扫荡当期活动，扫完接着抽卡\n抽卡可在任务设置里关掉",
+            "description": "扫荡当期活动，扫完接着抽卡\n活动结束时间在 data/activity.json 的 end 里，到期自动跳过；抽卡可在设置里关掉",
             "group": [],
             "option": [
+                "活动开关",
                 "活动抽卡"
             ]
         },
@@ -107,6 +109,40 @@
             "name": "关闭游戏",
             "entry": "关闭游戏",
             "label": "关闭游戏"
+        }
+    ],
+    "preset": [
+        {
+            "name": "日常",
+            "label": "日常",
+            "description": "每日签到、演习、指挥室、资源、通行证、任务（不含活动）",
+            "task": [
+                { "name": "游戏初始化", "enabled": true },
+                { "name": "每日签到", "enabled": true },
+                { "name": "演习", "enabled": true },
+                { "name": "指挥室", "enabled": true },
+                { "name": "资源", "enabled": true },
+                { "name": "活动", "enabled": false },
+                { "name": "通行证", "enabled": true },
+                { "name": "任务", "enabled": true },
+                { "name": "关闭游戏", "enabled": false }
+            ]
+        },
+        {
+            "name": "活动",
+            "label": "活动",
+            "description": "游戏初始化 + 当期活动（不含资源等日常任务）",
+            "task": [
+                { "name": "游戏初始化", "enabled": true },
+                { "name": "每日签到", "enabled": false },
+                { "name": "演习", "enabled": false },
+                { "name": "指挥室", "enabled": false },
+                { "name": "资源", "enabled": false },
+                { "name": "活动", "enabled": true },
+                { "name": "通行证", "enabled": false },
+                { "name": "任务", "enabled": false },
+                { "name": "关闭游戏", "enabled": false }
+            ]
         }
     ],
     "option": {
@@ -697,6 +733,29 @@
                 }
             ]
         },
+        "活动开关": {
+            "type": "switch",
+            "label": "启用当期活动",
+            "description": "关掉后不跑活动任务；活动时间到期（data/activity.json 的 end）也会自动跳过",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "活动·入口": {
+                            "next": [
+                                "结束任务（活动）"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "活动抽卡": {
             "type": "switch",
             "label": "扫荡后顺便抽卡",
@@ -726,18 +785,19 @@
                 }
             ]
         },
-        "演习商店": {
+        "每周兑换演习卷": {
             "type": "switch",
-            "label": "兑换演习商店",
-            "description": "此开关控制每周演习卷兑换，开启时进行兑换，默认开启\n若本周已进行兑换，开启后也会自动跳过",
+            "label": "每周兑换演习卷",
+            "description": "每周跑一次演习商店兑换（商店周一刷新）；本周已兑换或兑换失败本周自动跳过",
             "cases": [
                 {
                     "name": "Yes",
                     "label": "开",
                     "pipeline_override": {
-                        "演习（合并）": {
+                        "演习·主界面判断": {
                             "next": [
-                                "商店检查（演习）"
+                                "商店检查（演习）",
+                                "演习"
                             ]
                         }
                     }
@@ -746,9 +806,32 @@
                     "name": "No",
                     "label": "关",
                     "pipeline_override": {
-                        "演习（合并）": {
+                        "演习·主界面判断": {
                             "next": [
                                 "演习"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "补充演习卷": {
+            "type": "switch",
+            "label": "补充演习卷",
+            "description": "演习前先点 + 补充演习卷；关掉后跳过补充直接打演习",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "先行通过": {
+                            "next": [
+                                "券检查（演习）"
                             ]
                         }
                     }

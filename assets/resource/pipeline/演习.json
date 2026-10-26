@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792992816328,
+            "lastSyncTime": 1793034819892,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\演习.json",
             "savedViewport": {
-                "x": -605,
-                "y": 20,
-                "zoom": 0.64
+                "x": -1082,
+                "y": 196,
+                "zoom": 0.63
             },
             "filename": "演习",
             "version": "v2.1.0"
@@ -42,31 +42,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3444,
-                "y": 908
-            }
-        }
-    },
-    "MAX（演习）_副本1": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "MAX"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "确认购买（演习）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1578,
-                "y": 139
+                "x": 3002,
+                "y": 511
             }
         }
     },
@@ -88,8 +65,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3124,
-                "y": 924
+                "x": 2688,
+                "y": 537
             }
         }
     },
@@ -111,60 +88,47 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3124,
-                "y": 609
+                "x": 2682,
+                "y": 196
             }
         }
     },
-    "兑换商店（演习）": {
+    "先行识别": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "演习商店.png"
+                "roi": [
+                    1134,
+                    26,
+                    63,
+                    23
                 ],
-                "threshold": [
-                    0.9
+                "expected": [
+                    "99"
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
         "next": [
-            "选择精英演习卷（演习）"
+            "演习卷已满"
         ],
         "on_error": [
-            "返回到演习作战"
+            "先行通过"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 951,
-                "y": 403
+                "x": -659,
+                "y": 191
             }
         }
     },
-    "关闭购买弹窗（演习）": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    468,
-                    22,
-                    50,
-                    44
-                ]
-            }
-        },
-        "post_delay": 5000,
+    "先行通过": {
         "next": [
-            "返回到演习作战"
+            "补充演习卷"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2159,
-                "y": 174
+                "x": 127,
+                "y": 337
             }
         }
     },
@@ -190,37 +154,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2874,
-                "y": 723
-            }
-        }
-    },
-    "商店检查（演习）": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "weekly_pending",
-                "custom_recognition_param": {
-                    "state_key": "演习商店"
-                }
-            }
-        },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "mark_weekly_done",
-                "custom_action_param": {
-                    "state_key": "演习商店"
-                }
-            }
-        },
-        "next": [
-            "演习_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 244,
-                "y": 486
+                "x": 2494,
+                "y": 430
             }
         }
     },
@@ -241,8 +176,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 4404,
-                "y": 1161
+                "x": 3962,
+                "y": 827
             }
         }
     },
@@ -266,8 +201,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 4119,
-                "y": 1138
+                "x": 3744,
+                "y": 695
             }
         }
     },
@@ -289,8 +224,39 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3764,
-                "y": 924
+                "x": 3322,
+                "y": 527
+            }
+        }
+    },
+    "最大兑换演习": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "MAX"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    790,
+                    369,
+                    43,
+                    21
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "演习卷补充-确认"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1649,
+                "y": 67
             }
         }
     },
@@ -308,24 +274,21 @@
         },
         "post_delay": 5000,
         "next": [
-            "券检查（演习）"
-        ],
-        "on_error": [
-            "演习卷不足（演习）"
+            "先行识别"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1881,
-                "y": 917
+                "x": -1134,
+                "y": 156
             }
         }
     },
-    "演习_副本1": {
+    "演习卷": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
-                "expected": [
-                    "演习"
+                "template": [
+                    "演习卷.png"
                 ]
             }
         },
@@ -334,12 +297,12 @@
         },
         "post_delay": 5000,
         "next": [
-            "兑换商店（演习）"
+            "最大兑换演习"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 564,
-                "y": 503
+                "x": 1320,
+                "y": 132
             }
         }
     },
@@ -354,27 +317,61 @@
             }
         },
         "next": [
-            "左上角返回"
+            "券检查（演习）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2900,
-                "y": 1220
+                "x": 1665,
+                "y": 638
             }
         }
     },
-    "演习（合并）": {
-        "timeout": 5000,
+    "演习卷已满": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "演习卷已达 99 张，跳过补充，直接打演习"
+                }
+            }
+        },
         "next": [
-            "商店检查（演习）"
-        ],
-        "on_error": [
-            "演习"
+            "券检查（演习）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": -22,
-                "y": 1034
+                "x": -200,
+                "y": 551
+            }
+        }
+    },
+    "演习卷补充-确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    610,
+                    546,
+                    61,
+                    33
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "券检查（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2038,
+                "y": 46
             }
         }
     },
@@ -393,32 +390,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 4724,
-                "y": 1191
-            }
-        }
-    },
-    "确认购买（演习）": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "确认"
-                ],
-                "threshold": 0.9
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "关闭购买弹窗（演习）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1831,
-                "y": 147
+                "x": 4282,
+                "y": 857
             }
         }
     },
@@ -440,8 +413,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 4404,
-                "y": 797
+                "x": 3962,
+                "y": 428
             }
         }
     },
@@ -460,12 +433,12 @@
         "post_delay": 1000,
         "timeout": 5000,
         "next": [
-            "左上角返回"
+            "代理作战"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3764,
-                "y": 610
+                "x": 3322,
+                "y": 180
             }
         }
     },
@@ -487,8 +460,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3444,
-                "y": 625
+                "x": 3002,
+                "y": 212
             }
         }
     },
@@ -499,17 +472,23 @@
         "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 4724,
-                "y": 797
+                "x": 4282,
+                "y": 504
             }
         }
     },
-    "返回到演习作战": {
+    "补充演习卷": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "左上角返回.png"
+                "roi": [
+                    1212,
+                    27,
+                    26,
+                    26
+                ],
+                "expected": [
+                    "\\+"
                 ]
             }
         },
@@ -518,39 +497,40 @@
         },
         "post_delay": 5000,
         "next": [
-            "券检查（演习）"
+            "识别当前演习卷数量"
         ],
         "on_error": [
             "演习卷不足（演习）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2477,
-                "y": 463
+                "x": 469,
+                "y": 388
             }
         }
     },
-    "选择精英演习卷（演习）": {
+    "识别当前演习卷数量": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "兑换精英演习卷.png"
+                "roi": [
+                    586,
+                    241,
+                    31,
+                    16
+                ],
+                "expected": [
+                    "(?:150|1[0-4]\\d|[1-9]\\d|[1-9])"
                 ]
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "timeout": 20000,
         "next": [
-            "MAX（演习）_副本1"
+            "演习卷"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1207,
-                "y": 112
+                "x": 951,
+                "y": 218
             }
         }
     }
