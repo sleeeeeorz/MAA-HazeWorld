@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792955766251,
+            "lastSyncTime": 1792992816328,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\演习.json",
             "savedViewport": {
-                "x": 447,
-                "y": 9,
-                "zoom": 0.5
+                "x": -605,
+                "y": 20,
+                "zoom": 0.64
             },
             "filename": "演习",
             "version": "v2.1.0"
@@ -59,7 +59,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "确认购买（演习）"
         ],
@@ -131,7 +131,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "选择精英演习卷（演习）"
         ],
@@ -140,8 +140,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 840,
-                "y": 665
+                "x": 951,
+                "y": 403
             }
         }
     },
@@ -157,7 +157,7 @@
                 ]
             }
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "返回到演习作战"
         ],
@@ -190,8 +190,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2804,
-                "y": 780
+                "x": 2874,
+                "y": 723
             }
         }
     },
@@ -315,8 +315,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2040,
-                "y": 884
+                "x": 1881,
+                "y": 917
             }
         }
     },
@@ -411,7 +411,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "关闭购买弹窗（演习）"
         ],
@@ -441,18 +441,6 @@
         "$__mpe_code": {
             "position": {
                 "x": 4404,
-                "y": 797
-            }
-        }
-    },
-    "结束任务（演习）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 4724,
                 "y": 797
             }
         }
@@ -504,6 +492,18 @@
             }
         }
     },
+    "结束任务（演习）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 4724,
+                "y": 797
+            }
+        }
+    },
     "返回到演习作战": {
         "recognition": {
             "type": "TemplateMatch",
@@ -525,8 +525,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2484,
-                "y": 459
+                "x": 2477,
+                "y": 463
             }
         }
     },

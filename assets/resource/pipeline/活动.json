@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792956718783,
+            "lastSyncTime": 1792958815807,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动.json",
             "savedViewport": {
-                "x": -1176,
-                "y": 158,
-                "zoom": 0.63
+                "x": -76,
+                "y": -10,
+                "zoom": 0.79
             },
             "filename": "活动",
             "version": "v2.1.0"
@@ -70,8 +70,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": -960,
-                "y": 180
+                "x": -577,
+                "y": 331
             }
         }
     },
@@ -214,20 +214,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2560,
-                "y": 401
-            }
-        }
-    },
-    "结束任务（活动）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": 2880,
-                "y": 401
+                "x": 2550,
+                "y": 255
             }
         }
     },
@@ -321,6 +309,18 @@
             }
         }
     },
+    "结束任务（活动）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 224,
+                "y": 1056
+            }
+        }
+    },
     "返回主页（活动）": {
         "recognition": {
             "type": "TemplateMatch",
@@ -340,8 +340,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2880,
-                "y": 217
+                "x": 2885,
+                "y": -45
             }
         }
     },

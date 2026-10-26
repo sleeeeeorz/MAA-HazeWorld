@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792957160955,
+            "lastSyncTime": 1792958832566,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每X任务.json",
             "savedViewport": {
-                "x": -1477,
-                "y": 292,
-                "zoom": 0.63
+                "x": 109,
+                "y": 215,
+                "zoom": 0.5
             },
             "filename": "每X任务",
             "version": "v2.1.0"

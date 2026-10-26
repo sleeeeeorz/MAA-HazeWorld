@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792819930063,
+            "lastSyncTime": 1792958825521,
             "isModifiedExternally": false,
-            "isDeleted": true,
+            "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\游戏初始化.json",
             "savedViewport": {
-                "x": -263,
-                "y": -1868,
-                "zoom": 0.63
+                "x": -1060,
+                "y": -2720,
+                "zoom": 0.79
             },
             "filename": "游戏初始化",
             "version": "v2.1.0"
@@ -19,8 +19,8 @@
     "$__mpe_external_关闭游戏_游戏初始化": {
         "$__mpe_code": {
             "position": {
-                "x": 2947,
-                "y": 4053
+                "x": 3614,
+                "y": 3753
             }
         }
     },
@@ -34,19 +34,25 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target": [
+                    535,
+                    495,
+                    251,
+                    73
+                ]
+            }
         },
         "post_delay": 10000,
         "next": [
-            "启动·结束"
-        ],
-        "on_error": [
+            "[JumpBack]启动·签到检查",
             "启动·主界面检查"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1347,
-                "y": 3656
+                "x": 958,
+                "y": 4144
             }
         }
     },
@@ -66,13 +72,10 @@
         "next": [
             "启动·结束"
         ],
-        "on_error": [
-            "启动·签到检查"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 1667,
-                "y": 3179
+                "x": 1528,
+                "y": 4354
             }
         }
     },
@@ -99,32 +102,12 @@
         "post_delay": 3000,
         "timeout": 2000,
         "next": [
-            "[JumpBack]维护公告",
             "TOUCH TO START"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1027,
-                "y": 3573
-            }
-        }
-    },
-    "启动·拉起游戏": {
-        "action": {
-            "type": "StartApp",
-            "param": {
-                "package": "com.feimo.hazeworld.main"
-            }
-        },
-        "post_delay": 5000,
-        "next": [
-            "[JumpBack]游戏更新",
-            "拉起游戏"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1027,
-                "y": 4004
+                "x": 499,
+                "y": 4044
             }
         }
     },
@@ -141,13 +124,10 @@
         "next": [
             "启动·结束"
         ],
-        "on_error": [
-            "拉起游戏"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 387,
-                "y": 3090
+                "x": 1506,
+                "y": 3884
             }
         }
     },
@@ -158,8 +138,8 @@
         "post_delay": 1000,
         "$__mpe_code": {
             "position": {
-                "x": 1987,
-                "y": 3431
+                "x": 2535,
+                "y": 4030
             }
         }
     },
@@ -181,8 +161,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1347,
-                "y": 3257
+                "x": 775,
+                "y": 2991
             }
         }
     },
@@ -190,15 +170,13 @@
         "timeout": 5000,
         "next": [
             "[JumpBack]启动·设置判断",
-            "[JumpBack]启动·公告判断"
-        ],
-        "on_error": [
-            "启动·拉起游戏"
+            "[JumpBack]游戏更新",
+            "启动·公告判断"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 707,
-                "y": 3368
+                "x": -80,
+                "y": 3737
             }
         }
     },
@@ -217,8 +195,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1667,
-                "y": 4004
+                "x": 1198,
+                "y": 3598
             }
         }
     },
@@ -247,8 +225,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2307,
-                "y": 3980
+                "x": 2788,
+                "y": 3715
             }
         }
     },
@@ -258,8 +236,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2627,
-                "y": 4010
+                "x": 3126,
+                "y": 3721
             }
         }
     },
@@ -289,8 +267,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1347,
-                "y": 3988
+                "x": 744,
+                "y": 3557
             }
         }
     },
@@ -309,8 +287,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1987,
-                "y": 3965
+                "x": 2314,
+                "y": 3666
             }
         }
     }

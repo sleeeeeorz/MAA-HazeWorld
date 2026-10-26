@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792954821501,
+            "lastSyncTime": 1792993214834,
             "isModifiedExternally": false,
-            "isDeleted": false,
+            "isDeleted": true,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日签到.json",
             "savedViewport": {
-                "x": -2071,
-                "y": 806,
-                "zoom": 0.8
+                "x": -2644,
+                "y": 999,
+                "zoom": 0.79
             },
             "filename": "每日签到",
             "version": "v2.1.0"
@@ -204,8 +204,29 @@
             }
         }
     },
+    "签到-确认返回主界面": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ]
+            }
+        },
+        "next": [
+            "邮箱·判断"
+        ],
+        "on_error": [
+            "返回主界面（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1123,
+                "y": -780
+            }
+        }
+    },
     "签到·主界面判断": {
-        "max_hit": 8,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -228,6 +249,32 @@
             }
         }
     },
+    "签到·主界面判断_副本1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "timeout": 5000,
+        "next": [
+            "每日领取·判断"
+        ],
+        "on_error": [
+            "邮箱·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2464,
+                "y": -535
+            }
+        }
+    },
     "签到·入口": {
         "next": [
             "[JumpBack]签到·主界面判断",
@@ -237,28 +284,6 @@
             "position": {
                 "x": -404,
                 "y": -615
-            }
-        }
-    },
-    "签到-确认返回主界面": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ]
-            }
-        },
-        "next": [
-            "邮箱·判断"
-        ],
-        "on_error": [
-            "返回主界面（签到）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1125,
-                "y": -657
             }
         }
     },
@@ -353,8 +378,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 828,
-                "y": -696
+                "x": 834,
+                "y": -814
             }
         }
     },
@@ -457,6 +482,7 @@
         }
     },
     "邮箱·返回": {
+        "max_hit": 8,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -474,8 +500,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2024,
-                "y": -448
+                "x": 2021,
+                "y": -560
             }
         }
     },
@@ -505,30 +531,6 @@
             "position": {
                 "x": 1879,
                 "y": -998
-            }
-        }
-    },
-    "签到·主界面判断_副本1": {
-        "max_hit": 8,
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "设置.png"
-                ],
-                "threshold": [
-                    0.95
-                ]
-            }
-        },
-        "timeout": 5000,
-        "next": [
-            "每日领取·判断"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 2464,
-                "y": -535
             }
         }
     }

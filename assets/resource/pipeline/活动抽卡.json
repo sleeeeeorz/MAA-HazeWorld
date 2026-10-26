@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792867541574,
+            "lastSyncTime": 1792958818101,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动抽卡.json",
             "savedViewport": {
-                "x": 810,
-                "y": -2011,
-                "zoom": 0.63
+                "x": 296,
+                "y": -1004,
+                "zoom": 0.4
             },
             "filename": "活动抽卡",
             "version": "v2.1.0"

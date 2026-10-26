@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792685754733,
+            "lastSyncTime": 1792958050287,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\关闭游戏.json",
             "savedViewport": {
-                "x": -658,
-                "y": -5097,
-                "zoom": 1.59
+                "x": 360,
+                "y": -1732,
+                "zoom": 0.63
             },
             "filename": "关闭游戏",
             "version": "v2.1.0"
