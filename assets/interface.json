@@ -6,7 +6,7 @@
     "license": "MIT",
     "welcome": "先跑「游戏启动」，再按需选择任务；商店兑换与抽卡次数在任务选项里设置。",
     "github": "https://github.com/sleeeeeorz/MAA-HazeWorld",
-    "version": "0.4.1",
+    "version": "1.0.0",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror 酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
@@ -43,25 +43,28 @@
         {
             "name": "每日签到",
             "entry": "签到·入口",
-            "label": "每日签到",
-            "description": "领取首页签到奖励、邮箱奖励和商城每日免费礼包\n三项可分别开关",
+            "label": "每日日常准备",
+            "description": "领取签到、邮箱、商城每日礼包\n签到默认开启；邮箱与每日礼包可分别开关",
             "group": [],
             "option": [
-                "签到",
                 "邮箱",
-                "每日领取"
+                "每日领取",
+                "每周兑换演习卷"
             ]
         },
         {
             "name": "演习",
             "entry": "演习·入口",
             "label": "每日演习",
-            "description": "先跑每周演习商店兑换（周一刷新），再补充演习卷并打演习\n两项可分别开关",
+            "description": "先跑每周演习商店兑换（周一刷新），再补充演习卷并打演习\n补充演习卷可单独关掉",
             "group": [],
             "option": [
-                "每周兑换演习卷",
                 "补充演习卷"
             ]
+        },
+        {
+            "name": "好友点赞",
+            "entry": "好友点赞"
         },
         {
             "name": "指挥室",
@@ -82,12 +85,15 @@
             "name": "活动",
             "entry": "活动·入口",
             "label": "当期活动",
-            "description": "扫荡当期活动，扫完接着抽卡\n活动结束时间在 data/activity.json 的 end 里，到期自动跳过；抽卡可在设置里关掉",
+            "description": "扫荡当期活动；活动结束时间在 data/activity.json 的 end 里，到期自动跳过\n抽卡请单独勾选「活动抽卡」任务",
             "group": [],
-            "option": [
-                "活动开关",
-                "活动抽卡"
-            ]
+            "option": []
+        },
+        {
+            "name": "活动抽卡",
+            "entry": "活动-抽卡",
+            "label": "活动抽卡",
+            "description": "在活动界面上抽卡；勾选本任务才会抽"
         },
         {
             "name": "通行证",
@@ -103,6 +109,17 @@
                 "每日任务",
                 "每周任务",
                 "每月任务"
+            ]
+        },
+        {
+            "name": "每月兑换商店",
+            "entry": "每月兑换商店",
+            "label": "每月兑换商店",
+            "description": "商城兑换商店：荣誉凭证 + 各兑换物品（每项可单独开关）",
+            "group": [],
+            "option": [
+                "兑换商店",
+                "荣誉凭证"
             ]
         },
         {
@@ -664,29 +681,6 @@
                 }
             ]
         },
-        "签到": {
-            "type": "switch",
-            "label": "首页签到",
-            "description": "关掉后不点首页签到，只领商城每日礼包",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "label": "开",
-                    "pipeline_override": {}
-                },
-                {
-                    "name": "No",
-                    "label": "关",
-                    "pipeline_override": {
-                        "签到·入口": {
-                            "next": [
-                                "签到·收尾"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
         "每日领取": {
             "type": "switch",
             "label": "商城每日礼包",
@@ -701,9 +695,9 @@
                     "name": "No",
                     "label": "关",
                     "pipeline_override": {
-                        "邮箱·收尾": {
+                        "商城段": {
                             "next": [
-                                "结束任务（签到）"
+                                "商城·重定向"
                             ]
                         }
                     }
@@ -724,61 +718,9 @@
                     "name": "No",
                     "label": "关",
                     "pipeline_override": {
-                        "签到·收尾": {
+                        "邮箱段": {
                             "next": [
-                                "邮箱·收尾"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "活动开关": {
-            "type": "switch",
-            "label": "启用当期活动",
-            "description": "关掉后不跑活动任务；活动时间到期（data/activity.json 的 end）也会自动跳过",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "label": "开",
-                    "pipeline_override": {}
-                },
-                {
-                    "name": "No",
-                    "label": "关",
-                    "pipeline_override": {
-                        "活动·入口": {
-                            "next": [
-                                "结束任务（活动）"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "活动抽卡": {
-            "type": "switch",
-            "label": "扫荡后顺便抽卡",
-            "description": "关掉就只扫荡，扫完直接结束",
-            "cases": [
-                {
-                    "name": "Yes",
-                    "label": "开",
-                    "pipeline_override": {
-                        "确认返回（活动）": {
-                            "next": [
-                                "活动-抽卡"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "label": "关",
-                    "pipeline_override": {
-                        "确认返回（活动）": {
-                            "next": [
-                                "结束任务（活动）"
+                                "邮箱·重定向"
                             ]
                         }
                     }
@@ -793,22 +735,15 @@
                 {
                     "name": "Yes",
                     "label": "开",
-                    "pipeline_override": {
-                        "演习·主界面判断": {
-                            "next": [
-                                "商店检查（演习）",
-                                "演习"
-                            ]
-                        }
-                    }
+                    "pipeline_override": {}
                 },
                 {
                     "name": "No",
                     "label": "关",
                     "pipeline_override": {
-                        "演习·主界面判断": {
+                        "商店段": {
                             "next": [
-                                "演习"
+                                "商店·重定向"
                             ]
                         }
                     }
@@ -924,6 +859,322 @@
                             "next": [
                                 "返回左上角（任务）"
                             ]
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换商店": {
+            "type": "switch",
+            "label": "兑换商店",
+            "description": "关掉后不进兑换商店",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {},
+                    "option": [
+                        "兑换-精英调度卷",
+                        "兑换-定向调度卷",
+                        "兑换-耀闪的残响",
+                        "兑换-绀紫的残响",
+                        "兑换-浓缩能量合剂",
+                        "兑换-原始核心结晶",
+                        "兑换-原始核心晶块",
+                        "兑换-原始核心芯片",
+                        "兑换-原始核心碎片",
+                        "兑换-绝密报告资料"
+                    ]
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "商城-每月兑换": {
+                            "next": [
+                                "荣誉凭证"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "荣誉凭证": {
+            "type": "switch",
+            "label": "荣誉凭证",
+            "description": "关掉后不兑换荣誉凭证（友情点）",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "荣誉凭证": {
+                            "next": []
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-精英调度卷": {
+            "type": "switch",
+            "label": "精英调度卷",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "精英调度卷": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-定向调度卷": {
+            "type": "switch",
+            "label": "定向调度卷",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "定向调度卷": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-耀闪的残响": {
+            "type": "switch",
+            "label": "耀闪的残响",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "耀闪的残响": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-绀紫的残响": {
+            "type": "switch",
+            "label": "绀紫的残响",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "绀紫的残响": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-浓缩能量合剂": {
+            "type": "switch",
+            "label": "浓缩能量合剂",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "浓缩能量合剂": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-原始核心结晶": {
+            "type": "switch",
+            "label": "原始核心结晶",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "原始核心结晶": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-原始核心晶块": {
+            "type": "switch",
+            "label": "原始核心晶块",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "原始核心晶块": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-原始核心芯片": {
+            "type": "switch",
+            "label": "原始核心芯片",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "原始核心芯片": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-原始核心碎片": {
+            "type": "switch",
+            "label": "原始核心碎片",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "原始核心碎片": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "兑换-绝密报告资料": {
+            "type": "switch",
+            "label": "绝密报告资料",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "绝密报告资料": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "@@@"
+                                    ]
+                                }
+                            }
                         }
                     }
                 }

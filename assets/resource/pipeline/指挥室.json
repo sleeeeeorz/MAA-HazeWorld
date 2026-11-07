@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792958834967,
+            "lastSyncTime": 1794072860110,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\指挥室.json",
             "savedViewport": {
-                "x": -3166,
-                "y": -3229,
-                "zoom": 1
+                "x": 148,
+                "y": -1318,
+                "zoom": 0.5
             },
             "filename": "指挥室",
-            "version": "v2.1.0"
+            "version": "v2.1.1"
         }
     },
     "全部收集": {
@@ -110,8 +110,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3715,
-                "y": 3612
+                "x": 3768,
+                "y": 3618
             }
         }
     },
@@ -134,8 +134,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3207,
-                "y": 3344
+                "x": 3156,
+                "y": 3392
             }
         }
     },
@@ -203,8 +203,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 4228,
-                "y": 3645
+                "x": 4310,
+                "y": 3636
             }
         }
     },
@@ -248,8 +248,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3716,
-                "y": 3321
+                "x": 3802,
+                "y": 3192
             }
         }
     },

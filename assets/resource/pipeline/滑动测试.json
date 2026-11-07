@@ -1,0 +1,42 @@
+{
+    "$__mpe_config_滑动测试": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 0,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\滑动测试.json",
+            "savedViewport": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1.0
+            },
+            "filename": "滑动测试",
+            "version": "v2.1.0"
+        }
+    },
+    "滑动测试": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    640,
+                    660
+                ],
+                "end": [
+                    80,
+                    660
+                ],
+                "duration": 1200
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "post_delay": 1500
+    }
+}

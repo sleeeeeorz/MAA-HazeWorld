@@ -1,0 +1,857 @@
+{
+    "$__mpe_config_每月兑换商店": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1794079009332,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每月兑换商店.json",
+            "savedViewport": {
+                "x": -49,
+                "y": 1016,
+                "zoom": 0.4
+            },
+            "filename": "每月兑换商店",
+            "version": "v2.1.1"
+        }
+    },
+    "兑换商店": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    670,
+                    89,
+                    147,
+                    85
+                ],
+                "expected": [
+                    "兑换商店"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    700,
+                    110,
+                    79,
+                    33
+                ]
+            }
+        },
+        "next": [
+            "标记（月度）",
+            "商店扫描"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -639,
+                "y": -107
+            }
+        },
+        "post_delay": 1000
+    },
+    "原始核心晶块": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "原始核心晶块"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": -1278
+            }
+        },
+        "post_delay": 1000
+    },
+    "原始核心碎片": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "原始核心碎片"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": -988
+            }
+        },
+        "post_delay": 1000
+    },
+    "原始核心结晶": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "原始核心结晶"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": -698
+            }
+        },
+        "post_delay": 1000
+    },
+    "原始核心芯片": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "原始核心芯片"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": -408
+            }
+        },
+        "post_delay": 1000
+    },
+    "商城-每月兑换": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    769,
+                    662,
+                    52,
+                    27
+                ],
+                "expected": [
+                    "商城"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "月度检查",
+            "周度检查"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -959,
+                "y": -2057
+            }
+        },
+        "post_delay": 1000
+    },
+    "商店扫描": {
+        "next": [
+            "耀闪的残响",
+            "精英调度卷",
+            "定向调度卷",
+            "绀紫的残响",
+            "浓缩能量合剂",
+            "原始核心结晶",
+            "原始核心晶块",
+            "原始核心芯片",
+            "原始核心碎片",
+            "绝密报告资料",
+            "自选水晶3",
+            "自选水晶2",
+            "自选水晶1",
+            "商店滑动"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -319,
+                "y": -126
+            }
+        },
+        "on_error": [
+            "返回-友情"
+        ]
+    },
+    "商店滑动": {
+        "max_hit": 5,
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    640,
+                    660
+                ],
+                "end": [
+                    [
+                        80,
+                        660
+                    ]
+                ],
+                "duration": 1200
+            }
+        },
+        "post_delay": 1500,
+        "next": [
+            "商店扫描"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 462
+            }
+        }
+    },
+    "定向调度卷": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "",
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": -118
+            }
+        },
+        "post_delay": 1000
+    },
+    "定向调度卷-友情": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "定向调度券"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "新建节点63"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -319,
+                "y": -2159
+            }
+        }
+    },
+    "已兑换-友情": {
+        "post_delay": 1000,
+        "next": [
+            "结束-友情"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 225,
+                "y": -1854
+            }
+        }
+    },
+    "新建节点63": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "MAX"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "新建节点64"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": -2159
+            }
+        }
+    },
+    "新建节点64": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "结束-友情"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 321,
+                "y": -2159
+            }
+        }
+    },
+    "新建节点77": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "MAX"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "新建节点78"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 321,
+                "y": -114
+            }
+        }
+    },
+    "新建节点78": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "新建节点79"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 641,
+                "y": -114
+            }
+        }
+    },
+    "新建节点79": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    494,
+                    18,
+                    99,
+                    44
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "商店扫描"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 854,
+                "y": -1371
+            }
+        }
+    },
+    "每月兑换商店": {
+        "next": [
+            "商城-每月兑换"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -1279,
+                "y": -2025
+            }
+        }
+    },
+    "浓缩能量合剂": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "浓缩能量合剂"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 172
+            }
+        },
+        "post_delay": 1000
+    },
+    "精英调度卷": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "",
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 873
+            }
+        },
+        "post_delay": 1000
+    },
+    "绀紫的残响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "绀紫的残响"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 1163
+            }
+        },
+        "post_delay": 1000
+    },
+    "结束-友情": {
+        "next": [
+            "返回-友情"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 688,
+                "y": -2073
+            }
+        }
+    },
+    "绝密报告资料": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "绝密报告资料"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 1453
+            }
+        },
+        "post_delay": 1000
+    },
+    "耀闪的残响": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "耀闪的残响"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 1743
+            }
+        },
+        "post_delay": 1000
+    },
+    "自选水晶1": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "自选水晶1.png"
+                ],
+                "threshold": [
+                    0.85
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 2033
+            }
+        },
+        "post_delay": 1000
+    },
+    "自选水晶2": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "自选水晶2.png"
+                ],
+                "threshold": [
+                    0.85
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": 2375
+            }
+        },
+        "post_delay": 1000
+    },
+    "自选水晶3": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "自选水晶3.png"
+                ],
+                "threshold": [
+                    0.85
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "新建节点77"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1,
+                "y": -1620
+            }
+        },
+        "post_delay": 1000
+    },
+    "荣誉凭证": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    869,
+                    89,
+                    114,
+                    80
+                ],
+                "expected": [
+                    "荣誉凭证"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    879,
+                    132,
+                    89,
+                    29
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "next": [
+            "标记（周度）",
+            "定向调度卷-友情"
+        ],
+        "on_error": [
+            "已兑换-友情"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -639,
+                "y": -2149
+            }
+        }
+    },
+    "返回-友情": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]多次点击（每月兑换）",
+            "确认返回（每月兑换）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2476,
+                "y": -1728
+            }
+        },
+        "post_delay": 1000
+    },
+    "多次点击（每月兑换）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "点关闭按钮（每月兑换）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3036,
+                "y": -1511
+            }
+        }
+    },
+    "点关闭按钮（每月兑换）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3570,
+                "y": -1489
+            }
+        },
+        "post_delay": 1000
+    },
+    "确认返回（每月兑换）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "结束任务（每月兑换）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3062,
+                "y": -1933
+            }
+        }
+    },
+    "结束任务（每月兑换）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3515,
+                "y": -1778
+            }
+        }
+    },
+    "月度检查": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "shop_pending",
+                "custom_recognition_param": {
+                    "key": "兑换商店",
+                    "period": "monthly"
+                }
+            }
+        },
+        "next": [
+            "兑换商店"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -300,
+                "y": 0
+            }
+        }
+    },
+    "周度检查": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "shop_pending",
+                "custom_recognition_param": {
+                    "key": "荣誉凭证",
+                    "period": "weekly"
+                }
+            }
+        },
+        "next": [
+            "荣誉凭证"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -300,
+                "y": 150
+            }
+        }
+    },
+    "标记（月度）": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "shop_done",
+                "custom_action_param": {
+                    "key": "兑换商店",
+                    "period": "monthly"
+                }
+            }
+        },
+        "next": [
+            "商店扫描"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "post_delay": 1000
+    },
+    "标记（周度）": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "shop_done",
+                "custom_action_param": {
+                    "key": "荣誉凭证",
+                    "period": "weekly"
+                }
+            }
+        },
+        "next": [
+            "定向调度卷-友情"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "post_delay": 1000
+    }
+}

@@ -334,3 +334,109 @@ class ActivityActive(CustomRecognition):
 
         print(f"[activity] 活动已结束（{end}），跳过活动任务")
         return CustomRecognition.AnalyzeResult(box=None, detail=f"活动已结束：{end}")
+
+
+# 单次任务内「这一段已经走过」的标记（内存里，不落盘；任务结束时由 daily_reset 清空）
+_daily_done: set[str] = set()
+
+
+@AgentServer.custom_recognition("daily_pending")
+class DailyPending(CustomRecognition):
+    """本任务内这一段还没走过 → 命中；走过 → 失败（跳过）。"""
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        param = _parse_param(argv.custom_recognition_param)
+        segment = str(param.get("segment", "default"))
+        if segment in _daily_done:
+            return CustomRecognition.AnalyzeResult(
+                box=None, detail=f"本任务已走过：{segment}"
+            )
+        return CustomRecognition.AnalyzeResult(
+            box=(0, 0, 0, 0), detail=f"待执行：{segment}"
+        )
+
+
+@AgentServer.custom_action("daily_done")
+class DailyDone(CustomAction):
+    """标记这一段已经走过（仅本次任务）。"""
+
+    def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
+        param = _parse_param(argv.custom_action_param)
+        segment = str(param.get("segment", "default"))
+        _daily_done.add(segment)
+        print(f"[daily] 已走过：{segment}")
+        return True
+
+
+@AgentServer.custom_action("daily_reset")
+class DailyReset(CustomAction):
+    """清空段标记（任务结束时调用，下次任务重新开始）。"""
+
+    def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
+        _daily_done.clear()
+        print("[daily] 已重置段标记")
+        return True
+
+
+# ── 每周/每月商店跑没跑过（持久化到 data/monthly_shop.json）──
+_shop_state_file = ROOT / "data" / "monthly_shop.json"
+
+
+def _current_period(period: str) -> str:
+    now = dt.datetime.now()
+    if period == "weekly":
+        return week_key(now)
+    return now.strftime("%Y-%m")
+
+
+def _load_shop_state() -> dict:
+    try:
+        data = json.loads(_shop_state_file.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+@AgentServer.custom_recognition("shop_pending")
+class ShopPending(CustomRecognition):
+    """本周期（周/月）还没跑过 → 命中；跑过 → 失败跳过。"""
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        param = _parse_param(argv.custom_recognition_param)
+        key = str(param.get("key", "default"))
+        period = str(param.get("period", "weekly"))
+        done = _load_shop_state().get(key)
+        current = _current_period(period)
+        if done == current:
+            return CustomRecognition.AnalyzeResult(
+                box=None, detail=f"{key} 本周期已跑：{done}"
+            )
+        return CustomRecognition.AnalyzeResult(
+            box=(0, 0, 0, 0), detail=f"{key} 待跑：{current}"
+        )
+
+
+@AgentServer.custom_action("shop_done")
+class ShopDone(CustomAction):
+    """记录本周/本月已跑。"""
+
+    def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
+        param = _parse_param(argv.custom_action_param)
+        key = str(param.get("key", "default"))
+        period = str(param.get("period", "weekly"))
+        state = _load_shop_state()
+        state[key] = _current_period(period)
+        _shop_state_file.parent.mkdir(parents=True, exist_ok=True)
+        _shop_state_file.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[shop] 已记录：{key} = {state[key]}")
+        return True
