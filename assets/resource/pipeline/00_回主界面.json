@@ -267,15 +267,18 @@
                 "x": 640,
                 "y": 561
             }
-        }
+        },
+        "on_error": [
+            "演习·返回"
+        ]
     },
     "演习·入口": {
         "timeout": 5000,
         "next": [
-            "演习·主界面判断"
+            "维护检查（演习）"
         ],
         "on_error": [
-            "演习·返回"
+            "演习·主界面判断"
         ],
         "$__mpe_code": {
             "position": {
@@ -368,6 +371,27 @@
             "position": {
                 "x": 320,
                 "y": 1061
+            }
+        }
+    },
+    "维护检查（演习）": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "maintenance_time",
+                "custom_recognition_param": {
+                    "start_hour": 2,
+                    "end_hour": 6
+                }
+            }
+        },
+        "next": [
+            "结束任务（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
             }
         }
     }

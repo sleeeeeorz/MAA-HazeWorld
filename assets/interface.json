@@ -6,7 +6,7 @@
     "license": "MIT",
     "welcome": "先跑「游戏启动」，再按需选择任务；商店兑换与抽卡次数在任务选项里设置。",
     "github": "https://github.com/sleeeeeorz/MAA-HazeWorld",
-    "version": "1.0.0",
+    "version": "1.0.1",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror 酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
@@ -49,7 +49,8 @@
             "option": [
                 "邮箱",
                 "每日领取",
-                "每周兑换演习卷"
+                "每周兑换演习卷",
+                "好友点赞"
             ]
         },
         {
@@ -63,10 +64,6 @@
             ]
         },
         {
-            "name": "好友点赞",
-            "entry": "好友点赞"
-        },
-        {
             "name": "指挥室",
             "entry": "指挥室·入口",
             "label": "指挥室"
@@ -74,7 +71,7 @@
         {
             "name": "资源",
             "entry": "作战",
-            "label": "资源",
+            "label": "主线扫荡",
             "description": "异兽清剿、核心制造、队员特训、装甲进阶\n四项里选一个执行，每组支线再选一个",
             "group": [],
             "option": [
@@ -84,16 +81,12 @@
         {
             "name": "活动",
             "entry": "活动·入口",
-            "label": "当期活动",
-            "description": "扫荡当期活动；活动结束时间在 data/activity.json 的 end 里，到期自动跳过\n抽卡请单独勾选「活动抽卡」任务",
+            "label": "活动扫荡",
+            "description": "扫荡当期活动（活动时间：10-29 10:00 ~ 12-02 23:00）；活动结束后会自动跳过，不需要手动关。\n扫荡完想在活动界面顺便抽卡，就把下面的「活动抽卡」打开。",
             "group": [],
-            "option": []
-        },
-        {
-            "name": "活动抽卡",
-            "entry": "活动-抽卡",
-            "label": "活动抽卡",
-            "description": "在活动界面上抽卡；勾选本任务才会抽"
+            "option": [
+                "活动抽卡"
+            ]
         },
         {
             "name": "通行证",
@@ -114,7 +107,7 @@
         {
             "name": "每月兑换商店",
             "entry": "每月兑换商店",
-            "label": "每月兑换商店",
+            "label": "每月兑换商店（测试版）",
             "description": "商城兑换商店：荣誉凭证 + 各兑换物品（每项可单独开关）",
             "group": [],
             "option": [
@@ -165,8 +158,7 @@
     "option": {
         "资源项目": {
             "type": "select",
-            "label": "要执行的资源",
-            "description": "四选一，只执行选中的一项；选中后展开对应支线与关卡",
+            "label": "选择扫荡关卡",
             "cases": [
                 {
                     "name": "异兽清剿",
@@ -233,7 +225,6 @@
         "异兽清剿支线": {
             "type": "select",
             "label": "异兽清剿",
-            "description": "选择异兽清剿要执行的支线",
             "cases": [
                 {
                     "name": "经验获取",
@@ -425,8 +416,7 @@
         },
         "异兽清剿关卡": {
             "type": "select",
-            "label": "异兽清剿关卡",
-            "description": "选择异兽清剿要打的关卡",
+            "label": "选择关卡难度",
             "cases": [
                 {
                     "name": "05",
@@ -673,7 +663,6 @@
         "每日领取": {
             "type": "switch",
             "label": "商城每日礼包",
-            "description": "关掉后不进商城领取",
             "cases": [
                 {
                     "name": "Yes",
@@ -696,7 +685,6 @@
         "邮箱": {
             "type": "switch",
             "label": "邮箱领取",
-            "description": "关掉后不进邮箱领取",
             "cases": [
                 {
                     "name": "Yes",
@@ -716,10 +704,60 @@
                 }
             ]
         },
+        "活动抽卡": {
+            "type": "switch",
+            "label": "活动抽卡",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {
+                        "确认返回（活动）": {
+                            "next": [
+                                "活动-抽卡"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "确认返回（活动）": {
+                            "next": [
+                                "结束任务（活动）"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "好友点赞": {
+            "type": "switch",
+            "label": "好友点赞",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "label": "开",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "No",
+                    "label": "关",
+                    "pipeline_override": {
+                        "好友段": {
+                            "next": [
+                                "好友·重定向"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "每周兑换演习卷": {
             "type": "switch",
-            "label": "每周兑换演习卷",
-            "description": "每周跑一次演习商店兑换（商店周一刷新）；本周已兑换或兑换失败本周自动跳过",
+            "label": "每周演习卷",
+            "description": "本周已兑换自动跳过",
             "cases": [
                 {
                     "name": "Yes",
@@ -742,7 +780,7 @@
         "补充演习卷": {
             "type": "switch",
             "label": "补充演习卷",
-            "description": "演习前先点 + 补充演习卷；关掉后跳过补充直接打演习",
+            "description": "关闭后只跑自动回复的",
             "cases": [
                 {
                     "name": "Yes",
@@ -765,7 +803,6 @@
         "每日任务": {
             "type": "switch",
             "label": "每日任务",
-            "description": "关掉后不点每日任务",
             "cases": [
                 {
                     "name": "Yes",
@@ -791,7 +828,6 @@
         "每周任务": {
             "type": "switch",
             "label": "每周任务",
-            "description": "关掉后不点每周任务",
             "cases": [
                 {
                     "name": "Yes",
@@ -823,7 +859,6 @@
         "每月任务": {
             "type": "switch",
             "label": "每月任务",
-            "description": "关掉后不点每月任务",
             "cases": [
                 {
                     "name": "Yes",
@@ -856,7 +891,6 @@
         "兑换商店": {
             "type": "switch",
             "label": "兑换商店",
-            "description": "关掉后不进兑换商店",
             "cases": [
                 {
                     "name": "Yes",
@@ -891,7 +925,6 @@
         "荣誉凭证": {
             "type": "switch",
             "label": "荣誉凭证",
-            "description": "关掉后不兑换荣誉凭证（友情点）",
             "cases": [
                 {
                     "name": "Yes",
@@ -1172,7 +1205,6 @@
         "每日可领取（100 点）": {
             "type": "switch",
             "label": "每日 · 100 点",
-            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -1195,7 +1227,6 @@
         "每周可领取（90 点）": {
             "type": "switch",
             "label": "每周 · 90 点",
-            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -1218,7 +1249,6 @@
         "每周可领取（150 点）": {
             "type": "switch",
             "label": "每周 · 150 点",
-            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -1241,7 +1271,6 @@
         "每月可领取（150 点）": {
             "type": "switch",
             "label": "每月 · 150 点",
-            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -1264,7 +1293,6 @@
         "每月可领取（300 点）": {
             "type": "switch",
             "label": "每月 · 300 点",
-            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",
@@ -1287,7 +1315,6 @@
         "每月可领取（450 点）": {
             "type": "switch",
             "label": "每月 · 450 点",
-            "description": "关闭后这一档不领",
             "cases": [
                 {
                     "name": "Yes",

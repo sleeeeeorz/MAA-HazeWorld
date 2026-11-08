@@ -3,23 +3,29 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792993114995,
+            "lastSyncTime": 1794163487921,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\通行证.json",
             "savedViewport": {
-                "x": -396,
-                "y": -2207,
-                "zoom": 0.75
+                "x": -1180,
+                "y": -3138,
+                "zoom": 1.01
             },
             "filename": "通行证",
-            "version": "v2.1.0"
+            "version": "v2.1.1"
         }
     },
     "一键领取（通行证）": {
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    1014,
+                    625,
+                    218,
+                    70
+                ],
                 "expected": [
                     "一键领取"
                 ]
@@ -34,8 +40,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1223,
-                "y": 3149
+                "x": 1214,
+                "y": 3114
             }
         }
     },
@@ -43,6 +49,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    1007,
+                    617,
+                    235,
+                    90
+                ],
                 "expected": [
                     "一键领取"
                 ]
@@ -66,6 +78,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    770,
+                    621,
+                    223,
+                    78
+                ],
                 "expected": [
                     "任务"
                 ]
@@ -83,8 +101,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 846,
-                "y": 3409
+                "x": 835,
+                "y": 3363
             }
         }
     },
@@ -114,6 +132,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    764,
+                    629,
+                    225,
+                    66
+                ],
                 "expected": [
                     "奖励"
                 ]
@@ -128,8 +152,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1817,
-                "y": 3142
+                "x": 1867,
+                "y": 3121
             }
         }
     },
@@ -152,8 +176,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2725,
-                "y": 3502
+                "x": 2811,
+                "y": 3727
             }
         }
     },
@@ -237,8 +261,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1525,
-                "y": 3169
+                "x": 1539,
+                "y": 3122
             }
         }
     },
@@ -268,8 +292,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2499,
-                "y": 3209
+                "x": 2481,
+                "y": 3153
             }
         }
     },
@@ -277,6 +301,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    1178,
+                    138,
+                    73,
+                    28
+                ],
                 "expected": [
                     "通行证"
                 ]

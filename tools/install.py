@@ -129,6 +129,17 @@ def install_resource():
         working_dir / "assets" / "interface.json",
         install_path,
     )
+    shutil.copytree(
+        working_dir / "assets" / "agent",
+        install_path / "agent",
+        dirs_exist_ok=True,
+    )
+    # 预置配置：装完就有「日常」「活动」两套
+    shutil.copytree(
+        working_dir / "assets" / "config_templates" / "instances",
+        install_path / "config" / "instances",
+        dirs_exist_ok=True,
+    )
 
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
         interface = jsonc.load(f)

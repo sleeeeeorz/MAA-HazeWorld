@@ -3,24 +3,24 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792958815807,
+            "lastSyncTime": 1794163309397,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动.json",
             "savedViewport": {
-                "x": -76,
-                "y": -10,
-                "zoom": 0.79
+                "x": 637,
+                "y": 332,
+                "zoom": 0.8
             },
             "filename": "活动",
-            "version": "v2.1.0"
+            "version": "v2.1.1"
         }
     },
     "$__mpe_external_活动-抽卡_活动": {
         "$__mpe_code": {
             "position": {
-                "x": 3520,
-                "y": 289
+                "x": 4377,
+                "y": -194
             }
         }
     },
@@ -70,8 +70,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": -577,
-                "y": 331
+                "x": -678,
+                "y": 311
             }
         }
     },
@@ -147,8 +147,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3200,
-                "y": 529
+                "x": 4559,
+                "y": 290
             }
         }
     },
@@ -169,8 +169,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1920,
-                "y": 256
+                "x": 1859,
+                "y": -60
             }
         }
     },
@@ -214,8 +214,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2550,
-                "y": 255
+                "x": 2744,
+                "y": 396
             }
         }
     },
@@ -241,6 +241,26 @@
             }
         }
     },
+    "活动时效": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "activity_active"
+            }
+        },
+        "next": [
+            "活动·主界面判断"
+        ],
+        "on_error": [
+            "结束任务（活动）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -634,
+                "y": -60
+            }
+        }
+    },
     "点关闭按钮（活动）": {
         "pre_delay": 1000,
         "action": {
@@ -256,8 +276,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 3520,
-                "y": 559
+                "x": 5038,
+                "y": 384
             }
         }
     },
@@ -274,12 +294,12 @@
             }
         },
         "next": [
-            "结束任务（活动）"
+            "活动-抽卡"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3200,
-                "y": 188
+                "x": 4575,
+                "y": -64
             }
         }
     },
@@ -296,16 +316,18 @@
             "type": "Click"
         },
         "timeout": 5000,
-        "next": [
-            "返回主页（活动）"
-        ],
         "on_error": [
             "无体力"
         ],
+        "next": [
+            "[JumpBack]升级",
+            "[JumpBack]联合讨伐",
+            "返回主页（活动）"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 2240,
-                "y": 215
+                "x": 2219,
+                "y": -139
             }
         }
     },
@@ -316,8 +338,8 @@
         "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 224,
-                "y": 1056
+                "x": 5052,
+                "y": -8
             }
         }
     },
@@ -340,8 +362,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2885,
-                "y": -45
+                "x": 3703,
+                "y": -21
             }
         }
     },
@@ -367,23 +389,97 @@
             }
         }
     },
-    "活动时效": {
+    "升级": {
         "recognition": {
-            "type": "Custom",
+            "type": "OCR",
             "param": {
-                "custom_recognition": "activity_active"
+                "roi": [
+                    451,
+                    487,
+                    140,
+                    34
+                ],
+                "expected": [
+                    "体力上限提升"
+                ]
             }
         },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    514,
+                    24,
+                    226,
+                    63
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2739,
+                "y": -643
+            }
+        }
+    },
+    "联合讨伐": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    584,
+                    126,
+                    115,
+                    39
+                ],
+                "expected": [
+                    "联合讨伐"
+                ]
+            }
+        },
+        "post_delay": 1000,
         "next": [
-            "活动·主界面判断"
-        ],
-        "on_error": [
-            "结束任务（活动）"
+            "讨伐-取消"
         ],
         "$__mpe_code": {
             "position": {
-                "x": -400,
-                "y": 0
+                "x": 2751,
+                "y": -360
+            }
+        }
+    },
+    "讨伐-取消": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    453,
+                    531,
+                    78,
+                    33
+                ],
+                "expected": [
+                    "取消"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3132,
+                "y": -354
+            }
+        }
+    },
+    "$__mpe_external_活动·主界面判断_活动": {
+        "$__mpe_code": {
+            "position": {
+                "x": -62,
+                "y": -82
             }
         }
     }

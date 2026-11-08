@@ -613,6 +613,7 @@
     "签到·入口": {
         "next": [
             "签到段",
+            "好友段",
             "邮箱段",
             "商城段",
             "商店段",
@@ -1071,6 +1072,46 @@
             "position": {
                 "x": 900,
                 "y": 900
+            }
+        }
+    },
+    "好友段": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "daily_pending",
+                "custom_recognition_param": {
+                    "segment": "friends"
+                }
+            }
+        },
+        "next": [
+            "好友点赞"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "好友·重定向": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "daily_done",
+                "custom_action_param": {
+                    "segment": "friends"
+                }
+            }
+        },
+        "next": [
+            "签到·入口"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 200,
+                "y": 0
             }
         }
     }

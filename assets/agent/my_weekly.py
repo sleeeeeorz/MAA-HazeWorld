@@ -416,6 +416,8 @@ class ShopPending(CustomRecognition):
         done = _load_shop_state().get(key)
         current = _current_period(period)
         if done == current:
+            period_text = "本周" if period == "weekly" else "本月"
+            print(f"[shop] {key} 已{period_text}兑换过，无需重复，跳过")
             return CustomRecognition.AnalyzeResult(
                 box=None, detail=f"{key} 本周期已跑：{done}"
             )
@@ -440,3 +442,26 @@ class ShopDone(CustomAction):
         )
         print(f"[shop] 已记录：{key} = {state[key]}")
         return True
+
+
+@AgentServer.custom_recognition("maintenance_time")
+class MaintenanceTime(CustomRecognition):
+    """北京时间 2:00-6:00 视为维护窗口 → 命中（跳过对应任务）。"""
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        param = _parse_param(argv.custom_recognition_param)
+        start = int(param.get("start_hour", 2))
+        end = int(param.get("end_hour", 6))
+        now = dt.datetime.now()
+        if start <= now.hour < end:
+            print(f"[time] 北京时间 {now:%H:%M} 在维护时段 {start}:00-{end}:00，跳过")
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 0, 0), detail=f"维护时段 {start}:00-{end}:00"
+            )
+        return CustomRecognition.AnalyzeResult(
+            box=None, detail=f"非维护时段（{now:%H:%M}）"
+        )
