@@ -5,26 +5,26 @@
     "游戏初始化<|||>拉起游戏",
     "每日签到<|||>签到·入口",
     "演习<|||>演习·入口",
-    "指挥室<|||>指挥室·入口",
     "资源<|||>作战",
+    "指挥室<|||>指挥室·入口",
     "通行证<|||>通行证·入口",
     "任务<|||>任务·入口",
-    "每月兑换商店<|||>每月兑换商店",
-    "关闭游戏<|||>关闭游戏"
+    "关闭游戏<|||>关闭游戏",
+    "每月兑换商店<|||>每月兑换商店"
   ],
   "TaskItems": [
     {
       "name": "游戏初始化",
       "label": "游戏启动",
       "entry": "拉起游戏",
-      "default_check": false,
+      "default_check": true,
       "option": []
     },
     {
       "name": "每日签到",
       "label": "每日日常准备",
       "entry": "签到·入口",
-      "default_check": false,
+      "default_check": true,
       "description": "领取签到、邮箱、商城每日礼包\n签到默认开启；邮箱与每日礼包可分别开关",
       "group": [],
       "option": [
@@ -39,6 +39,10 @@
         {
           "name": "每周兑换演习卷",
           "index": 0
+        },
+        {
+          "name": "好友点赞",
+          "index": 0
         }
       ]
     },
@@ -46,7 +50,7 @@
       "name": "演习",
       "label": "每日演习",
       "entry": "演习·入口",
-      "default_check": false,
+      "default_check": true,
       "description": "先跑每周演习商店兑换（周一刷新），再补充演习卷并打演习\n补充演习卷可单独关掉",
       "group": [],
       "option": [
@@ -58,9 +62,9 @@
     },
     {
       "name": "资源",
-      "label": "资源",
+      "label": "主线扫荡",
       "entry": "作战",
-      "default_check": false,
+      "default_check": true,
       "description": "异兽清剿、核心制造、队员特训、装甲进阶\n四项里选一个执行，每组支线再选一个",
       "group": [],
       "option": [
@@ -151,7 +155,7 @@
     },
     {
       "name": "每月兑换商店",
-      "label": "每月兑换商店",
+      "label": "每月兑换商店（测试版）",
       "entry": "每月兑换商店",
       "default_check": false,
       "description": "商城兑换商店：荣誉凭证 + 各兑换物品（每项可单独开关）",
@@ -213,7 +217,7 @@
   "InstanceName": "日常",
   "AdbDevice": {
     "InfoHandle": {
-      "value": 2436315255936
+      "value": 1598617255824
     },
     "Name": "游戏-MuMuPlayer v5+",
     "AdbPath": "E:/MuMu/MuMuPlayer/nx_main/adb.exe",

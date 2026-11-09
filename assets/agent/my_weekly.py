@@ -339,6 +339,18 @@ class ActivityActive(CustomRecognition):
 # 单次任务内「这一段已经走过」的标记（内存里，不落盘；任务结束时由 daily_reset 清空）
 _daily_done: set[str] = set()
 
+_SEGMENT_NAMES = {
+    "sign": "签到段",
+    "friends": "好友点赞段",
+    "email": "邮箱段",
+    "shop": "商城段",
+    "store": "演习商店段",
+}
+
+
+def _seg_name(segment: str) -> str:
+    return _SEGMENT_NAMES.get(segment, segment)
+
 
 @AgentServer.custom_recognition("daily_pending")
 class DailyPending(CustomRecognition):
@@ -355,6 +367,7 @@ class DailyPending(CustomRecognition):
             return CustomRecognition.AnalyzeResult(
                 box=None, detail=f"本任务已走过：{segment}"
             )
+        print(f"[daily] 进入 {_seg_name(segment)}")
         return CustomRecognition.AnalyzeResult(
             box=(0, 0, 0, 0), detail=f"待执行：{segment}"
         )
@@ -368,7 +381,7 @@ class DailyDone(CustomAction):
         param = _parse_param(argv.custom_action_param)
         segment = str(param.get("segment", "default"))
         _daily_done.add(segment)
-        print(f"[daily] 已走过：{segment}")
+        print(f"[daily] {_seg_name(segment)} 已完成")
         return True
 
 

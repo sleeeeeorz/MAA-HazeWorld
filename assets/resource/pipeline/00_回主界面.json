@@ -63,9 +63,6 @@
             "param": {
                 "template": [
                     "设置.png"
-                ],
-                "threshold": [
-                    0.95
                 ]
             }
         },
@@ -78,7 +75,14 @@
                 "x": 640,
                 "y": 95
             }
-        }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "post_delay": 5000,
+        "on_error": [
+            "任务·小房子"
+        ]
     },
     "任务·入口": {
         "timeout": 5000,
@@ -96,7 +100,7 @@
         }
     },
     "任务·返回": {
-        "max_hit": 8,
+        "max_hit": 5,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -108,7 +112,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "[JumpBack]任务·主界面判断"
         ],
@@ -126,9 +130,6 @@
             "param": {
                 "template": [
                     "设置.png"
-                ],
-                "threshold": [
-                    0.95
                 ]
             }
         },
@@ -141,7 +142,14 @@
                 "x": 1830,
                 "y": 95
             }
-        }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "post_delay": 5000,
+        "on_error": [
+            "指挥室·小房子"
+        ]
     },
     "指挥室·入口": {
         "timeout": 5000,
@@ -159,7 +167,7 @@
         }
     },
     "指挥室·返回": {
-        "max_hit": 8,
+        "max_hit": 5,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -171,7 +179,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "[JumpBack]指挥室·主界面判断"
         ],
@@ -189,9 +197,6 @@
             "param": {
                 "template": [
                     "设置.png"
-                ],
-                "threshold": [
-                    0.95
                 ]
             }
         },
@@ -204,7 +209,14 @@
                 "x": 1830,
                 "y": 466
             }
-        }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "post_delay": 5000,
+        "on_error": [
+            "活动·小房子"
+        ]
     },
     "活动·入口": {
         "timeout": 5000,
@@ -222,7 +234,7 @@
         }
     },
     "活动·返回": {
-        "max_hit": 8,
+        "max_hit": 5,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -234,7 +246,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "[JumpBack]活动·主界面判断"
         ],
@@ -252,9 +264,6 @@
             "param": {
                 "template": [
                     "设置.png"
-                ],
-                "threshold": [
-                    0.95
                 ]
             }
         },
@@ -269,8 +278,12 @@
             }
         },
         "on_error": [
-            "演习·返回"
-        ]
+            "演习·小房子"
+        ],
+        "action": {
+            "type": "DoNothing"
+        },
+        "post_delay": 5000
     },
     "演习·入口": {
         "timeout": 5000,
@@ -288,7 +301,7 @@
         }
     },
     "演习·返回": {
-        "max_hit": 8,
+        "max_hit": 5,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -300,7 +313,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "[JumpBack]演习·主界面判断"
         ],
@@ -318,9 +331,6 @@
             "param": {
                 "template": [
                     "设置.png"
-                ],
-                "threshold": [
-                    0.95
                 ]
             }
         },
@@ -333,7 +343,14 @@
                 "x": 640,
                 "y": 933
             }
-        }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "post_delay": 5000,
+        "on_error": [
+            "通行证·小房子"
+        ]
     },
     "通行证·入口": {
         "timeout": 5000,
@@ -351,7 +368,7 @@
         }
     },
     "通行证·返回": {
-        "max_hit": 8,
+        "max_hit": 5,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -363,7 +380,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
+        "post_delay": 5000,
         "next": [
             "[JumpBack]通行证·主界面判断"
         ],
@@ -387,6 +404,136 @@
         },
         "next": [
             "结束任务（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "任务·小房子": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "返回主界面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "任务·主界面判断"
+        ],
+        "on_error": [
+            "任务·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "指挥室·小房子": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "返回主界面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "指挥室·主界面判断"
+        ],
+        "on_error": [
+            "指挥室·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "活动·小房子": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "返回主界面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "活动·主界面判断"
+        ],
+        "on_error": [
+            "活动·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "演习·小房子": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "返回主界面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "演习·主界面判断"
+        ],
+        "on_error": [
+            "演习·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "通行证·小房子": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "返回主界面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "通行证·主界面判断"
+        ],
+        "on_error": [
+            "通行证·返回"
         ],
         "$__mpe_code": {
             "position": {

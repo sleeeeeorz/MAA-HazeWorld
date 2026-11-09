@@ -1,0 +1,366 @@
+{
+    "$__mpe_config_每日日常准备_商城": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1794248910275,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_商城.json",
+            "savedViewport": {
+                "x": 449,
+                "y": 476,
+                "zoom": 0.2
+            },
+            "filename": "每日日常准备_商城",
+            "version": "v2.1.1"
+        }
+    },
+    "免费礼包": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "免费礼包"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "点击免费礼包",
+        "next": [
+            "日志-点击免费礼包"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1280,
+                "y": -84
+            }
+        }
+    },
+    "商城·重定向": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "daily_done",
+                "custom_action_param": {
+                    "segment": "shop"
+                }
+            }
+        },
+        "focus": "商城段结束",
+        "next": [
+            "签到·入口"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3520,
+                "y": -84
+            }
+        },
+        "post_delay": 5000
+    },
+    "商城段": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "daily_pending",
+                "custom_recognition_param": {
+                    "segment": "shop"
+                }
+            }
+        },
+        "focus": "进入商城段",
+        "next": [
+            "每日领取·判断"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": -137
+            }
+        }
+    },
+    "多次点击（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "focus": "识别商城弹窗",
+        "next": [
+            "点关闭按钮（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3200,
+                "y": -509
+            }
+        }
+    },
+    "左上角返回（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    47,
+                    21,
+                    87,
+                    33
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "focus": "商城完成，返回",
+        "next": [
+            "[JumpBack]多次点击（商城）",
+            "确认返回（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2880,
+                "y": -197
+            }
+        }
+    },
+    "日志-打开商城礼包": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "打开商城礼包"
+                }
+            }
+        },
+        "next": [
+            "通常礼包"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 640,
+                "y": -106
+            }
+        },
+        "post_delay": 5000
+    },
+    "日志-点击免费礼包": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "点击免费礼包"
+                }
+            }
+        },
+        "next": [
+            "确认（商店）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1600,
+                "y": -53
+            }
+        },
+        "post_delay": 5000
+    },
+    "日志-确认领取奖励": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "确认领取奖励"
+                }
+            }
+        },
+        "next": [
+            "左上角返回（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2560,
+                "y": -53
+            }
+        },
+        "post_delay": 5000
+    },
+    "每日领取·判断": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "商城"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "判断是否在商城界面",
+        "next": [
+            "日志-打开商城礼包"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 320,
+                "y": -137
+            }
+        }
+    },
+    "点关闭按钮（商城）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "focus": "关闭商城弹窗",
+        "$__mpe_code": {
+            "position": {
+                "x": 3520,
+                "y": -466
+            }
+        },
+        "post_delay": 5000
+    },
+    "确认返回（商城）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "focus": "确认回到主界面",
+        "next": [
+            "商城·重定向"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3200,
+                "y": -110
+            }
+        }
+    },
+    "确认（商店）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "确认领取",
+        "next": [
+            "获得资源（商店）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1920,
+                "y": -84
+            }
+        }
+    },
+    "获得资源（商店）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "获得资源"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    239,
+                    25,
+                    137,
+                    41
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "focus": "确认获得奖励",
+        "next": [
+            "日志-确认领取奖励"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2240,
+                "y": -100
+            }
+        }
+    },
+    "通常礼包": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "通常礼包"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "识别每日礼包",
+        "next": [
+            "免费礼包"
+        ],
+        "on_error": [
+            "左上角返回（商城）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 960,
+                "y": -165
+            }
+        }
+    },
+    "$__mpe_external_签到·入口_每日日常准备_商城": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3840,
+                "y": 20
+            }
+        }
+    }
+}

@@ -1,0 +1,289 @@
+{
+    "$__mpe_config_每日日常准备_签到": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1794249087420,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_签到.json",
+            "savedViewport": {
+                "x": 609,
+                "y": 355,
+                "zoom": 0.2
+            },
+            "filename": "每日日常准备_签到",
+            "version": "v2.1.1"
+        }
+    },
+    "$__mpe_external_签到·入口_每日日常准备_签到": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2240,
+                "y": 191
+            }
+        }
+    },
+    "多次点击（签到）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "focus": "识别弹窗（眼睛）",
+        "next": [
+            "点关闭按钮（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1600,
+                "y": 586
+            }
+        }
+    },
+    "日志-点击首页签到": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "点击首页签到"
+                }
+            }
+        },
+        "next": [
+            "签到"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 541
+            }
+        },
+        "post_delay": 5000
+    },
+    "日志-确认签到奖励": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "确认签到奖励"
+                }
+            }
+        },
+        "next": [
+            "返回主界面（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 960,
+                "y": 488
+            }
+        },
+        "post_delay": 5000
+    },
+    "点关闭按钮（签到）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "focus": "关闭弹窗",
+        "$__mpe_code": {
+            "position": {
+                "x": 1920,
+                "y": 629
+            }
+        },
+        "post_delay": 5000
+    },
+    "确认返回（签到）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "focus": "确认回到主界面",
+        "next": [
+            "签到·重定向"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1600,
+                "y": 187
+            }
+        }
+    },
+    "签到": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "点击签到.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "focus": "点击首页签到",
+        "next": [
+            "获得资源（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 320,
+                "y": 431
+            }
+        },
+        "post_delay": 5000
+    },
+    "签到·主界面判断": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "timeout": 5000,
+        "focus": "判断是否在主界面（已签到就跳过）",
+        "next": [
+            "签到·重定向"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 640,
+                "y": 0
+            }
+        }
+    },
+    "签到·重定向": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "daily_done",
+                "custom_action_param": {
+                    "segment": "sign"
+                }
+            }
+        },
+        "focus": "签到段结束",
+        "next": [
+            "签到·入口"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1920,
+                "y": 87
+            }
+        },
+        "post_delay": 5000
+    },
+    "签到段": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "daily_pending",
+                "custom_recognition_param": {
+                    "segment": "sign"
+                }
+            }
+        },
+        "focus": "进入签到段",
+        "next": [
+            "签到·主界面判断"
+        ],
+        "on_error": [
+            "签到"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 79
+            }
+        }
+    },
+    "获得资源（签到）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "获得资源.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    233,
+                    23,
+                    1,
+                    1
+                ]
+            }
+        },
+        "focus": "确认签到奖励",
+        "next": [
+            "日志-确认签到奖励"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 640,
+                "y": 431
+            }
+        },
+        "post_delay": 5000
+    },
+    "返回主界面（签到）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "签到完成，返回主界面",
+        "next": [
+            "[JumpBack]多次点击（签到）",
+            "确认返回（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1280,
+                "y": 421
+            }
+        }
+    }
+}

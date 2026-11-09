@@ -1,0 +1,325 @@
+{
+    "$__mpe_config_每日日常准备_演习商店": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1794248974979,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_演习商店.json",
+            "savedViewport": {
+                "x": 641,
+                "y": 340,
+                "zoom": 0.2
+            },
+            "filename": "每日日常准备_演习商店",
+            "version": "v2.1.1"
+        }
+    },
+    "MAX（演习）_副本1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "MAX"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "选择最大数量",
+        "next": [
+            "确认购买（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 640,
+                "y": 739
+            }
+        }
+    },
+    "关闭购买弹窗（演习）": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    468,
+                    22,
+                    50,
+                    44
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "focus": "关闭购买弹窗",
+        "next": [
+            "返回到主界面（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1600,
+                "y": 739
+            }
+        }
+    },
+    "商店·重定向": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "daily_done",
+                "custom_action_param": {
+                    "segment": "store"
+                }
+            }
+        },
+        "focus": "每周演习兑换段结束",
+        "next": [
+            "签到·入口"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 880,
+                "y": 26
+            }
+        },
+        "post_delay": 5000
+    },
+    "商店检查（演习）": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "weekly_pending",
+                "custom_recognition_param": {
+                    "state_key": "演习商店"
+                }
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "mark_weekly_done",
+                "custom_action_param": {
+                    "state_key": "演习商店"
+                }
+            }
+        },
+        "focus": "检查本周是否已兑换",
+        "next": [
+            "演习-商城"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 320,
+                "y": 339
+            }
+        },
+        "post_delay": 5000
+    },
+    "商店段": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "daily_pending",
+                "custom_recognition_param": {
+                    "segment": "store"
+                }
+            }
+        },
+        "focus": "进入每周演习兑换段",
+        "next": [
+            "商店检查（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 371
+            }
+        }
+    },
+    "多次点击（演习商店）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "focus": "识别兑换弹窗",
+        "next": [
+            "点关闭按钮（演习商店）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "日志-确认购买并关闭": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "确认购买并关闭"
+                }
+            }
+        },
+        "next": [
+            "关闭购买弹窗（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1280,
+                "y": 770
+            }
+        },
+        "post_delay": 5000
+    },
+    "日志-选择精英演习卷": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "选择精英演习卷"
+                }
+            }
+        },
+        "next": [
+            "MAX（演习）_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 320,
+                "y": 770
+            }
+        },
+        "post_delay": 5000
+    },
+    "点关闭按钮（演习商店）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "focus": "关闭兑换弹窗",
+        "$__mpe_code": {
+            "position": {
+                "x": 320,
+                "y": 36
+            }
+        },
+        "post_delay": 5000
+    },
+    "确认购买（演习）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确认"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "确认购买",
+        "next": [
+            "日志-确认购买并关闭"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 960,
+                "y": 723
+            }
+        }
+    },
+    "确认返回（演习商店）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "focus": "确认回到主界面",
+        "next": [
+            "商店·重定向"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 560,
+                "y": 0
+            }
+        }
+    },
+    "选择精英演习卷（演习）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "兑换精英演习卷.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 20000,
+        "focus": "选择精英演习卷",
+        "next": [
+            "日志-选择精英演习卷"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 690
+            }
+        }
+    },
+    "$__mpe_external_返回到主界面（演习）_每日日常准备_演习商店": {
+        "$__mpe_code": {
+            "position": {
+                "x": 1920,
+                "y": 843
+            }
+        }
+    },
+    "$__mpe_external_签到·入口_每日日常准备_演习商店": {
+        "$__mpe_code": {
+            "position": {
+                "x": 1200,
+                "y": 130
+            }
+        }
+    },
+    "$__mpe_external_演习-商城_每日日常准备_演习商店": {
+        "$__mpe_code": {
+            "position": {
+                "x": 640,
+                "y": 475
+            }
+        }
+    }
+}

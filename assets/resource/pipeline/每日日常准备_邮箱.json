@@ -1,0 +1,315 @@
+{
+    "$__mpe_config_每日日常准备_邮箱": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1794249088740,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_邮箱.json",
+            "savedViewport": {
+                "x": 550,
+                "y": 606,
+                "zoom": 0.2
+            },
+            "filename": "每日日常准备_邮箱",
+            "version": "v2.1.1"
+        }
+    },
+    "$__mpe_external_签到·入口_每日日常准备_邮箱": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3013,
+                "y": -630
+            }
+        }
+    },
+    "多次点击（邮箱）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "focus": "识别邮箱弹窗",
+        "next": [
+            "点关闭按钮（邮箱）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2373,
+                "y": -1159
+            }
+        }
+    },
+    "日志-打开邮箱领取": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "打开邮箱领取"
+                }
+            }
+        },
+        "next": [
+            "邮箱领取"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 453,
+                "y": -826
+            }
+        },
+        "post_delay": 5000,
+        "on_error": [
+            "邮箱·返回"
+        ]
+    },
+    "日志-确认邮箱奖励": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "确认邮箱奖励"
+                }
+            }
+        },
+        "next": [
+            "邮箱·空白点击"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1413,
+                "y": -826
+            }
+        },
+        "post_delay": 5000
+    },
+    "点关闭按钮（邮箱）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "focus": "关闭邮箱弹窗",
+        "$__mpe_code": {
+            "position": {
+                "x": 2693,
+                "y": -1116
+            }
+        },
+        "post_delay": 5000
+    },
+    "确认返回（邮箱）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "focus": "确认回到主界面",
+        "next": [
+            "邮箱·重定向"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2373,
+                "y": -760
+            }
+        }
+    },
+    "邮箱·判断": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "邮箱.png"
+                ],
+                "threshold": [
+                    0.9
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "判断是否在邮箱界面",
+        "next": [
+            "日志-打开邮箱领取"
+        ],
+        "on_error": [
+            "邮箱·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 133,
+                "y": -848
+            }
+        }
+    },
+    "邮箱·空白点击": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    640,
+                    620,
+                    1,
+                    1
+                ]
+            }
+        },
+        "focus": "关闭邮件详情",
+        "next": [
+            "邮箱·返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1733,
+                "y": -841
+            }
+        },
+        "post_delay": 5000
+    },
+    "邮箱·获得资源": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "获得资源"
+                ]
+            }
+        },
+        "timeout": 5000,
+        "focus": "确认邮箱奖励",
+        "next": [
+            "日志-确认邮箱奖励"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1093,
+                "y": -857
+            }
+        }
+    },
+    "邮箱·返回": {
+        "max_hit": 8,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "focus": "邮箱完成，返回",
+        "next": [
+            "[JumpBack]多次点击（邮箱）",
+            "确认返回（邮箱）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2053,
+                "y": -847
+            }
+        }
+    },
+    "邮箱·重定向": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "daily_done",
+                "custom_action_param": {
+                    "segment": "email"
+                }
+            }
+        },
+        "focus": "邮箱段结束",
+        "next": [
+            "签到·入口"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2693,
+                "y": -734
+            }
+        },
+        "post_delay": 5000
+    },
+    "邮箱段": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "daily_pending",
+                "custom_recognition_param": {
+                    "segment": "email"
+                }
+            }
+        },
+        "focus": "进入邮箱段",
+        "next": [
+            "邮箱·判断"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -187,
+                "y": -794
+            }
+        }
+    },
+    "邮箱领取": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    982,
+                    638,
+                    225,
+                    43
+                ],
+                "expected": [
+                    "领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "focus": "点击领取邮件",
+        "next": [
+            "邮箱·获得资源"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 773,
+                "y": -873
+            }
+        },
+        "post_delay": 5000
+    }
+}

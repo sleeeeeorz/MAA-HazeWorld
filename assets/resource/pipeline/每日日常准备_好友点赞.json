@@ -1,0 +1,294 @@
+{
+    "$__mpe_config_每日日常准备_好友点赞": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1794249059186,
+            "isModifiedExternally": false,
+            "isDeleted": false,
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_好友点赞.json",
+            "savedViewport": {
+                "x": 644,
+                "y": 377,
+                "zoom": 0.2
+            },
+            "filename": "每日日常准备_好友点赞",
+            "version": "v2.1.1"
+        }
+    },
+    "一键点赞": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    128,
+                    629,
+                    94,
+                    40
+                ],
+                "expected": [
+                    "一键点赞"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "好友-返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 944,
+                "y": 351
+            }
+        }
+    },
+    "多次点击（好友）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "眼睛.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "点返回按钮（好友）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1584,
+                "y": 126
+            }
+        }
+    },
+    "好友-返回": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "左上角返回.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]多次点击（好友）",
+            "确认返回（好友）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1264,
+                "y": 393
+            }
+        }
+    },
+    "好友·重定向": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "daily_done",
+                "custom_action_param": {
+                    "segment": "friends"
+                }
+            }
+        },
+        "focus": "好友点赞段结束",
+        "next": [
+            "签到·入口"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1904,
+                "y": 464
+            }
+        },
+        "post_delay": 5000
+    },
+    "好友列表": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    10,
+                    109,
+                    292,
+                    135
+                ],
+                "expected": [
+                    "好友列表"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    90,
+                    149,
+                    90,
+                    29
+                ]
+            }
+        },
+        "next": [
+            "一键点赞"
+        ],
+        "on_error": [
+            "好友-返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 624,
+                "y": 367
+            }
+        },
+        "post_delay": 5000
+    },
+    "好友段": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "daily_pending",
+                "custom_recognition_param": {
+                    "segment": "friends"
+                }
+            }
+        },
+        "focus": "进入好友点赞段",
+        "next": [
+            "好友点赞"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -336,
+                "y": 477
+            }
+        }
+    },
+    "好友点赞": {
+        "next": [
+            "新建节点49"
+        ],
+        "on_error": [
+            "好友-返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -16,
+                "y": 526
+            }
+        }
+    },
+    "新建节点49": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1182,
+                    350,
+                    64,
+                    75
+                ],
+                "expected": [
+                    "好友"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1195,
+                    360,
+                    37,
+                    33
+                ]
+            }
+        },
+        "post_delay": 5000,
+        "next": [
+            "好友列表"
+        ],
+        "on_error": [
+            "好友-返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 304,
+                "y": 283
+            }
+        }
+    },
+    "点返回按钮（好友）": {
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    40,
+                    22,
+                    44,
+                    28
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 1904,
+                "y": 156
+            }
+        },
+        "post_delay": 5000
+    },
+    "确认返回（好友）": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": [
+                    0.95
+                ]
+            }
+        },
+        "next": [
+            "好友·重定向"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1584,
+                "y": 467
+            }
+        }
+    },
+    "结束任务（好友）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 5000,
+        "$__mpe_code": {
+            "position": {
+                "x": -336,
+                "y": -62
+            }
+        }
+    },
+    "$__mpe_external_签到·入口_每日日常准备_好友点赞": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2224,
+                "y": 568
+            }
+        }
+    }
+}
