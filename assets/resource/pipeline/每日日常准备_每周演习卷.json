@@ -6,13 +6,13 @@
             "lastSyncTime": 1794248974979,
             "isModifiedExternally": false,
             "isDeleted": false,
-            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_演习商店.json",
+            "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_每周演习卷.json",
             "savedViewport": {
                 "x": 641,
                 "y": 340,
                 "zoom": 0.2
             },
-            "filename": "每日日常准备_演习商店",
+            "filename": "每日日常准备_每周演习卷",
             "version": "v2.1.1"
         }
     },
@@ -107,7 +107,7 @@
         },
         "focus": "检查本周是否已兑换",
         "next": [
-            "演习-商城"
+            "演习_副本1"
         ],
         "$__mpe_code": {
             "position": {
@@ -136,7 +136,10 @@
                 "x": 0,
                 "y": 371
             }
-        }
+        },
+        "on_error": [
+            "商店·重定向"
+        ]
     },
     "多次点击（演习商店）": {
         "recognition": {
@@ -319,6 +322,52 @@
             "position": {
                 "x": 640,
                 "y": 475
+            }
+        }
+    },
+    "演习_副本1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "演习"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "兑换商店（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "兑换商店（演习）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "兑换商店"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "选择精英演习卷（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 300,
+                "y": 0
             }
         }
     }

@@ -3,24 +3,24 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1792958825521,
+            "lastSyncTime": 1794311568615,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\游戏初始化.json",
             "savedViewport": {
-                "x": -1060,
-                "y": -2720,
-                "zoom": 0.79
+                "x": 964,
+                "y": -2487,
+                "zoom": 0.8
             },
             "filename": "游戏初始化",
-            "version": "v2.1.0"
+            "version": "v2.1.1"
         }
     },
     "$__mpe_external_关闭游戏_游戏初始化": {
         "$__mpe_code": {
             "position": {
-                "x": 3614,
-                "y": 3753
+                "x": 1840,
+                "y": 3943
             }
         }
     },
@@ -51,8 +51,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 958,
-                "y": 4144
+                "x": 560,
+                "y": 3390
             }
         }
     },
@@ -74,8 +74,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1528,
-                "y": 4354
+                "x": 880,
+                "y": 3456
             }
         }
     },
@@ -106,8 +106,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 499,
-                "y": 4044
+                "x": 240,
+                "y": 3384
             }
         }
     },
@@ -126,8 +126,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1506,
-                "y": 3884
+                "x": 880,
+                "y": 3089
             }
         }
     },
@@ -138,8 +138,8 @@
         "post_delay": 1000,
         "$__mpe_code": {
             "position": {
-                "x": 2535,
-                "y": 4030
+                "x": 1200,
+                "y": 3149
             }
         }
     },
@@ -161,22 +161,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 775,
+                "x": 560,
                 "y": 2991
-            }
-        }
-    },
-    "拉起游戏": {
-        "timeout": 5000,
-        "next": [
-            "[JumpBack]启动·设置判断",
-            "[JumpBack]游戏更新",
-            "启动·公告判断"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -80,
-                "y": 3737
             }
         }
     },
@@ -195,8 +181,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1198,
-                "y": 3598
+                "x": 560,
+                "y": 3855
             }
         }
     },
@@ -225,8 +211,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2788,
-                "y": 3715
+                "x": 1200,
+                "y": 3870
             }
         }
     },
@@ -236,10 +222,28 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3126,
-                "y": 3721
+                "x": 1520,
+                "y": 3900
             }
         }
+    },
+    "游戏初始化": {
+        "timeout": 5000,
+        "next": [
+            "[JumpBack]启动·设置判断",
+            "[JumpBack]游戏更新",
+            "启动·公告判断",
+            "拉起游戏"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -455,
+                "y": 3460
+            }
+        },
+        "on_error": [
+            "日志（启动游戏错误）"
+        ]
     },
     "游戏更新": {
         "recognition": {
@@ -267,8 +271,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 744,
-                "y": 3557
+                "x": 240,
+                "y": 3839
             }
         }
     },
@@ -287,8 +291,59 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2314,
-                "y": 3666
+                "x": 880,
+                "y": 3855
+            }
+        }
+    },
+    "拉起游戏": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.feimo.hazeworld.main"
+            }
+        },
+        "post_delay": 10000,
+        "max_hit": 2,
+        "next": [
+            "游戏初始化"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "日志（启动游戏错误）": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "启动游戏错误：界面始终无法识别，停止运行"
+                }
+            }
+        },
+        "next": [
+            "停止脚本（启动失败）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "停止脚本（启动失败）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 300,
+                "y": 0
             }
         }
     }

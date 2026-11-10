@@ -24,94 +24,6 @@
             }
         }
     },
-    "兑换商店-演习": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    701,
-                    135,
-                    83,
-                    28
-                ],
-                "expected": [
-                    "兑换商店"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "确认商店-演习"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -1070,
-                "y": 1019
-            }
-        }
-    },
-    "演习-滑动": {
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    1090,
-                    435,
-                    1,
-                    1
-                ],
-                "end": [
-                    [
-                        551,
-                        433,
-                        1,
-                        1
-                    ]
-                ],
-                "duration": 1200
-            }
-        },
-        "post_delay": 5000,
-        "next": [
-            "选择精英演习卷（演习）"
-        ],
-        "on_error": [
-            "返回到主界面（演习）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -319,
-                "y": 988
-            }
-        }
-    },
-    "演习-商城": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "商城"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "focus": "进入演习商店",
-        "next": [
-            "兑换商店-演习"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -1425,
-                "y": 816
-            }
-        }
-    },
     "签到·入口": {
         "next": [
             "签到段",
@@ -125,18 +37,6 @@
             "position": {
                 "x": 2320,
                 "y": 293
-            }
-        }
-    },
-    "结束任务（商店）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 5000,
-        "$__mpe_code": {
-            "position": {
-                "x": -1145,
-                "y": 89
             }
         }
     },
@@ -196,34 +96,5 @@
             }
         },
         "post_delay": 5000
-    },
-    "确认商店-演习": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    61,
-                    223,
-                    111,
-                    32
-                ],
-                "expected": [
-                    "精英商店"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "next": [
-            "演习-滑动"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -707,
-                "y": 1022
-            }
-        }
     }
 }

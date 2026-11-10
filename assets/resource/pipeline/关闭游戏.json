@@ -30,5 +30,30 @@
                 "y": 3357
             }
         }
+    },
+    "读取体力": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "read_energy",
+                "custom_recognition_param": {
+                    "roi": [
+                        640,
+                        50,
+                        110,
+                        30
+                    ]
+                }
+            }
+        },
+        "next": [
+            "关闭游戏"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": 0
+            }
+        }
     }
 }

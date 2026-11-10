@@ -453,7 +453,8 @@ class ShopDone(CustomAction):
         _shop_state_file.write_text(
             json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        print(f"[shop] 已记录：{key} = {state[key]}")
+        period_text = "本周" if period == "weekly" else "本月"
+        print(f"[shop] {key} {period_text}已兑换")
         return True
 
 
@@ -478,3 +479,36 @@ class MaintenanceTime(CustomRecognition):
         return CustomRecognition.AnalyzeResult(
             box=None, detail=f"非维护时段（{now:%H:%M}）"
         )
+
+
+@AgentServer.custom_recognition("read_energy")
+class ReadEnergy(CustomRecognition):
+    """读取体力并打到日志（关闭游戏前调用），总是返回命中以免中断流程。"""
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        param = _parse_param(argv.custom_recognition_param)
+        roi = param.get("roi") or [640, 50, 120, 40]
+        try:
+            result = context.run_recognition(
+                "体力读数",
+                argv.image,
+                {
+                    "体力读数": {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {"roi": roi, "expected": ["\\d+/\\d+"]},
+                        }
+                    }
+                },
+            )
+            if result and result.hit and result.best_result:
+                print(f"[energy] 当前体力：{result.best_result.text}")
+            else:
+                print("[energy] 当前体力：未识别到")
+        except Exception as e:  # noqa: BLE001
+            print(f"[energy] 读取体力失败：{e}")
+        return CustomRecognition.AnalyzeResult(box=(0, 0, 0, 0), detail="read energy")
