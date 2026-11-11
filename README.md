@@ -69,4 +69,8 @@
 - [DeepSeek](https://www.deepseek.com/)：协助开发、调试与写文档的 AI 助手
 - 以及所有提交 issue 和 PR 的朋友
 
+## 反馈
+
+遇到 bug 或使用问题，可以加 QQ：**2017969671**（备注一下 MAA-HazeWorld）。
+
 如果这个项目帮到了你，点个 Star 支持一下。

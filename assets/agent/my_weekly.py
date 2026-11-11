@@ -512,3 +512,47 @@ class ReadEnergy(CustomRecognition):
         except Exception as e:  # noqa: BLE001
             print(f"[energy] 读取体力失败：{e}")
         return CustomRecognition.AnalyzeResult(box=(0, 0, 0, 0), detail="read energy")
+
+
+@AgentServer.custom_recognition("energy_below")
+class EnergyBelow(CustomRecognition):
+    """体力低于阈值时命中（用于跳过活动扫荡）。"""
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        param = _parse_param(argv.custom_recognition_param)
+        roi = param.get("roi") or [640, 50, 110, 30]
+        limit = int(param.get("limit", 42))
+        current: int | None = None
+        try:
+            result = context.run_recognition(
+                "体力读数",
+                argv.image,
+                {
+                    "体力读数": {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {"roi": roi, "expected": ["\\d+/\\d+"]},
+                        }
+                    }
+                },
+            )
+            if result and result.hit and result.best_result:
+                current = int(str(result.best_result.text).split("/")[0].strip())
+        except Exception as e:  # noqa: BLE001
+            print(f"[energy] 读取体力失败：{e}")
+        if current is not None and current < limit:
+            print(f"[energy] 当前体力 {current} < {limit}，跳过活动扫荡")
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 0, 0), detail=f"体力 {current} < {limit}"
+            )
+        if current is None:
+            print("[energy] 体力识别失败，按体力不足处理，跳过活动扫荡")
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 0, 0), detail="体力识别失败，按不足处理"
+            )
+        print(f"[energy] 当前体力 {current}，可以扫荡")
+        return CustomRecognition.AnalyzeResult(box=None, detail=f"体力 {current}")

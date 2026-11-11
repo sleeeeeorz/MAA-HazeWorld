@@ -38,10 +38,10 @@
                 "custom_recognition": "read_energy",
                 "custom_recognition_param": {
                     "roi": [
-                        640,
-                        50,
-                        110,
-                        30
+                        600,
+                        25,
+                        240,
+                        90
                     ]
                 }
             }
