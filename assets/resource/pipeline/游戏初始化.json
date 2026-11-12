@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794311568615,
+            "lastSyncTime": 1794494463186,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\游戏初始化.json",
             "savedViewport": {
-                "x": 964,
-                "y": -2487,
-                "zoom": 0.8
+                "x": 300,
+                "y": -427,
+                "zoom": 0.63
             },
             "filename": "游戏初始化",
             "version": "v2.1.1"
@@ -19,8 +19,8 @@
     "$__mpe_external_关闭游戏_游戏初始化": {
         "$__mpe_code": {
             "position": {
-                "x": 1840,
-                "y": 3943
+                "x": 1779,
+                "y": 137
             }
         }
     },
@@ -51,8 +51,43 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 560,
-                "y": 3390
+                "x": 505,
+                "y": 1163
+            }
+        }
+    },
+    "下载资源监控": {
+        "max_hit": 30,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "正在下载资源"
+                ]
+            }
+        },
+        "post_delay": 20000,
+        "next": [
+            "下载资源监控",
+            "[JumpBack]维护公告",
+            "[JumpBack]启动·公告判断"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 557,
+                "y": 196
+            }
+        }
+    },
+    "停止脚本（启动失败）": {
+        "action": {
+            "type": "StopTask"
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 524,
+                "y": -32
             }
         }
     },
@@ -74,8 +109,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 880,
-                "y": 3456
+                "x": 827,
+                "y": 1464
             }
         }
     },
@@ -106,8 +141,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 240,
-                "y": 3384
+                "x": 22,
+                "y": 872
             }
         }
     },
@@ -126,8 +161,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 880,
-                "y": 3089
+                "x": 825,
+                "y": 1132
             }
         }
     },
@@ -138,8 +173,8 @@
         "post_delay": 1000,
         "$__mpe_code": {
             "position": {
-                "x": 1200,
-                "y": 3149
+                "x": 1145,
+                "y": 1192
             }
         }
     },
@@ -161,28 +196,27 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 560,
-                "y": 2991
+                "x": 825,
+                "y": 733
             }
         }
     },
-    "新建节点32": {
-        "recognition": {
-            "type": "OCR",
+    "拉起游戏": {
+        "max_hit": 2,
+        "action": {
+            "type": "StartApp",
             "param": {
-                "expected": [
-                    "正在下载资源"
-                ]
+                "package": "com.feimo.hazeworld.main"
             }
         },
-        "post_delay": 20000,
+        "post_delay": 10000,
         "next": [
-            "[JumpBack]维护公告"
+            "游戏初始化"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 560,
-                "y": 3855
+                "x": -652,
+                "y": 212
             }
         }
     },
@@ -211,8 +245,28 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1200,
-                "y": 3870
+                "x": 1260,
+                "y": 61
+            }
+        }
+    },
+    "日志（启动游戏错误）": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "log_message",
+                "custom_action_param": {
+                    "msg": "启动游戏错误：界面始终无法识别，停止运行"
+                }
+            }
+        },
+        "next": [
+            "停止脚本（启动失败）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 219,
+                "y": -59
             }
         }
     },
@@ -222,8 +276,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1520,
-                "y": 3900
+                "x": 1537,
+                "y": 83
             }
         }
     },
@@ -235,15 +289,15 @@
             "启动·公告判断",
             "拉起游戏"
         ],
-        "$__mpe_code": {
-            "position": {
-                "x": -455,
-                "y": 3460
-            }
-        },
         "on_error": [
             "日志（启动游戏错误）"
-        ]
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -510,
+                "y": 341
+            }
+        }
     },
     "游戏更新": {
         "recognition": {
@@ -267,12 +321,12 @@
         },
         "timeout": 5000,
         "next": [
-            "新建节点32"
+            "下载资源监控"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 240,
-                "y": 3839
+                "x": 150,
+                "y": 219
             }
         }
     },
@@ -291,59 +345,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 880,
-                "y": 3855
-            }
-        }
-    },
-    "拉起游戏": {
-        "action": {
-            "type": "StartApp",
-            "param": {
-                "package": "com.feimo.hazeworld.main"
-            }
-        },
-        "post_delay": 10000,
-        "max_hit": 2,
-        "next": [
-            "游戏初始化"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": 0
-            }
-        }
-    },
-    "日志（启动游戏错误）": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "log_message",
-                "custom_action_param": {
-                    "msg": "启动游戏错误：界面始终无法识别，停止运行"
-                }
-            }
-        },
-        "next": [
-            "停止脚本（启动失败）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": 0
-            }
-        }
-    },
-    "停止脚本（启动失败）": {
-        "action": {
-            "type": "StopTask"
-        },
-        "post_delay": 1000,
-        "$__mpe_code": {
-            "position": {
-                "x": 300,
-                "y": 0
+                "x": 882,
+                "y": 142
             }
         }
     }
