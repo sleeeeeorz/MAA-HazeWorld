@@ -209,13 +209,15 @@ def _gacha_log(line: str) -> None:
 
 
 # 抽卡计数：按 task_id 分组，任务一换自动归零
-_DRAW_STATE: dict[str, object] = {"task_id": None, "count": 0, "coin": ""}
+_DRAW_STATE: dict[str, object] = {"task_id": None, "count": 0, "coin": "", "first_coin": ""}
 
 
 def _draw_counter(task_id):
     if _DRAW_STATE["task_id"] != task_id:
         _DRAW_STATE["task_id"] = task_id
         _DRAW_STATE["count"] = 0
+        _DRAW_STATE["coin"] = ""
+        _DRAW_STATE["first_coin"] = ""
     return _DRAW_STATE
 
 
@@ -252,6 +254,8 @@ class CountDraw(CustomAction):
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
         st = _draw_counter(argv.task_detail.task_id)
+        if not st["first_coin"] and st["coin"]:
+            st["first_coin"] = st["coin"]
         st["count"] = int(st["count"]) + 1
         print(f"[gacha] 第 {st['count']} 次抽卡")
         _gacha_log(f"第 {st['count']} 次抽卡（余额 {st['coin'] or '?'}）")
@@ -266,11 +270,52 @@ class ReportDraw(CustomAction):
         st = _draw_counter(argv.task_detail.task_id)
         count = int(st["count"])
         coin = st["coin"] or "?"
-        print(f"[gacha] 本次活动抽卡共 {count} 次，最后余额 {coin}")
-        _gacha_log(f"抽卡结束：共 {count} 次，最后余额 {coin}")
+        first = st["first_coin"] or "?"
+        try:
+            spent = int(first) - int(coin)
+        except (TypeError, ValueError):
+            spent = count
+        print(f"[gacha] 本次活动共消耗抽卡币 {spent}")
+        _gacha_log(f"抽卡结束：消耗 {spent}（{first} → {coin}）")
         st["count"] = 0
         st["coin"] = ""
+        st["first_coin"] = ""
         return True
+
+
+@AgentServer.custom_recognition("expedition_same")
+class ExpeditionSame(CustomRecognition):
+    """检查远征队伍是否和上次一致：一致命中（沿用再次派遣），不同失败（重新选）。"""
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        param = _parse_param(argv.custom_recognition_param)
+        team1 = str(param.get("team1", "")).strip()
+        team2 = str(param.get("team2", "")).strip()
+
+        path = ROOT / "data" / "expedition.json"
+        last: dict = {}
+        try:
+            last = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            last = {}
+
+        same = bool(team1 and team2) and last.get("team1") == team1 and last.get("team2") == team2
+
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            json.dumps({"team1": team1, "team2": team2}, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+        if same:
+            print(f"[exp] 队伍未变（{team1} + {team2}），沿用上次派遣")
+            return CustomRecognition.AnalyzeResult(box=(0, 0, 0, 0), detail="same")
+        print(f"[exp] 队伍已更改（{team1} + {team2}），重新选择")
+        return CustomRecognition.AnalyzeResult(box=None, detail="changed")
 
 
 @AgentServer.custom_action("mark_weekly_done")

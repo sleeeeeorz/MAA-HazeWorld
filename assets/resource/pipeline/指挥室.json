@@ -3,17 +3,191 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794072860110,
+            "lastSyncTime": 1794674985045,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\指挥室.json",
             "savedViewport": {
-                "x": 148,
-                "y": -1318,
-                "zoom": 0.5
+                "x": 339,
+                "y": 224,
+                "zoom": 0.32
             },
             "filename": "指挥室",
             "version": "v2.1.1"
+        }
+    },
+    "12h-1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    718,
+                    578,
+                    87,
+                    29
+                ],
+                "expected": [
+                    "12小时"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "推荐1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1583,
+                "y": 1037
+            }
+        }
+    },
+    "12h-2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    718,
+                    578,
+                    87,
+                    29
+                ],
+                "expected": [
+                    "12小时"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "推荐2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3183,
+                "y": 1037
+            }
+        }
+    },
+    "4h-1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    432,
+                    576,
+                    74,
+                    33
+                ],
+                "expected": [
+                    "4小时"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "推荐1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1583,
+                "y": 690
+            }
+        }
+    },
+    "4h-2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    432,
+                    576,
+                    74,
+                    33
+                ],
+                "expected": [
+                    "4小时"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "推荐2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3183,
+                "y": 690
+            }
+        }
+    },
+    "8h-1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    582,
+                    580,
+                    67,
+                    26
+                ],
+                "expected": [
+                    "8小时"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "推荐1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1583,
+                "y": 343
+            }
+        }
+    },
+    "8h-2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    582,
+                    580,
+                    67,
+                    26
+                ],
+                "expected": [
+                    "8小时"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "推荐2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3183,
+                "y": 343
+            }
         }
     },
     "全部收集": {
@@ -34,8 +208,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 668,
-                "y": 3459
+                "x": -977,
+                "y": 730
             }
         }
     },
@@ -57,8 +231,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2273,
-                "y": 3212
+                "x": 1903,
+                "y": 1623
             }
         }
     },
@@ -88,8 +262,386 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2682,
-                "y": 3582
+                "x": 4143,
+                "y": 690
+            }
+        }
+    },
+    "可领取": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    276,
+                    168,
+                    98,
+                    422
+                ],
+                "expected": [
+                    "可领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "可领取-点击领取"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -17,
+                "y": 1137
+            }
+        }
+    },
+    "可领取-点击领取": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    846,
+                    556,
+                    349,
+                    74
+                ],
+                "expected": [
+                    "点击领取"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "检查队伍"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 303,
+                "y": 1150
+            }
+        }
+    },
+    "培养协助-支援1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    276,
+                    533,
+                    42,
+                    24
+                ],
+                "expected": [
+                    "支援"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-1",
+            "8h-1",
+            "12h-1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1263,
+                "y": 295
+            }
+        }
+    },
+    "培养协助-支援2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    276,
+                    533,
+                    42,
+                    24
+                ],
+                "expected": [
+                    "支援"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-2",
+            "8h-2",
+            "12h-2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2863,
+                "y": 295
+            }
+        }
+    },
+    "培养协助-攻击1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    366,
+                    41,
+                    20
+                ],
+                "expected": [
+                    "攻击"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-1",
+            "8h-1",
+            "12h-1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1263,
+                "y": 674
+            }
+        }
+    },
+    "培养协助-攻击2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    366,
+                    41,
+                    20
+                ],
+                "expected": [
+                    "攻击"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-2",
+            "8h-2",
+            "12h-2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2863,
+                "y": 674
+            }
+        }
+    },
+    "培养协助-防卫1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    274,
+                    278,
+                    44,
+                    23
+                ],
+                "expected": [
+                    "防卫"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-1",
+            "8h-1",
+            "12h-1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1263,
+                "y": 1053
+            }
+        }
+    },
+    "培养协助-防卫2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    274,
+                    278,
+                    44,
+                    23
+                ],
+                "expected": [
+                    "防卫"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-2",
+            "8h-2",
+            "12h-2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2863,
+                "y": 1053
+            }
+        }
+    },
+    "培养协助1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    226,
+                    192,
+                    46,
+                    26
+                ],
+                "expected": [
+                    "协助"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-1",
+            "8h-1",
+            "12h-1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1263,
+                "y": 1432
+            }
+        }
+    },
+    "培养协助2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    226,
+                    192,
+                    46,
+                    26
+                ],
+                "expected": [
+                    "协助"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-2",
+            "8h-2",
+            "12h-2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2863,
+                "y": 1432
+            }
+        }
+    },
+    "培养协助火力1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    274,
+                    449,
+                    42,
+                    21
+                ],
+                "expected": [
+                    "火力"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-1",
+            "8h-1",
+            "12h-1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1263,
+                "y": -84
+            }
+        }
+    },
+    "培养协助火力2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    274,
+                    449,
+                    42,
+                    21
+                ],
+                "expected": [
+                    "火力"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "4h-2",
+            "8h-2",
+            "12h-2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2863,
+                "y": -84
             }
         }
     },
@@ -110,8 +662,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3768,
-                "y": 3618
+                "x": 4783,
+                "y": 641
             }
         }
     },
@@ -134,13 +686,68 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3156,
-                "y": 3392
+                "x": 4463,
+                "y": 670
+            }
+        }
+    },
+    "开始1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1082,
+                    574,
+                    56,
+                    34
+                ],
+                "expected": [
+                    "开始"
+                ]
             }
         },
-        "on_error": [
-            "结束任务（指挥室）"
-        ]
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "选队伍2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2223,
+                "y": 690
+            }
+        }
+    },
+    "开始2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1082,
+                    574,
+                    56,
+                    34
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "取消"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3823,
+                "y": 690
+            }
+        }
     },
     "指挥室": {
         "recognition": {
@@ -160,34 +767,120 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 316,
-                "y": 3446
+                "x": -1297,
+                "y": 730
             }
         }
     },
-    "派遣": {
-        "action": {
-            "type": "Click",
+    "推荐1": {
+        "recognition": {
+            "type": "OCR",
             "param": {
-                "target": [
-                    341,
-                    376,
-                    1,
-                    1
+                "roi": [
+                    904,
+                    577,
+                    63,
+                    28
+                ],
+                "expected": [
+                    "推荐"
                 ]
             }
         },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 5000,
         "next": [
-            "点击领取"
+            "开始1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1903,
+                "y": 690
+            }
+        }
+    },
+    "推荐2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    904,
+                    577,
+                    63,
+                    28
+                ],
+                "expected": [
+                    "推荐"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
+            "开始2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3503,
+                "y": 690
+            }
+        }
+    },
+    "检查队伍": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "expedition_same",
+                "custom_recognition_param": {
+                    "team1": "培养协助",
+                    "team2": "防卫"
+                }
+            }
+        },
+        "timeout": 3000,
+        "next": [
+            "再次派遣"
         ],
         "on_error": [
+            "选队伍1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 623,
+                "y": 1077
+            }
+        }
+    },
+    "派遣中": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    276,
+                    168,
+                    98,
+                    422
+                ],
+                "expected": [
+                    "派遣中"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "next": [
             "取消"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1628,
-                "y": 3487
+                "x": 623,
+                "y": 515
             }
         }
     },
@@ -204,10 +897,11 @@
                 ]
             }
         },
+        "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 4310,
-                "y": 3636
+                "x": 5103,
+                "y": 655
             }
         }
     },
@@ -223,14 +917,15 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 5000,
         "timeout": 5000,
         "next": [
-            "再次派遣"
+            "检查队伍"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1921,
-                "y": 3220
+                "x": 303,
+                "y": 803
             }
         }
     },
@@ -251,20 +946,12 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3802,
-                "y": 3192
+                "x": 4783,
+                "y": 982
             }
         }
     },
     "空白点击": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "获得资源"
-                ]
-            }
-        },
         "action": {
             "type": "Click",
             "param": {
@@ -282,8 +969,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 988,
-                "y": 3487
+                "x": -657,
+                "y": 730
             }
         }
     },
@@ -294,8 +981,8 @@
         "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 4255,
-                "y": 3347
+                "x": 5103,
+                "y": 1029
             }
         }
     },
@@ -312,13 +999,46 @@
             "type": "Click"
         },
         "post_delay": 5000,
+        "timeout": 3000,
         "next": [
-            "派遣"
+            "可领取",
+            "派遣中",
+            "选队伍1"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1308,
-                "y": 3430
+                "x": -337,
+                "y": 714
+            }
+        }
+    },
+    "选队伍1": {
+        "next": [
+            "培养协助1",
+            "培养协助-防卫1",
+            "培养协助-攻击1",
+            "培养协助火力1",
+            "培养协助-支援1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 943,
+                "y": 730
+            }
+        }
+    },
+    "选队伍2": {
+        "next": [
+            "培养协助2",
+            "培养协助-防卫2",
+            "培养协助-攻击2",
+            "培养协助火力2",
+            "培养协助-支援2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2543,
+                "y": 730
             }
         }
     }

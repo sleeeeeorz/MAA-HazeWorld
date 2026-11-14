@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794163487921,
+            "lastSyncTime": 1794584197831,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\通行证.json",
             "savedViewport": {
-                "x": -1180,
-                "y": -3138,
-                "zoom": 1.01
+                "x": -749,
+                "y": -2128,
+                "zoom": 0.75
             },
             "filename": "通行证",
             "version": "v2.1.1"
@@ -179,10 +179,7 @@
                 "x": 2811,
                 "y": 3727
             }
-        },
-        "on_error": [
-            "结束任务（通行证）"
-        ]
+        }
     },
     "点关闭按钮（通行证）": {
         "pre_delay": 1000,
@@ -240,12 +237,7 @@
     },
     "获得资源（通行证）": {
         "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "获得资源"
-                ]
-            }
+            "type": "OCR"
         },
         "action": {
             "type": "Click",
@@ -271,12 +263,7 @@
     },
     "获得资源（通行证）_副本1": {
         "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "获得资源"
-                ]
-            }
+            "type": "OCR"
         },
         "action": {
             "type": "Click",

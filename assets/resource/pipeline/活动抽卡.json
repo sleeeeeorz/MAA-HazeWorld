@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794394644882,
+            "lastSyncTime": 1794680274225,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\活动抽卡.json",
             "savedViewport": {
-                "x": 618,
-                "y": -1737,
-                "zoom": 0.6
+                "x": 693,
+                "y": -554,
+                "zoom": 0.25
             },
             "filename": "活动抽卡",
             "version": "v2.1.1"
@@ -38,10 +38,11 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 566,
-                "y": 2809
+                "x": 206,
+                "y": 2926
             }
-        }
+        },
+        "timeout": 5000
     },
     "余额判断（活动）": {
         "recognition": {
@@ -74,10 +75,13 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 846,
-                "y": 3979
+                "x": 206,
+                "y": 3357
             }
-        }
+        },
+        "on_error": [
+            "抽卡"
+        ]
     },
     "关闭抽卡详情（活动抽卡）": {
         "action": {
@@ -97,32 +101,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 526,
-                "y": 3928
-            }
-        }
-    },
-    "关闭抽卡详情（活动抽卡）_单次": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    394,
-                    18,
-                    64,
-                    38
-                ]
-            }
-        },
-        "post_delay": 3000,
-        "next": [
-            "[JumpBack]下一页",
-            "计数（活动抽卡）_单次"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 802,
-                "y": 3492
+                "x": -434,
+                "y": 3809
             }
         }
     },
@@ -157,8 +137,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1166,
-                "y": 3788
+                "x": 206,
+                "y": 4615
             }
         }
     },
@@ -189,12 +169,12 @@
         },
         "timeout": 5000,
         "next": [
-            "抽卡_单次"
+            "抽卡"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 217,
-                "y": 3411
+                "x": 206,
+                "y": 4231
             }
         }
     },
@@ -215,8 +195,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1806,
-                "y": 3276
+                "x": 846,
+                "y": 4863
             }
         }
     },
@@ -248,40 +228,10 @@
         "$__mpe_code": {
             "position": {
                 "x": 206,
-                "y": 3816
-            }
-        }
-    },
-    "抽卡_单次": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "template": [
-                    "紫色抽卡（活动）.png"
-                ]
+                "y": 3800
             }
         },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    837,
-                    664,
-                    171,
-                    43
-                ]
-            }
-        },
-        "post_delay": 3000,
-        "next": [
-            "关闭抽卡详情（活动抽卡）_单次"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 523,
-                "y": 3430
-            }
-        }
+        "timeout": 5000
     },
     "抽卡点": {
         "recognition": {
@@ -306,9 +256,10 @@
         "$__mpe_code": {
             "position": {
                 "x": -114,
-                "y": 3478
+                "y": 4243
             }
-        }
+        },
+        "max_hit": 10
     },
     "汇总（活动抽卡）": {
         "action": {
@@ -322,8 +273,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2126,
-                "y": 3661
+                "x": 1166,
+                "y": 4566
             }
         }
     },
@@ -346,9 +297,10 @@
         "$__mpe_code": {
             "position": {
                 "x": -434,
-                "y": 3504
+                "y": 4269
             }
-        }
+        },
+        "timeout": 5000
     },
     "点关闭按钮（活动抽卡）": {
         "pre_delay": 1000,
@@ -365,8 +317,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 2126,
-                "y": 3299
+                "x": 1166,
+                "y": 4886
             }
         }
     },
@@ -387,8 +339,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1806,
-                "y": 3617
+                "x": 846,
+                "y": 4522
             }
         }
     },
@@ -405,16 +357,16 @@
             "type": "Click"
         },
         "post_delay": 1000,
+        "timeout": 5000,
+        "next": [
+            "余额判断（活动）"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 1105,
-                "y": 2864
+                "x": 526,
+                "y": 4167
             }
-        },
-        "next": [
-            "抽卡点"
-        ],
-        "timeout": 5000
+        }
     },
     "结束任务（活动抽卡）": {
         "action": {
@@ -423,8 +375,8 @@
         "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 2446,
-                "y": 3664
+                "x": 1486,
+                "y": 4597
             }
         }
     },
@@ -436,30 +388,14 @@
             }
         },
         "next": [
+            "下一页",
             "余额判断（活动）",
             "抽卡"
         ],
         "$__mpe_code": {
             "position": {
                 "x": -114,
-                "y": 4058
-            }
-        }
-    },
-    "计数（活动抽卡）_单次": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "count_draw"
-            }
-        },
-        "next": [
-            "返回主界面（任务抽卡）"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1179,
-                "y": 3508
+                "y": 3743
             }
         }
     },
@@ -480,14 +416,15 @@
             "[JumpBack]确认返回（活动抽卡）",
             "[JumpBack]多次点击（活动抽卡）"
         ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1486,
-                "y": 3533
-            }
-        },
         "on_error": [
             "结束任务（活动抽卡）"
-        ]
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 526,
+                "y": 4566
+            }
+        },
+        "timeout": 5000
     }
 }
