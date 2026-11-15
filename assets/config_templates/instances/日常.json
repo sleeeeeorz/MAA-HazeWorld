@@ -23,7 +23,7 @@
         {
             "name": "每日签到",
             "label": "每日日常准备",
-            "entry": "签到·入口",
+            "entry": "签到-入口",
             "default_check": true,
             "description": "领取签到、邮箱、商城每日礼包\n签到默认开启；邮箱与每日礼包可分别开关",
             "group": [],
@@ -49,7 +49,7 @@
         {
             "name": "演习",
             "label": "每日演习",
-            "entry": "演习·入口",
+            "entry": "演习-入口",
             "default_check": true,
             "description": "先跑每周演习商店兑换（周一刷新），再补充演习卷并打演习\n补充演习卷可单独关掉",
             "group": [],
@@ -63,7 +63,7 @@
         {
             "name": "资源",
             "label": "主线扫荡",
-            "entry": "主线·入口",
+            "entry": "主线-入口",
             "default_check": true,
             "description": "异兽清剿、核心制造、队员特训、装甲进阶\n四项里选一个执行，每组支线再选一个",
             "group": [],
@@ -87,19 +87,19 @@
         {
             "name": "指挥室",
             "label": "指挥室",
-            "entry": "指挥室·入口",
+            "entry": "指挥室-入口",
             "default_check": true
         },
         {
             "name": "通行证",
             "label": "通行证",
-            "entry": "通行证·入口",
+            "entry": "通行证-入口",
             "default_check": true
         },
         {
             "name": "任务",
             "label": "每日任务",
-            "entry": "任务·入口",
+            "entry": "任务-入口",
             "default_check": true,
             "description": "每日/每周/每月任务：三个分段各自可开关，可领取的奖励也能单独关掉",
             "option": [

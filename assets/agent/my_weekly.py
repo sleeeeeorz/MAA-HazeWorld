@@ -211,6 +211,16 @@ def _gacha_log(line: str) -> None:
 # 抽卡计数：按 task_id 分组，任务一换自动归零
 _DRAW_STATE: dict[str, object] = {"task_id": None, "count": 0, "coin": "", "first_coin": ""}
 
+# 滑动次数（按 task_id 分组，任务一换自动归零）
+_SLIDE_STATE: dict[str, object] = {"task_id": None, "counts": {}}
+
+
+def _slide_counts(task_id):
+    if _SLIDE_STATE["task_id"] != task_id:
+        _SLIDE_STATE["task_id"] = task_id
+        _SLIDE_STATE["counts"] = {}
+    return _SLIDE_STATE["counts"]
+
 
 def _draw_counter(task_id):
     if _DRAW_STATE["task_id"] != task_id:
@@ -316,6 +326,28 @@ class ExpeditionSame(CustomRecognition):
             return CustomRecognition.AnalyzeResult(box=(0, 0, 0, 0), detail="same")
         print(f"[exp] 队伍已更改（{team1} + {team2}），重新选择")
         return CustomRecognition.AnalyzeResult(box=None, detail="changed")
+
+
+@AgentServer.custom_recognition("slide_limit")
+class SlideLimit(CustomRecognition):
+    """滑动次数限制：每次调用 +1，达到上限后识别失败（触发结束）。"""
+
+    def analyze(
+        self,
+        context: Context,
+        argv: CustomRecognition.AnalyzeArg,
+    ) -> CustomRecognition.AnalyzeResult:
+        param = _parse_param(argv.custom_recognition_param)
+        key = str(param.get("key", "default"))
+        limit = int(param.get("limit", 5))
+        counts = _slide_counts(argv.task_detail.task_id)
+        count = int(counts.get(key, 0)) + 1
+        counts[key] = count
+        print(f"[slide] {key} 第 {count}/{limit} 次滑动")
+        if count < limit:
+            return CustomRecognition.AnalyzeResult(box=(0, 0, 0, 0), detail=f"滑动 {count}")
+        print(f"[slide] {key} 已达到 {limit} 次，停止查找")
+        return CustomRecognition.AnalyzeResult(box=None, detail="滑动次数用尽")
 
 
 @AgentServer.custom_action("mark_weekly_done")
@@ -505,7 +537,10 @@ class ShopDone(CustomAction):
 
 @AgentServer.custom_recognition("maintenance_time")
 class MaintenanceTime(CustomRecognition):
-    """北京时间 2:00-6:00 视为维护窗口 → 命中（跳过对应任务）。"""
+    """维护窗口 → 命中（跳过对应任务）。
+
+    每日 2:00-6:00；每周日 23:00 之后到周一 6:00 也算维护。
+    """
 
     def analyze(
         self,
@@ -516,11 +551,21 @@ class MaintenanceTime(CustomRecognition):
         start = int(param.get("start_hour", 2))
         end = int(param.get("end_hour", 6))
         now = dt.datetime.now()
+
+        # 每日维护时段
         if start <= now.hour < end:
             print(f"[time] 北京时间 {now:%H:%M} 在维护时段 {start}:00-{end}:00，跳过")
             return CustomRecognition.AnalyzeResult(
                 box=(0, 0, 0, 0), detail=f"维护时段 {start}:00-{end}:00"
             )
+
+        # 周日 23:00 之后（周日维护到周一凌晨）
+        if now.weekday() == 6 and now.hour >= 23:
+            print(f"[time] 北京时间 周日 {now:%H:%M}，周日晚维护，跳过")
+            return CustomRecognition.AnalyzeResult(
+                box=(0, 0, 0, 0), detail="周日 23:00 后维护"
+            )
+
         return CustomRecognition.AnalyzeResult(
             box=None, detail=f"非维护时段（{now:%H:%M}）"
         )

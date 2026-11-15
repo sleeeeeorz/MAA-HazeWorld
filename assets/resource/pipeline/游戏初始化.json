@@ -46,8 +46,8 @@
         },
         "post_delay": 10000,
         "next": [
-            "[JumpBack]启动·签到检查",
-            "启动·主界面检查"
+            "[JumpBack]启动-签到检查",
+            "启动-主界面检查"
         ],
         "$__mpe_code": {
             "position": {
@@ -70,7 +70,7 @@
         "next": [
             "下载资源监控",
             "[JumpBack]维护公告",
-            "[JumpBack]启动·公告判断"
+            "[JumpBack]启动-公告判断"
         ],
         "$__mpe_code": {
             "position": {
@@ -91,7 +91,7 @@
             }
         }
     },
-    "启动·主界面检查": {
+    "启动-主界面检查": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -105,7 +105,7 @@
         },
         "timeout": 2000,
         "next": [
-            "启动·结束"
+            "启动-结束"
         ],
         "$__mpe_code": {
             "position": {
@@ -114,7 +114,7 @@
             }
         }
     },
-    "启动·公告判断": {
+    "启动-公告判断": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -146,7 +146,7 @@
             }
         }
     },
-    "启动·签到检查": {
+    "启动-签到检查": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -157,7 +157,7 @@
         },
         "timeout": 2000,
         "next": [
-            "启动·结束"
+            "启动-结束"
         ],
         "$__mpe_code": {
             "position": {
@@ -166,7 +166,7 @@
             }
         }
     },
-    "启动·结束": {
+    "启动-结束": {
         "action": {
             "type": "StopTask"
         },
@@ -178,7 +178,7 @@
             }
         }
     },
-    "启动·设置判断": {
+    "启动-设置判断": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -192,7 +192,7 @@
         },
         "timeout": 2000,
         "next": [
-            "启动·结束"
+            "启动-结束"
         ],
         "$__mpe_code": {
             "position": {
@@ -284,9 +284,9 @@
     "游戏初始化": {
         "timeout": 5000,
         "next": [
-            "[JumpBack]启动·设置判断",
+            "[JumpBack]启动-设置判断",
             "[JumpBack]游戏更新",
-            "启动·公告判断",
+            "启动-公告判断",
             "拉起游戏"
         ],
         "on_error": [

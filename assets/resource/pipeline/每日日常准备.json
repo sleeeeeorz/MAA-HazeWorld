@@ -3,40 +3,96 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794248351594,
+            "lastSyncTime": 1794752271380,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备.json",
             "savedViewport": {
-                "x": 1221,
-                "y": -516,
-                "zoom": 0.8
+                "x": 866,
+                "y": 244,
+                "zoom": 0.4
             },
             "filename": "每日日常准备",
             "version": "v2.1.1"
         }
     },
-    "$__mpe_external_好友点赞_每日日常准备": {
+    "$__mpe_external_多次点击（演习商店）_每日日常准备": {
         "$__mpe_code": {
             "position": {
-                "x": 2960,
-                "y": 42
+                "x": 89,
+                "y": -77
             }
         }
     },
-    "签到·入口": {
+    "$__mpe_external_好友段_每日日常准备": {
+        "$__mpe_code": {
+            "position": {
+                "x": -141,
+                "y": 339
+            }
+        }
+    },
+    "$__mpe_external_好友点赞_每日日常准备": {
+        "$__mpe_code": {
+            "position": {
+                "x": -461,
+                "y": -160
+            }
+        }
+    },
+    "$__mpe_external_每周演习卷段_每日日常准备": {
+        "$__mpe_code": {
+            "position": {
+                "x": -141,
+                "y": 759
+            }
+        }
+    },
+    "$__mpe_external_每日免费礼包_每日日常准备": {
+        "$__mpe_code": {
+            "position": {
+                "x": -141,
+                "y": 619
+            }
+        }
+    },
+    "$__mpe_external_确认返回（演习商店）_每日日常准备": {
+        "$__mpe_code": {
+            "position": {
+                "x": 89,
+                "y": 63
+            }
+        }
+    },
+    "$__mpe_external_签到段_每日日常准备": {
+        "$__mpe_code": {
+            "position": {
+                "x": -141,
+                "y": 199
+            }
+        }
+    },
+    "$__mpe_external_邮箱段_每日日常准备": {
+        "$__mpe_code": {
+            "position": {
+                "x": -141,
+                "y": 479
+            }
+        }
+    },
+    "签到-入口": {
         "next": [
             "签到段",
             "好友段",
             "邮箱段",
-            "商城段",
-            "商店段",
+            "每日免费礼包",
+            "每周演习卷段",
             "重置（签到）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2320,
-                "y": 293
+                "x": -461,
+                "y": 429
             }
         }
     },
@@ -48,8 +104,8 @@
         "focus": "每日日常准备完成",
         "$__mpe_code": {
             "position": {
-                "x": 2960,
-                "y": 288
+                "x": 179,
+                "y": 933
             }
         }
     },
@@ -73,8 +129,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 902,
-                "y": 1030
+                "x": -231,
+                "y": -160
             }
         }
     },
@@ -85,16 +141,16 @@
                 "custom_action": "daily_reset"
             }
         },
+        "post_delay": 5000,
         "focus": "重置本次任务标记",
         "next": [
             "结束任务（签到）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2640,
-                "y": 285
+                "x": -141,
+                "y": 899
             }
-        },
-        "post_delay": 5000
+        }
     }
 }

@@ -1,19 +1,35 @@
 {
-    "$__mpe_config_每日日常准备_演习商店": {
+    "$__mpe_config_每日日常准备_每周演习卷": {
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794248974979,
+            "lastSyncTime": 1794754034304,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_每周演习卷.json",
             "savedViewport": {
-                "x": 641,
-                "y": 340,
-                "zoom": 0.2
+                "x": 419,
+                "y": 54,
+                "zoom": 0.5
             },
             "filename": "每日日常准备_每周演习卷",
             "version": "v2.1.1"
+        }
+    },
+    "$__mpe_external_签到-入口_每日日常准备_每周演习卷": {
+        "$__mpe_code": {
+            "position": {
+                "x": 1499,
+                "y": 1111
+            }
+        }
+    },
+    "$__mpe_external_返回到主界面（演习）_每日日常准备_每周演习卷": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2779,
+                "y": 459
+            }
         }
     },
     "MAX（演习）_副本1": {
@@ -35,8 +51,41 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 640,
-                "y": 739
+                "x": 1499,
+                "y": 355
+            }
+        }
+    },
+    "兑换商店（演习）": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    700,
+                    136,
+                    92,
+                    26
+                ],
+                "expected": [
+                    "兑换商店"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
+        "timeout": 5000,
+        "next": [
+            "选择精英演习卷（演习）"
+        ],
+        "on_error": [
+            "滑动（演习）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 540,
+                "y": 503
             }
         }
     },
@@ -59,12 +108,12 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1600,
-                "y": 739
+                "x": 2459,
+                "y": 355
             }
         }
     },
-    "商店·重定向": {
+    "商店-重定向": {
         "action": {
             "type": "Custom",
             "param": {
@@ -74,17 +123,17 @@
                 }
             }
         },
+        "post_delay": 5000,
         "focus": "每周演习兑换段结束",
         "next": [
-            "签到·入口"
+            "签到-入口"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 880,
-                "y": 26
+                "x": 1179,
+                "y": 991
             }
-        },
-        "post_delay": 5000
+        }
     },
     "商店检查（演习）": {
         "recognition": {
@@ -105,41 +154,46 @@
                 }
             }
         },
+        "post_delay": 5000,
         "focus": "检查本周是否已兑换",
         "next": [
-            "演习_副本1"
+            "商店（演习）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 320,
-                "y": 339
+                "x": -101,
+                "y": 540
             }
-        },
-        "post_delay": 5000
+        }
     },
-    "商店段": {
+    "商店（演习）": {
         "recognition": {
-            "type": "Custom",
+            "type": "OCR",
             "param": {
-                "custom_recognition": "daily_pending",
-                "custom_recognition_param": {
-                    "segment": "store"
-                }
+                "roi": [
+                    772,
+                    664,
+                    49,
+                    23
+                ],
+                "expected": [
+                    "商城"
+                ]
             }
         },
-        "focus": "进入每周演习兑换段",
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 5000,
         "next": [
-            "商店检查（演习）"
+            "兑换商店（演习）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 371
+                "x": 219,
+                "y": 588
             }
-        },
-        "on_error": [
-            "商店·重定向"
-        ]
+        }
     },
     "多次点击（演习商店）": {
         "recognition": {
@@ -159,7 +213,7 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 0,
+                "x": -421,
                 "y": 0
             }
         }
@@ -174,16 +228,16 @@
                 }
             }
         },
+        "post_delay": 5000,
         "next": [
             "关闭购买弹窗（演习）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1280,
-                "y": 770
+                "x": 2139,
+                "y": 355
             }
-        },
-        "post_delay": 5000
+        }
     },
     "日志-选择精英演习卷": {
         "action": {
@@ -195,16 +249,73 @@
                 }
             }
         },
+        "post_delay": 5000,
         "next": [
             "MAX（演习）_副本1"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 320,
-                "y": 770
+                "x": 1179,
+                "y": 355
+            }
+        }
+    },
+    "每周演习卷段": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "daily_pending",
+                "custom_recognition_param": {
+                    "segment": "store"
+                }
             }
         },
-        "post_delay": 5000
+        "focus": "进入每周演习兑换段",
+        "next": [
+            "商店检查（演习）"
+        ],
+        "on_error": [
+            "商店-重定向"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -421,
+                "y": 625
+            }
+        }
+    },
+    "滑动（演习）": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    640,
+                    660
+                ],
+                "end": [
+                    [
+                        80,
+                        660
+                    ]
+                ],
+                "duration": [
+                    1200
+                ]
+            }
+        },
+        "post_delay": 3600,
+        "next": [
+            "计数滑动（演习）"
+        ],
+        "on_error": [
+            "商店-重定向"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 860,
+                "y": 711
+            }
+        }
     },
     "点关闭按钮（演习商店）": {
         "pre_delay": 1000,
@@ -219,14 +330,14 @@
                 ]
             }
         },
+        "post_delay": 5000,
         "focus": "关闭兑换弹窗",
         "$__mpe_code": {
             "position": {
-                "x": 320,
-                "y": 36
+                "x": -101,
+                "y": 20
             }
-        },
-        "post_delay": 5000
+        }
     },
     "确认购买（演习）": {
         "recognition": {
@@ -248,8 +359,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 960,
-                "y": 723
+                "x": 1819,
+                "y": 339
             }
         }
     },
@@ -267,93 +378,48 @@
         },
         "focus": "确认回到主界面",
         "next": [
-            "商店·重定向"
+            "商店-重定向"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 560,
-                "y": 0
+                "x": 859,
+                "y": 1077
             }
         }
     },
-    "选择精英演习卷（演习）": {
+    "计数滑动（演习）": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "Custom",
             "param": {
-                "template": [
-                    "兑换精英演习卷.png"
-                ]
+                "custom_recognition": "slide_limit",
+                "custom_recognition_param": {
+                    "key": "演习",
+                    "limit": 5
+                }
             }
         },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
-        "timeout": 20000,
-        "focus": "选择精英演习卷",
-        "next": [
-            "日志-选择精英演习卷"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": 690
-            }
-        }
-    },
-    "$__mpe_external_返回到主界面（演习）_每日日常准备_演习商店": {
-        "$__mpe_code": {
-            "position": {
-                "x": 1920,
-                "y": 843
-            }
-        }
-    },
-    "$__mpe_external_签到·入口_每日日常准备_演习商店": {
-        "$__mpe_code": {
-            "position": {
-                "x": 1200,
-                "y": 130
-            }
-        }
-    },
-    "$__mpe_external_演习-商城_每日日常准备_演习商店": {
-        "$__mpe_code": {
-            "position": {
-                "x": 640,
-                "y": 475
-            }
-        }
-    },
-    "演习_副本1": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "演习"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "post_delay": 5000,
         "next": [
             "兑换商店（演习）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 0
+                "x": 1175,
+                "y": 613
             }
         }
     },
-    "兑换商店（演习）": {
+    "选择精英演习卷（演习）": {
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    300,
+                    150,
+                    980,
+                    950
+                ],
                 "expected": [
-                    "兑换商店"
+                    "^100$"
                 ]
             }
         },
@@ -362,12 +428,12 @@
         },
         "post_delay": 5000,
         "next": [
-            "选择精英演习卷（演习）"
+            "日志-选择精英演习卷"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 300,
-                "y": 0
+                "x": 859,
+                "y": 348
             }
         }
     }

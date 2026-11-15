@@ -40,7 +40,7 @@
             }
         }
     },
-    "商城·重定向": {
+    "商城-重定向": {
         "action": {
             "type": "Custom",
             "param": {
@@ -52,7 +52,7 @@
         },
         "focus": "商城段结束",
         "next": [
-            "签到·入口"
+            "签到-入口"
         ],
         "$__mpe_code": {
             "position": {
@@ -61,27 +61,6 @@
             }
         },
         "post_delay": 5000
-    },
-    "商城段": {
-        "recognition": {
-            "type": "Custom",
-            "param": {
-                "custom_recognition": "daily_pending",
-                "custom_recognition_param": {
-                    "segment": "shop"
-                }
-            }
-        },
-        "focus": "进入商城段",
-        "next": [
-            "每日领取·判断"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 0,
-                "y": -137
-            }
-        }
     },
     "多次点击（商城）": {
         "recognition": {
@@ -202,7 +181,7 @@
         },
         "post_delay": 5000
     },
-    "每日领取·判断": {
+    "每日领取-判断": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -262,7 +241,7 @@
         },
         "focus": "确认回到主界面",
         "next": [
-            "商城·重定向"
+            "商城-重定向"
         ],
         "$__mpe_code": {
             "position": {
@@ -355,11 +334,32 @@
             }
         }
     },
-    "$__mpe_external_签到·入口_每日日常准备_商城": {
+    "$__mpe_external_签到-入口_每日日常准备_商城": {
         "$__mpe_code": {
             "position": {
                 "x": 3840,
                 "y": 20
+            }
+        }
+    },
+    "每日免费礼包": {
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "daily_pending",
+                "custom_recognition_param": {
+                    "segment": "shop"
+                }
+            }
+        },
+        "focus": "进入商城段",
+        "next": [
+            "每日领取-判断"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 0,
+                "y": -137
             }
         }
     }

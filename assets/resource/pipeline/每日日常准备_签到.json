@@ -3,24 +3,24 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794249087420,
+            "lastSyncTime": 1794751511537,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\每日日常准备_签到.json",
             "savedViewport": {
-                "x": 609,
-                "y": 355,
-                "zoom": 0.2
+                "x": 955,
+                "y": 246,
+                "zoom": 0.63
             },
             "filename": "每日日常准备_签到",
             "version": "v2.1.1"
         }
     },
-    "$__mpe_external_签到·入口_每日日常准备_签到": {
+    "$__mpe_external_签到-入口_每日日常准备_签到": {
         "$__mpe_code": {
             "position": {
-                "x": 2240,
-                "y": 191
+                "x": 2768,
+                "y": 156
             }
         }
     },
@@ -42,8 +42,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1600,
-                "y": 586
+                "x": 1948,
+                "y": 608
             }
         }
     },
@@ -57,16 +57,16 @@
                 }
             }
         },
+        "post_delay": 5000,
         "next": [
             "签到"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 541
+                "x": -1039,
+                "y": 452
             }
-        },
-        "post_delay": 5000
+        }
     },
     "日志-确认签到奖励": {
         "action": {
@@ -78,16 +78,16 @@
                 }
             }
         },
+        "post_delay": 5000,
         "next": [
             "返回主界面（签到）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 960,
-                "y": 488
+                "x": 1269,
+                "y": 405
             }
-        },
-        "post_delay": 5000
+        }
     },
     "点关闭按钮（签到）": {
         "pre_delay": 1000,
@@ -102,14 +102,14 @@
                 ]
             }
         },
+        "post_delay": 5000,
         "focus": "关闭弹窗",
         "$__mpe_code": {
             "position": {
-                "x": 1920,
-                "y": 629
+                "x": 2473,
+                "y": 624
             }
-        },
-        "post_delay": 5000
+        }
     },
     "确认返回（签到）": {
         "recognition": {
@@ -125,12 +125,12 @@
         },
         "focus": "确认回到主界面",
         "next": [
-            "签到·重定向"
+            "签到-重定向"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1600,
-                "y": 187
+                "x": 2055,
+                "y": 165
             }
         }
     },
@@ -146,20 +146,21 @@
         "action": {
             "type": "Click"
         },
+        "post_delay": 5000,
         "timeout": 5000,
         "focus": "点击首页签到",
         "next": [
+            "[JumpBack]皮肤-跳过",
             "获得资源（签到）"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 320,
-                "y": 431
+                "x": -372,
+                "y": 417
             }
-        },
-        "post_delay": 5000
+        }
     },
-    "签到·主界面判断": {
+    "签到-主界面判断": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -174,16 +175,16 @@
         "timeout": 5000,
         "focus": "判断是否在主界面（已签到就跳过）",
         "next": [
-            "签到·重定向"
+            "签到-重定向"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 640,
-                "y": 0
+                "x": 352,
+                "y": -279
             }
         }
     },
-    "签到·重定向": {
+    "签到-重定向": {
         "action": {
             "type": "Custom",
             "param": {
@@ -193,17 +194,17 @@
                 }
             }
         },
+        "post_delay": 5000,
         "focus": "签到段结束",
         "next": [
-            "签到·入口"
+            "签到-入口"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1920,
-                "y": 87
+                "x": 2424,
+                "y": 68
             }
-        },
-        "post_delay": 5000
+        }
     },
     "签到段": {
         "recognition": {
@@ -215,17 +216,18 @@
                 }
             }
         },
+        "timeout": 2000,
         "focus": "进入签到段",
         "next": [
-            "签到·主界面判断"
+            "签到-主界面判断"
         ],
         "on_error": [
             "签到"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 0,
-                "y": 79
+                "x": -778,
+                "y": -140
             }
         }
     },
@@ -249,17 +251,17 @@
                 ]
             }
         },
+        "post_delay": 5000,
         "focus": "确认签到奖励",
         "next": [
             "日志-确认签到奖励"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 640,
-                "y": 431
+                "x": 950,
+                "y": 374
             }
-        },
-        "post_delay": 5000
+        }
     },
     "返回主界面（签到）": {
         "recognition": {
@@ -281,8 +283,44 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 1280,
-                "y": 421
+                "x": 1535,
+                "y": 365
+            }
+        }
+    },
+    "皮肤-跳过": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1181,
+                    96,
+                    53,
+                    28
+                ],
+                "expected": [
+                    "跳过"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1190,
+                    38,
+                    31,
+                    28
+                ]
+            }
+        },
+        "next": [
+            "获得资源（签到）"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 156,
+                "y": 801
             }
         }
     }
