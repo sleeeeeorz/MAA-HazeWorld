@@ -181,6 +181,14 @@ jobs:
             echo "Skipping copy MFA for Android."
           fi
 
+          # Windows：下载 rcedit 用于替换 exe 图标
+          if [[ "${{ matrix.os }}" == "windows" ]]; then
+            echo "Downloading rcedit..."
+            mkdir -p tools/icon
+            curl -fsSL -o tools/icon/rcedit.exe \
+              "https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe" || echo "rcedit download failed, skip icon"
+          fi
+
           cd tools/
           python -m pip install -r ./requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }} ${{ matrix.os }} ${{ matrix.arch }}

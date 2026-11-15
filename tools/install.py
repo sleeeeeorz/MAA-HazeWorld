@@ -166,12 +166,34 @@ def install_resource():
 
 
 def install_chores():
-    """README / LICENSE 不随包分发（MFA 模板里带的也删掉）。"""
+    """README / LICENSE 不随包分发（MFA 模板里带的也删掉）；Windows 换程序图标。"""
     for name in ("README.md", "LICENSE"):
         p = install_path / name
         if p.exists():
             p.unlink()
             print(f"[提示] 已从安装目录移除 {name}")
+
+    # Windows：给 MFAAvalonia.exe 换图标（需要 rcedit.exe）
+    if os_name == "windows":
+        exe = install_path / "MFAAvalonia.exe"
+        icon = working_dir / "tools" / "icon" / "maa-icon.ico"
+        rcedit = working_dir / "tools" / "icon" / "rcedit.exe"
+        if exe.exists() and icon.exists():
+            if not rcedit.exists():
+                found = shutil.which("rcedit")
+                rcedit = found if found else None
+            if rcedit:
+                import subprocess
+                result = subprocess.run(
+                    [str(rcedit), str(exe), "--set-icon", str(icon)],
+                    capture_output=True, text=True,
+                )
+                if result.returncode == 0:
+                    print("[提示] 已替换 MFAAvalonia.exe 图标")
+                else:
+                    print(f"[提示] 替换图标失败: {result.stderr.strip()}")
+            else:
+                print("[提示] 未找到 rcedit.exe，跳过图标替换")
 
 
 def install_python():
