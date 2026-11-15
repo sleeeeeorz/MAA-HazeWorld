@@ -166,14 +166,12 @@ def install_resource():
 
 
 def install_chores():
-    shutil.copy2(
-        working_dir / "README.md",
-        install_path,
-    )
-    shutil.copy2(
-        working_dir / "LICENSE",
-        install_path,
-    )
+    """README / LICENSE 不随包分发（MFA 模板里带的也删掉）。"""
+    for name in ("README.md", "LICENSE"):
+        p = install_path / name
+        if p.exists():
+            p.unlink()
+            print(f"[提示] 已从安装目录移除 {name}")
 
 
 def install_python():

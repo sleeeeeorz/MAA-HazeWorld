@@ -237,7 +237,12 @@
     },
     "获得资源（通行证）": {
         "recognition": {
-            "type": "OCR"
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "获得资源"
+                ]
+            }
         },
         "action": {
             "type": "Click",
@@ -263,7 +268,12 @@
     },
     "获得资源（通行证）_副本1": {
         "recognition": {
-            "type": "OCR"
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "获得资源"
+                ]
+            }
         },
         "action": {
             "type": "Click",

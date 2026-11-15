@@ -459,3 +459,8 @@ data/gacha_log.txt
 docs/发版规则.md
 docs/活动更新清单.md
 docs/工作笔记.md
+
+# 本地 schema 副本（从 deps/tools 复制，供本地校验用）
+tools/schema/
+
+data/expedition.json
