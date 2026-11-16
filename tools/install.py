@@ -174,7 +174,7 @@ def install_chores():
             print(f"[提示] 已从安装目录移除 {name}")
 
     # Windows：给 MFAAvalonia.exe 换图标（需要 rcedit.exe）
-    if os_name == "windows":
+    if os_name in ("win", "windows"):
         exe = install_path / "MFAAvalonia.exe"
         icon = working_dir / "tools" / "icon" / "maa-icon.ico"
         rcedit = working_dir / "tools" / "icon" / "rcedit.exe"

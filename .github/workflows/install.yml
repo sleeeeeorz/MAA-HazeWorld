@@ -182,7 +182,7 @@ jobs:
           fi
 
           # Windows：下载 rcedit 用于替换 exe 图标
-          if [[ "${{ matrix.os }}" == "windows" ]]; then
+          if [[ "${{ matrix.os }}" == "win" ]]; then
             echo "Downloading rcedit..."
             mkdir -p tools/icon
             curl -fsSL -o tools/icon/rcedit.exe \
