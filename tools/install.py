@@ -202,6 +202,18 @@ def install_chores():
             else:
                 print("[提示] 未找到 rcedit.exe，跳过图标替换")
 
+    # 替换 dll 内嵌 logo（跨平台，纯 Python；窗口标题栏/任务栏/托盘都用它）
+    core = install_path / "libs" / "MFAAvalonia.Core.dll"
+    icon_png = working_dir / "tools" / "icon" / "maa-icon.png"
+    if core.exists() and icon_png.exists():
+        try:
+            sys.path.insert(0, str(working_dir / "tools"))
+            import patch_core_logo
+
+            patch_core_logo.patch(core, icon_png)
+        except Exception as e:
+            print(f"[提示] 替换 dll 内嵌图标失败: {e}")
+
 
 def install_python():
     """把内置 Python 运行时打进安装目录（由 CI 或本地准备）。"""
