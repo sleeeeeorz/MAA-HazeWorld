@@ -3,14 +3,14 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794397829797,
+            "lastSyncTime": 1794754437272,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\演习.json",
             "savedViewport": {
-                "x": -2053,
-                "y": 258,
-                "zoom": 0.75
+                "x": 2061,
+                "y": 502,
+                "zoom": 1
             },
             "filename": "演习",
             "version": "v2.1.1"
@@ -168,6 +168,20 @@
             }
         }
     },
+    "券检查（演习）-前点": {
+        "next": [
+            "券检查（演习）"
+        ],
+        "on_error": [
+            "代理作战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1615,
+                "y": -5
+            }
+        }
+    },
     "多次点击（演习）": {
         "recognition": {
             "type": "TemplateMatch",
@@ -208,15 +222,15 @@
             "[JumpBack]确认返回（演习）",
             "[JumpBack]多次点击（演习）"
         ],
+        "on_error": [
+            "结束任务（演习）"
+        ],
         "$__mpe_code": {
             "position": {
                 "x": 4134,
                 "y": -165
             }
-        },
-        "on_error": [
-            "结束任务（演习）"
-        ]
+        }
     },
     "开始代理": {
         "recognition": {
@@ -543,20 +557,6 @@
             "position": {
                 "x": -198,
                 "y": -200
-            }
-        }
-    },
-    "券检查（演习）-前点": {
-        "next": [
-            "券检查（演习）"
-        ],
-        "on_error": [
-            "代理作战"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 1615,
-                "y": -5
             }
         }
     }

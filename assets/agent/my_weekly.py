@@ -537,9 +537,9 @@ class ShopDone(CustomAction):
 
 @AgentServer.custom_recognition("maintenance_time")
 class MaintenanceTime(CustomRecognition):
-    """维护窗口 → 命中（跳过对应任务）。
+    """非维护时段命中（正常继续）；维护时段失败（跳过）。
 
-    每日 2:00-6:00；每周日 23:00 之后到周一 6:00 也算维护。
+    维护窗口：每日 2:00-6:00；每周日 23:00 之后到周一 6:00。
     """
 
     def analyze(
@@ -552,23 +552,18 @@ class MaintenanceTime(CustomRecognition):
         end = int(param.get("end_hour", 6))
         now = dt.datetime.now()
 
-        # 每日维护时段
+        in_maintenance = False
         if start <= now.hour < end:
-            print(f"[time] 北京时间 {now:%H:%M} 在维护时段 {start}:00-{end}:00，跳过")
-            return CustomRecognition.AnalyzeResult(
-                box=(0, 0, 0, 0), detail=f"维护时段 {start}:00-{end}:00"
-            )
-
-        # 周日 23:00 之后（周日维护到周一凌晨）
+            in_maintenance = True
         if now.weekday() == 6 and now.hour >= 23:
-            print(f"[time] 北京时间 周日 {now:%H:%M}，周日晚维护，跳过")
-            return CustomRecognition.AnalyzeResult(
-                box=(0, 0, 0, 0), detail="周日 23:00 后维护"
-            )
+            in_maintenance = True
 
-        return CustomRecognition.AnalyzeResult(
-            box=None, detail=f"非维护时段（{now:%H:%M}）"
-        )
+        if in_maintenance:
+            print(f"[time] 北京时间 {now:%H:%M} 在维护时段，跳过（失败）")
+            return CustomRecognition.AnalyzeResult(box=None, detail="维护时段")
+
+        print(f"[time] 北京时间 {now:%H:%M} 非维护时段，继续")
+        return CustomRecognition.AnalyzeResult(box=(0, 0, 0, 0), detail="非维护时段")
 
 
 @AgentServer.custom_recognition("read_energy")
