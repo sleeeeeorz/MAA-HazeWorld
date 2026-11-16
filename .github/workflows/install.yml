@@ -181,8 +181,11 @@ jobs:
             echo "Skipping copy MFA for Android."
           fi
 
-          # Windows：下载 rcedit 用于替换 exe 图标
+          # Windows：安装 wine 并下载 rcedit 用于替换 exe 图标
           if [[ "${{ matrix.os }}" == "win" ]]; then
+            echo "Installing wine..."
+            sudo apt-get update -qq || true
+            sudo apt-get install -y --no-install-recommends wine wine64 || echo "wine install failed"
             echo "Downloading rcedit..."
             mkdir -p tools/icon
             curl -fsSL -o tools/icon/rcedit.exe \

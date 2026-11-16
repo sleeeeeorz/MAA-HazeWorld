@@ -173,7 +173,7 @@ def install_chores():
             p.unlink()
             print(f"[提示] 已从安装目录移除 {name}")
 
-    # Windows：给 MFAAvalonia.exe 换图标（需要 rcedit.exe）
+    # Windows：给 MFAAvalonia.exe 换图标（需要 rcedit.exe；Linux CI 上用 wine 跑）
     if os_name in ("win", "windows"):
         exe = install_path / "MFAAvalonia.exe"
         icon = working_dir / "tools" / "icon" / "maa-icon.ico"
@@ -184,9 +184,16 @@ def install_chores():
                 rcedit = found if found else None
             if rcedit:
                 import subprocess
+                if sys.platform.startswith("win"):
+                    cmd = [str(rcedit), str(exe), "--set-icon", str(icon)]
+                else:
+                    wine = shutil.which("wine64") or shutil.which("wine")
+                    if not wine:
+                        print("[提示] 未找到 wine，跳过图标替换")
+                        return
+                    cmd = [wine, str(rcedit), str(exe), "--set-icon", str(icon)]
                 result = subprocess.run(
-                    [str(rcedit), str(exe), "--set-icon", str(icon)],
-                    capture_output=True, text=True,
+                    cmd, capture_output=True, text=True,
                 )
                 if result.returncode == 0:
                     print("[提示] 已替换 MFAAvalonia.exe 图标")
