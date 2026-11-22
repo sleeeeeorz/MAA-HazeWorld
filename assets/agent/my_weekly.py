@@ -539,7 +539,7 @@ class ShopDone(CustomAction):
 class MaintenanceTime(CustomRecognition):
     """非维护时段命中（正常继续）；维护时段失败（跳过）。
 
-    维护窗口：每日 2:00-6:00；每周日 23:00 之后到周一 6:00。
+    维护窗口：每日 2:00-6:00；每周日 23:00 之后到周一 10:00（次日十点之后恢复）。
     """
 
     def analyze(
@@ -550,12 +550,15 @@ class MaintenanceTime(CustomRecognition):
         param = _parse_param(argv.custom_recognition_param)
         start = int(param.get("start_hour", 2))
         end = int(param.get("end_hour", 6))
+        week_end = int(param.get("week_end_hour", 10))
         now = dt.datetime.now()
 
         in_maintenance = False
         if start <= now.hour < end:
             in_maintenance = True
         if now.weekday() == 6 and now.hour >= 23:
+            in_maintenance = True
+        if now.weekday() == 0 and now.hour < week_end:
             in_maintenance = True
 
         if in_maintenance:

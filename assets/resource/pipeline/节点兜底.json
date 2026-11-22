@@ -582,7 +582,8 @@
                 "custom_recognition": "maintenance_time",
                 "custom_recognition_param": {
                     "end_hour": 6,
-                    "start_hour": 2
+                    "start_hour": 2,
+                    "week_end_hour": 10
                 }
             }
         },
