@@ -3,17 +3,17 @@
         "$__mpe_code": {
             "prefix": "",
             "coordinateMode": "absolute-v1",
-            "lastSyncTime": 1794892519528,
+            "lastSyncTime": 1795496688659,
             "isModifiedExternally": false,
             "isDeleted": false,
             "filePath": "D:\\MAA\\MAA-HazeWorld\\assets\\resource\\pipeline\\演习.json",
             "savedViewport": {
-                "x": -444,
-                "y": 532,
-                "zoom": 0.63
+                "x": -1063,
+                "y": 661,
+                "zoom": 0.6
             },
             "filename": "演习",
-            "version": "v2.1.1"
+            "version": "v2.1.3"
         }
     },
     "MAX（演习）": {
@@ -42,8 +42,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2606,
-                "y": -357
+                "x": 3145,
+                "y": -523
             }
         }
     },
@@ -65,8 +65,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2286,
-                "y": -341
+                "x": 2787,
+                "y": -472
             }
         }
     },
@@ -159,7 +159,7 @@
         "timeout": 5000,
         "next": [
             "[JumpBack]代理完成",
-            "代理作战"
+            "代理作战-前点"
         ],
         "$__mpe_code": {
             "position": {
@@ -173,7 +173,7 @@
             "券检查（演习）"
         ],
         "on_error": [
-            "代理作战"
+            "代理作战-前点"
         ],
         "$__mpe_code": {
             "position": {
@@ -199,8 +199,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3566,
-                "y": -212
+                "x": 4181,
+                "y": -214
             }
         }
     },
@@ -227,8 +227,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3246,
-                "y": -405
+                "x": 3861,
+                "y": -407
             }
         }
     },
@@ -250,8 +250,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2926,
-                "y": -341
+                "x": 3457,
+                "y": -554
             }
         }
     },
@@ -419,8 +419,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 3886,
-                "y": -182
+                "x": 4501,
+                "y": -184
             }
         }
     },
@@ -464,8 +464,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 3566,
-                "y": -552
+                "x": 4181,
+                "y": -554
             }
         }
     },
@@ -484,7 +484,7 @@
         "post_delay": 1000,
         "timeout": 10000,
         "next": [
-            "代理作战"
+            "代理作战-前点"
         ],
         "$__mpe_code": {
             "position": {
@@ -516,8 +516,8 @@
         "post_delay": 5000,
         "$__mpe_code": {
             "position": {
-                "x": 3886,
-                "y": -430
+                "x": 4501,
+                "y": -432
             }
         }
     },
@@ -550,6 +550,20 @@
             "position": {
                 "x": -594,
                 "y": -316
+            }
+        }
+    },
+    "代理作战-前点": {
+        "next": [
+            "代理作战"
+        ],
+        "on_error": [
+            "左上角返回"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2489,
+                "y": -277
             }
         }
     }
